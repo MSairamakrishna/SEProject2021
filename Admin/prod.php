@@ -60,13 +60,13 @@ else
 	include("connect.php");	
 	$i=1;
 	$sql2 = "select * from s_prod";
-	$fetch = mysql_query($sql2) or die("query failed");
-	$nume = mysql_num_rows($fetch);
-	$sql_group=mysql_query("select * from s_prod order by sid desc limit $eu,$limit ");
-	if(mysql_num_rows($sql_group)>0)
+	$fetch = mysqli_query($conn,$sql2) or die("query failed");
+	$nume = mysqli_num_rows($fetch);
+	$sql_group=mysqli_query($conn,"select * from s_prod order by sid desc limit $eu,$limit ");
+	if(mysqli_num_rows($sql_group)>0)
 	{
 	$n=0;
-	while($data=mysql_fetch_array($sql_group))
+	while($data=mysqli_fetch_array($sql_group))
 	{
 			 
 	?>
@@ -87,7 +87,7 @@ else
       <?php 
 
 echo "<table border=1 align=center style=border:#2980C5; border-style:groove>";
-while($r=mysql_fetch_array($sql_group))
+while($r=mysqli_fetch_array($sql_group))
 
 {
 	

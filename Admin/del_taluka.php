@@ -6,7 +6,7 @@ if(isset($_SESSION['admin'])=="")
 }
 include("connect.php");
 $i=$_REQUEST['pid'];
-mysql_query("delete from dist_mngt where did=$i") or die ("query fail");
+mysqli_query($conn,"delete from dist_mngt where did=$i") or die ("query fail");
 header("location: show_city_mgnt.php?msg=Taluka has been is deleted...");
 
 ?>

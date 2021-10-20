@@ -6,7 +6,7 @@ if(isset($_SESSION['admin'])=="")
 }
 include("connect.php");
 $i=$_REQUEST['did'];
-mysql_query("delete from god_mngt where gid=$i") or die ("query fail");
+mysqli_query($conn,"delete from god_mngt where gid=$i") or die ("query fail");
 header("location: show_godown.php?msg=Godown is deleted...");
 
 ?>

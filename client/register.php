@@ -20,19 +20,19 @@ $area=$_REQUEST['asn'];
 $land=$_REQUEST['land'];
 $water=$_REQUEST['water'];
 
-$q1=mysql_query("select * from register where f_id='$fid'") or die("QF");
-$q2=mysql_query("select * from register where s_num='$serv'")or die ("QF");
-	if(@mysql_num_rows($q1)!= 0)		
+$q1=mysqli_query($conn,"select * from register where f_id='$fid'") or die("QF");
+$q2=mysqli_query($conn,"select * from register where s_num='$serv'")or die ("QF");
+	if(@mysqli_num_rows($q1)!= 0)		
 	{
 		$msg = "This ID  has been already taken";
 	}
-	else if(@mysql_num_rows($q2)!=0)
+	else if(@mysqli_num_rows($q2)!=0)
 	{
 		$msg = "This servey number has been already registered";
 	}
 	else
 	{
-	mysql_query( "insert into register(f_name,f_id,password,age,c_num,address,d_name,t_name,v_name,y_income,s_num,area_of_serv_no,t_land,w_irrigation) values('$name','$fid','$pd','$age','$cntct','$ad','$dist','$tal','$vill','$in','$serv','$area','$land','$water')")or  die("qf");
+	mysqli_query($conn, "insert into register(f_name,f_id,password,age,c_num,address,d_name,t_name,v_name,y_income,s_num,area_of_serv_no,t_land,w_irrigation) values('$name','$fid','$pd','$age','$cntct','$ad','$dist','$tal','$vill','$in','$serv','$area','$land','$water')")or  die("qf");
 header("location: register.php ?msg=Registration has beeen done");
 	}
 }
@@ -349,8 +349,8 @@ function getState(countryId)
         <option value="Select Your District">Select Your District</option>
         <?php
 		include("connect.php");
-		$q=mysql_query("select * from  dist_mngt") or die ("QF");
-		while($data=mysql_fetch_array($q))
+		$q=mysqli_query($conn,"select * from  dist_mngt") or die ("QF");
+		while($data=mysqli_fetch_array($q))
 		{
 		?>
 		<option value="<?php echo $data['did'];?>"><?php echo $data['district'];?></option>

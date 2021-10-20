@@ -6,7 +6,7 @@ if(isset($_SESSION['admin'])=="")
 }
 include("connect.php");
 $i=$_REQUEST['did'];
-mysql_query("delete from feedback where id=$i") or die ("query fail");
+mysqli_query($conn,"delete from feedback where id=$i") or die ("query fail");
 header("location: show_feedback.php?msg=data are deleted...");
 
 ?>

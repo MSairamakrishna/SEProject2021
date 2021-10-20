@@ -6,7 +6,7 @@ if(isset($_SESSION['admin'])=="")
 }
 include("connect.php");
 $i=$_REQUEST['did'];
-mysql_query("delete from village_mngt where vid=$i") or die ("query fail");
+mysqli_query($conn,"delete from village_mngt where vid=$i") or die ("query fail");
 header("location: show_city_mgnt.php?msg=District has been deleted...");
 
 ?>

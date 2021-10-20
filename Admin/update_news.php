@@ -11,7 +11,7 @@ if(isset($_SESSION['admin'])=="")
 	$t=$_REQUEST['t1'];
 	$d=$_REQUEST['t2'];
 	 
-	mysql_query("update news set tittle='$t',description='$d' where nid=$i") or die ("query fail");
+	mysqli_query($conn,"update news set tittle='$t',description='$d' where nid=$i") or die ("query fail");
 	
 	header("location:show_news.php?msg=News are Updated...");
 }
@@ -46,8 +46,8 @@ if(isset($_SESSION['admin'])=="")
     <td width="74%"><?php 
 		include("connect.php");
 		$i=$_REQUEST['uid'];
-		$q=mysql_query("select * from news where nid=$i") or die ("query fail");
-		$data=mysql_fetch_array($q);
+		$q=mysqli_query($conn,"select * from news where nid=$i") or die ("query fail");
+		$data=mysqli_fetch_array($q);
 	?>
         <form id="form1" name="form1" method="post" action="">
           <input type="hidden" name="update" value="true" />

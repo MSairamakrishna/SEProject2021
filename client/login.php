@@ -5,10 +5,11 @@ if(isset($_REQUEST['login'])=="true")
 include("connect.php");
 $un=$_REQUEST['id'];
 $pass=$_REQUEST['ps'];
-$q=mysql_query("select * from register where f_id='$un' and password='$pass'")or die("qf");
-if(mysql_num_rows($q))
+$q=mysqli_query($conn, "SELECT * FROM register 
+where f_id='$un' and password='$pass'") or die("qf");
+if(mysqli_num_rows($q))
 {
-   $data=mysql_fetch_array($q);
+   $data=mysqli_fetch_array($q);
    $_SESSION['uid']=$data['id'];
    header("location: myprofile.php?msg=WELCOME");
 }

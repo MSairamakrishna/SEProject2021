@@ -10,7 +10,7 @@ if(isset($_REQUEST['perform'])=="true")
 	$y=$_REQUEST['ta'];
 	$g=$_REQUEST['t1'];
 	$s=$_REQUEST['t2'];
-	mysql_query("insert into god_mngt (taluka,godown_name,stock) values ('$y','$g','$s')") or die ("QF");
+	mysqli_query($conn,"insert into god_mngt (taluka,godown_name,stock) values ('$y','$g','$s')") or die ("QF");
 	header("location: show_godown.php?msg=New Godown has been Added sucessfully");
 }
 ?>
@@ -59,8 +59,8 @@ function validate()
           <td><select name="ta" id="ta">
           <?php
 		  include("connect.php");
-		  $q=mysql_query("select * from village_mngt");
-		  while($data=mysql_fetch_array($q))
+		  $q=mysqli_query($conn,"select * from village_mngt");
+		  while($data=mysqli_fetch_array($q))
 		  {
 		  ?>  
 			<option value="<?php echo $data['village'];?>"><?php echo $data['village'];?></option>

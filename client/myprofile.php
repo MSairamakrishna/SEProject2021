@@ -74,8 +74,8 @@ header("location:login.php ?msg=PLZ log in First");
 				  <?php
 		include("connect.php");
 		$id=$_SESSION['uid'];
-		$q=mysql_query("select * from register where ID=$id");
-		$data=mysql_fetch_array($q);
+		$q=mysqli_query($conn,"select * from register where ID=$id");
+		$data=mysqli_fetch_array($q);
 	
 		?>
 		  <table width="80%" height="509" border="0" align="center" style="border: #000000 double;">
@@ -128,8 +128,8 @@ header("location:login.php ?msg=PLZ log in First");
               <td>::</td>
               <td><input name="dist" type="text" id="dist" value="<?php  
 			$t1=$data['d_name'];
-			$q2=mysql_query("select district  from dist_mngt where did='$t1'");
-			$data2=mysql_fetch_array($q2);
+			$q2=mysqli_query($conn,"select district  from dist_mngt where did='$t1'");
+			$data2=mysqli_fetch_array($q2);
 			echo $data2['district'];
 		
 		?>" / readonly=""></td>
@@ -140,8 +140,8 @@ header("location:login.php ?msg=PLZ log in First");
               <td><input name="taluka" type="text" id="taluka" value="<?php
 				
 				$t=$data['t_name'];
-				$q1=mysql_query("select village  from village_mngt where vid='$t'");
-				$data1=mysql_fetch_array($q1);
+				$q1=mysqli_query($conn,"select village  from village_mngt where vid='$t'");
+				$data1=mysqli_fetch_array($q1);
 				echo $data1['village'];
 		 ?>" / readonly=""></td>
             </tr>

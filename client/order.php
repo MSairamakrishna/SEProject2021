@@ -11,13 +11,13 @@ if(isset($_REQUEST['perform'])=="true")
 $f=$_REQUEST['f_id'];
 $am=$_REQUEST['amount'];
 $t=$_REQUEST['ta'];
-$qr=mysql_query("select * from god_mngt where taluka='$t'");
-$data=mysql_fetch_array($qr);
+$qr=mysqli_query($conn,"select * from god_mngt where taluka='$t'");
+$data=mysqli_fetch_array($qr);
 $s=$data['stock'];
 $t1=0;
 $mtot=0;
-$nq=mysql_query("select * from my_order where rid=$rid and flag=1 ") or die ("QF");
-while($ndata=mysql_fetch_array($nq))
+$nq=mysqli_query($conn,"select * from my_order where rid=$rid and flag=1 ") or die ("QF");
+while($ndata=mysqli_fetch_array($nq))
 {
 	$t1=$ndata['amount'];
 	$mtot=$mtot+$t1;
@@ -37,7 +37,7 @@ while($ndata=mysql_fetch_array($nq))
 		$pm=$_REQUEST['c'];
 		$sp=$_REQUEST['state'];
 
-		mysql_query ("insert into my_order(rid,name,taluka,main_prod,sub_prod,amount) values('$rid','$f','$t','$pm','$sp','$am')")or die("qf");
+		mysqli_query ($conn,"insert into my_order(rid,name,taluka,main_prod,sub_prod,amount) values('$rid','$f','$t','$pm','$sp','$am')")or die("qf");
 
 	header("location: myprofile.php?msg= Your order has been placed");
 	}
@@ -209,8 +209,8 @@ function getState(countryId)
 	<?php
 	include("connect.php");
 	$id=$_SESSION['uid'];
-	$q=mysql_query("select * from register where ID=$id");
-	$data=mysql_fetch_array($q);
+	$q=mysqli_query($conn,"select * from register where ID=$id");
+	$data=mysqli_fetch_array($q);
 	?>
       <table width="80%" height="481" border="0" align="center" style="border: #000000 double;">
         <tr>
@@ -245,8 +245,8 @@ function getState(countryId)
           <td><label>
           <input name="f_id2" type="text" id="f_id2" value="<?php  
 			$t1=$data['d_name'];
-			$q2=mysql_query("select district  from dist_mngt where did=$t1");
-			$data2=mysql_fetch_array($q2);
+			$q2=mysqli_query($conn,"select district  from dist_mngt where did=$t1");
+			$data2=mysqli_fetch_array($q2);
 			echo $data2['district'];
 		
 		    ?>" / readonly="">
@@ -257,8 +257,8 @@ function getState(countryId)
           <td>::</td>
           <td><input name="ta" type="text" id="ta" value="<?php
 				$t=$data['t_name'];
-				$q1=mysql_query("select village  from village_mngt where vid=$t");
-				$data1=mysql_fetch_array($q1);
+				$q1=mysqli_query($conn,"select village  from village_mngt where vid=$t");
+				$data1=mysqli_fetch_array($q1);
 				echo $data1['village'];
 		       ?>" / readonly=""></td>
         </tr>
@@ -292,8 +292,8 @@ function getState(countryId)
             
             <?php
 		  include("connect.php");
-		  $q=mysql_query("select * from s_prod");
-		  while($data=mysql_fetch_array($q))
+		  $q=mysqli_query($conn,"select * from s_prod");
+		  while($data=mysqli_fetch_array($q))
 		  {
 		  ?>
 		   <option value="<?php echo $data['sid'];?>"><?php echo $data['sp_name'];?></option>

@@ -12,7 +12,7 @@ if(isset($_SESSION['admin'])=="")
 	$g=$_REQUEST['t1'];
 	$s=$_REQUEST['t2'];
 	 
-	mysql_query("update god_mngt set taluka='$t', godown_name='$g',stock='$s' where gid=$i") or die ("query fail");
+	mysqli_query($conn,"update god_mngt set taluka='$t', godown_name='$g',stock='$s' where gid=$i") or die ("query fail");
 	
 	header("location:show_godown.php?msg=Godown has bee refilled...");
 }
@@ -61,8 +61,8 @@ function validate()
     <td width="74%"><?php 
 		include("connect.php");
 		$i=$_REQUEST['uid'];
-		$q=mysql_query("select * from god_mngt where gid=$i") or die ("query fail");
-		$data=mysql_fetch_array($q);
+		$q=mysqli_query($conn,"select * from god_mngt where gid=$i") or die ("query fail");
+		$data=mysqli_fetch_array($q);
 	?>
         <form id="form1" name="form1" method="post" action="" onsubmit="return validate();">
           <input type="hidden" name="update" value="true" />
@@ -77,8 +77,8 @@ function validate()
               <td><input name="ta" type="text" id="ta" value="<?php
 			  include("connect.php");
 			  $a=$_REQUEST["uid"];
-			  $q=mysql_query("select * from god_mngt where gid=$a");
-			  $data=mysql_fetch_array($q);
+			  $q=mysqli_query($conn,"select * from god_mngt where gid=$a");
+			  $data=mysqli_fetch_array($q);
 			  echo $data['taluka'];
 			  ?>" /></td>
             </tr>
@@ -88,8 +88,8 @@ function validate()
               <td width="65%"><label>
                 <input name="t1" type="text" id="t1" value="<?php include("connect.php");
 		        $a=$_REQUEST["uid"];
-			    $q=mysql_query("select * from god_mngt where gid=$a");
-				$data2=mysql_fetch_array($q);
+			    $q=mysqli_query($conn,"select * from god_mngt where gid=$a");
+				$data2=mysqli_fetch_array($q);
 				echo $data2['godown_name'];
 				?>
 				" size="20" maxlength="20" / readonly="">
@@ -100,8 +100,8 @@ function validate()
               <td>&nbsp;</td>
               <td><input name="t2" type="text" id="t2" value="<?php
 			    $a=$_REQUEST["uid"];
-			    $q=mysql_query("select * from god_mngt where gid=$a");
-				$data2=mysql_fetch_array($q);
+			    $q=mysqli_query($conn,"select * from god_mngt where gid=$a");
+				$data2=mysqli_fetch_array($q);
 				echo $data2['stock'];
 				?>
 				

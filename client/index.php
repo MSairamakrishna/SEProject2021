@@ -113,8 +113,8 @@ if(isset($_SESSION['uid'])=='')
                           </tr>
                           <?php
 	  include("connect.php");
-	  $q=mysql_query("select * from news order by nid desc limit 3") or die ("query fail");
-	  while($data=mysql_fetch_array($q))
+	  $q=mysqli_query($conn,"select * from news order by nid desc limit 3") or die ("query fail");
+	  while($data=mysqli_fetch_array($q))
 	  {
 	  ?>
                           <tr>

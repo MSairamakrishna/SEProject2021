@@ -15,7 +15,7 @@ $gt=$_REQUEST['t4'];
 $p=$_REQUEST['t5'];
 $sp=$_REQUEST['t6'];
 $a=$_REQUEST['t7'];
-mysql_query("insert into transfer(ftaluka,fgodown,ttaluka,tgodown,product,sub_product,tones) values('$tf','$gf','$tt','$gt','$p','$sp','$a')")or die("qf");
+mysqli_query($conn,"insert into transfer(ftaluka,fgodown,ttaluka,tgodown,product,sub_product,tones) values('$tf','$gf','$tt','$gt','$p','$sp','$a')")or die("qf");
 header("location: a_transfer.php?msg= Transfer has been done");
 
 
@@ -99,8 +99,8 @@ function validate()
             <option value="Select taluka" selected="selected">Select taluka</option>
 		   <?php
 		  include("connect.php");
-		  $q=mysql_query("select * from village_mngt");
-		  while($data=mysql_fetch_array($q))
+		  $q=mysqli_query($conn,"select * from village_mngt");
+		  while($data=mysqli_fetch_array($q))
 		  {
 		  ?>
 		   <option value="<?php echo $data['village'];?>"><?php echo $data['village'];?></option>
@@ -116,8 +116,8 @@ function validate()
 		   <option value="Select Godown" selected="selected">Select Godown</option>
 		   <?php
 		  include("connect.php");
-		  $q=mysql_query("select * from god_mngt");
-		  while($data=mysql_fetch_array($q))
+		  $q=mysqli_query($conn,"select * from god_mngt");
+		  while($data=mysqli_fetch_array($q))
 		  {
 		  ?>
 		   <option value="<?php echo $data['godown_name'];?>"><?php echo $data['godown_name'];?></option>
@@ -133,8 +133,8 @@ function validate()
             <option value="Select taluka" selected="selected">Select taluka</option>
 		   <?php
 		  include("connect.php");
-		  $q=mysql_query("select * from village_mngt");
-		  while($data=mysql_fetch_array($q))
+		  $q=mysqli_query($conn,"select * from village_mngt");
+		  while($data=mysqli_fetch_array($q))
 		  {
 		  ?>
 		  <option value="<?php echo $data['village'];?>"><?php echo $data['village'];?></option>
@@ -151,8 +151,8 @@ function validate()
             
 		   <?php
 		  include("connect.php");
-		  $q=mysql_query("select * from god_mngt");
-		  while($data=mysql_fetch_array($q))
+		  $q=mysqli_query($conn,"select * from god_mngt");
+		  while($data=mysqli_fetch_array($q))
 		  {
 		  ?>
 		  <option value="<?php echo $data['godown_name'];?>"><?php echo $data['godown_name'];?></option>
@@ -177,8 +177,8 @@ function validate()
 		  <option value="Select your subproduct" selected="selected">Select your subproduct</option>
            <?php
 		  include("connect.php");
-		  $q=mysql_query("select * from s_prod");
-		  while($data=mysql_fetch_array($q))
+		  $q=mysqli_query($conn,"select * from s_prod");
+		  while($data=mysqli_fetch_array($q))
 		  {
 		  ?>
 		    <option value="<?php echo $data['sp_name'];?>"><?php echo $data['sp_name'];?></option>

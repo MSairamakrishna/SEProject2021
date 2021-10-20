@@ -11,7 +11,7 @@ if(isset($_REQUEST['perform'])=="true")
 	$t=$_REQUEST['t1'];
 	$d=$_REQUEST['t2'];
 	
-	mysql_query("insert into news(tittle,description) values ('$t','$d')") or die ("query fail");
+	mysqli_query($conn,"insert into news(tittle,description) values ('$t','$d')") or die ("query fail");
 	 
 	header("location:show_news.php?msg=News is added..."); 
 }

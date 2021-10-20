@@ -9,7 +9,7 @@ if(isset($_REQUEST['perform'])=="true")
 	include("connect.php");
 	$ds=$_REQUEST['dist'];
 	$d=$_REQUEST['t1'];
-	mysql_query("insert into village_mngt (did,village) values ('$ds','$d')") or die ("QF");
+	mysqli_query($conn,"insert into village_mngt (did,village) values ('$ds','$d')") or die ("QF");
 	header("location: show_city.php?msg=New Taluka has been added sucessfully");
 }
 ?>
@@ -62,8 +62,8 @@ function validate()
             <option value="Select Your District" selected="selected">Select Your District</option>
             <?php
 		include("connect.php");
-		$q=mysql_query("select * from  dist_mngt") or die ("QF");
-		while($data=mysql_fetch_array($q))
+		$q=mysqli_query($conn,"select * from  dist_mngt") or die ("QF");
+		while($data=mysqli_fetch_array($q))
 		{
 		?>
             <option value="<?php echo $data['did'];?>"><?php echo $data['district'];?></option>

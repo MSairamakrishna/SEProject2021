@@ -13,7 +13,7 @@ $a=$_REQUEST['add'];
 $p=$_REQUEST['phone'];
 $v=$_REQUEST['vill'];
 $c=$_REQUEST['com'];
-mysql_query("insert into feedback(f_id,serv_no,address,phone,village,comment) values('$f','$s','$a','$p','$v','$c')")or die('die');
+mysqli_query($conn,"insert into feedback(f_id,serv_no,address,phone,village,comment) values('$f','$s','$a','$p','$v','$c')")or die('die');
 header("location: myprofile.php ?msg= Feedback successfully added");
 }
 ?>
@@ -82,8 +82,8 @@ header("location: myprofile.php ?msg= Feedback successfully added");
                   <?php
      include("connect.php");
      $id=$_SESSION['uid'];
-     $q=mysql_query("select * from register where id=$id");
-     $data=mysql_fetch_array($q);
+     $q=mysqli_query($conn,"select * from register where id=$id");
+     $data=mysqli_fetch_array($q);
     ?>
                   <table width="575" height="538" align="center"  style="border-style: double; border-color: #000000; font-family:Georgia, 'Times New Roman', Times, serif;">
                     <tr>

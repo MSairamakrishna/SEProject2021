@@ -1,6 +1,15 @@
+
 <?php
-mysql_connect("localhost","root","") or die ("connection not found");
+$servername = "localhost";
+$username = "root";
+$password = "";
 
-mysql_select_db("farmer") or die ("database not found");
+// Create connection
+$conn = new mysqli($servername, $username, $password);
 
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+$conn->select_db("farmer");
 ?>

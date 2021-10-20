@@ -12,7 +12,7 @@ $v=$_REQUEST['vill'];
 $a=$_REQUEST['add'];
 $s=$_REQUEST['serv'];
 $c=$_REQUEST['com'];
-mysql_query ("insert into inquiry(f_name,c_num,d_name,t_name,v_name,address,serv_no,comments) values('$n','$p','$d','$t','$v','$a','$s','$c')")or die("qf");
+mysqli_query ($conn,"insert into inquiry(f_name,c_num,d_name,t_name,v_name,address,serv_no,comments) values('$n','$p','$d','$t','$v','$a','$s','$c')")or die("qf");
 header("location: myprofile.php?msg=  Inquiry is done..");
 }
 ?>

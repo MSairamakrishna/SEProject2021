@@ -10,7 +10,7 @@ include("connect.php");
 $i=$_REQUEST['upid'];
 $m=$_REQUEST['mp'];
 $s=$_REQUEST['sp'];
-mysql_query("update s_prod set m_pro='$m', sp_name='$s' where sid=$i") or die ("QF");
+mysqli_query($conn,"update s_prod set m_pro='$m', sp_name='$s' where sid=$i") or die ("QF");
 header("location: prod.php?msg=Product has Updated sucessfully");
 }
 ?>
@@ -50,8 +50,8 @@ function validate()
 	<?php
 	include("connect.php");
 	$i=$_REQUEST['uid'];
-	$q=mysql_query("select * from s_prod where sid=$i") or die ("QF");
-	$data=mysql_fetch_array($q);
+	$q=mysqli_query($conn,"select * from s_prod where sid=$i") or die ("QF");
+	$data=mysqli_fetch_array($q);
 	?>
 	<form id="form1" name="form1" method="post" action="" onsubmit="return validate();">
 	<input type="hidden" name="update" value="true" />

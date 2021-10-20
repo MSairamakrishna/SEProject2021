@@ -8,7 +8,7 @@ if(isset($_REQUEST['perform'])=="true")
 {
 	include("connect.php");
 	$v=$_REQUEST['t1'];
-	mysql_query("insert into dist_mngt   (district) values ('$v')") or die ("QF");
+	mysqli_query($conn,"insert into dist_mngt   (district) values ('$v')") or die ("QF");
 	header("location: show_district.php?msg=New District has been added sucessfully");
 }
 ?>

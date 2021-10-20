@@ -50,9 +50,9 @@ if(isset($_SESSION['admin'])=="")
       </tr>
       <?php
 	include("connect.php");
-	$q=mysql_query("select * from my_order where flag=2 ")or die("qf");
+	$q=mysqli_query($conn,"select * from my_order where flag=2 ")or die("qf");
 	$i=1;
-	while($data=mysql_fetch_array($q))
+	while($data=mysqli_fetch_array($q))
 	{
 	?>
       <tr>
@@ -60,15 +60,15 @@ if(isset($_SESSION['admin'])=="")
 			 <td><?php echo $data['name'];?></td>
         <td><?php  
 			$t1=$data['main_prod'];
-			$q2=mysql_query("select m_pro from s_prod where sid=$t1");
-			$data2=mysql_fetch_array($q2);
+			$q2=mysqli_query($conn,"select m_pro from s_prod where sid=$t1");
+			$data2=mysqli_fetch_array($q2);
 			echo $data2['m_pro'];
 		
 		?></td>
         <td><?php  
 			$t1=$data['sub_prod'];
-			$q2=mysql_query("select sp_name from s_prod where sid=$t1");
-			$data2=mysql_fetch_array($q2);
+			$q2=mysqli_query($conn,"select sp_name from s_prod where sid=$t1");
+			$data2=mysqli_fetch_array($q2);
 			echo $data2['sp_name'];
 		
 		?></td>

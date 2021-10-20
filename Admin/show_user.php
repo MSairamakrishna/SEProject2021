@@ -74,13 +74,13 @@ else
 	include("connect.php");	
 	$i=1;
 	$sql2 = "select * from register";
-	$fetch = mysql_query($sql2) or die("query failed");
-	$nume = mysql_num_rows($fetch);
-	$sql_group=mysql_query("select * from register order by id desc limit $eu,$limit ");
-	if(mysql_num_rows($sql_group)>0)
+	$fetch = mysqli_query($conn,$sql2) or die("query failed");
+	$nume = mysqli_num_rows($fetch);
+	$sql_group=mysqli_query($conn,"select * from register order by id desc limit $eu,$limit ");
+	if(mysqli_num_rows($sql_group)>0)
 	{
 	$n=0;
-	while($data=mysql_fetch_array($sql_group))
+	while($data=mysqli_fetch_array($sql_group))
 	{
 			  
 	
@@ -100,16 +100,16 @@ else
         <td><?php echo $data['address'];?></td>
         <td><?php  
 			$t1=$data['d_name'];
-			$q2=mysql_query("select district  from dist_mngt where did=$t1");
-			$data2=mysql_fetch_array($q2);
+			$q2=mysqli_query($conn,"select district  from dist_mngt where did=$t1");
+			$data2=mysqli_fetch_array($q2);
 			echo $data2['district'];
 		
 		?></td>
         <td><?php
 				
 				$t=$data['t_name'];
-				$q1=mysql_query("select village  from village_mngt where vid=$t");
-				$data1=mysql_fetch_array($q1);
+				$q1=mysqli_query($conn,"select village  from village_mngt where vid=$t");
+				$data1=mysqli_fetch_array($q1);
 				echo $data1['village'];
 		 ?></td>
         <td><?php echo $data['v_name'];?></td>
@@ -129,7 +129,7 @@ else
 	  <?php 
 
 echo "<table border=1 align=center style=border:#2980C5; border-style:groove>";
-while($r=mysql_fetch_array($sql_group))
+while($r=mysqli_fetch_array($sql_group))
 
 {
 	

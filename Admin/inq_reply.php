@@ -34,8 +34,8 @@ if(isset($_REQUEST['perform'])=="true")
 	  <?php 
 	  include("CONNECT.PHP");
 	  $i=$_REQUEST['rid'];
-	  $q=mysql_query("select c_num from inquiry where iid=$i");
-	  $data=mysql_fetch_array($q);
+	  $q=mysqli_query($conn,"select c_num from inquiry where iid=$i");
+	  $data=mysqli_fetch_array($q);
 	  ?>
       <td width="63%"><table width="100%" border="1" class="table">
         <tr>

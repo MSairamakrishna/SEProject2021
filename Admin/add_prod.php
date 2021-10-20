@@ -9,7 +9,7 @@ if(isset($_REQUEST['save'])=="true")
 	include("connect.php");
 	$m=$_REQUEST['mp'];
 	$s=$_REQUEST['sp'];
-	mysql_query("insert into s_prod (m_pro,sp_name) values ('$m','$s')") or die ("QF");
+	mysqli_query($conn,"insert into s_prod (m_pro,sp_name) values ('$m','$s')") or die ("QF");
 	header("location: prod.php?msg=New Product has inserted sucessfully");
 }
 ?>

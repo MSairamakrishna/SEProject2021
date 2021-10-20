@@ -1,4 +1,15 @@
+
 <?php
-mysql_connect("localhost","root","");
-mysql_select_db("farmer");
+$servername = "localhost";
+$username = "root";
+$password = "";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+$conn->select_db("farmer");
 ?>

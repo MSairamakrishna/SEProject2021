@@ -5,10 +5,10 @@ if(isset($_REQUEST['perform'])=="true")
    include("connect.php");
    $l=$_REQUEST['t1'];
    $p=$_REQUEST['t2'];
-   $q=mysql_query("select * from admin where a_login='$l' and a_password='$p'")or die("qf");
-   if(mysql_num_rows($q))
+   $q=mysqli_query($conn,"select * from admin where a_login='$l' and a_password='$p'")or die("qf");
+   if(mysqli_num_rows($q))
    {
-      $data=mysql_fetch_array($q);
+      $data=mysqli_fetch_array($q);
 	  $_SESSION['admin']=$data['aid'];
 	  header("location: home.php");
 	  

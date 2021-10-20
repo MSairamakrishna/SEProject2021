@@ -15,7 +15,7 @@ $gt=$_REQUEST['t4'];
 $p=$_REQUEST['t5'];
 $sp=$_REQUEST['t6'];
 $a=$_REQUEST['t7'];
-mysql_query("insert into transfer(ftaluka,fgodown,ttaluka,tgodown,product,sub_product,tones) values('$tf','$gf','$tt','$gt','$p','$sp','$a')")or die("qf");
+mysqli_query($conn,"insert into transfer(ftaluka,fgodown,ttaluka,tgodown,product,sub_product,tones) values('$tf','$gf','$tt','$gt','$p','$sp','$a')")or die("qf");
 header("location: a_transfer.php?msg= Transfer has been done");
 
 
@@ -126,13 +126,13 @@ else
 	include("connect.php");	
 	$i=1;
 	$sql2 = "select * from transfer";
-	$fetch = mysql_query($sql2) or die("query failed");
-	$nume = mysql_num_rows($fetch);
-	$sql_group=mysql_query("select * from transfer order by tid desc limit $eu,$limit ");
-	if(mysql_num_rows($sql_group)>0)
+	$fetch = mysqli_query($conn,$sql2) or die("query failed");
+	$nume = mysqli_num_rows($fetch);
+	$sql_group=mysqli_query($conn,"select * from transfer order by tid desc limit $eu,$limit ");
+	if(mysqli_num_rows($sql_group)>0)
 	{
 	$n=0;
-	while($data=mysql_fetch_array($sql_group))
+	while($data=mysqli_fetch_array($sql_group))
 	{
 			  
 	
@@ -159,7 +159,7 @@ else
       <?php 
 
 echo "<table border=1 align=center style=border:#2980C5; border-style:groove>";
-while($r=mysql_fetch_array($sql_group))
+while($r=mysqli_fetch_array($sql_group))
 
 {
 	

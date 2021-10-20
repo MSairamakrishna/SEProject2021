@@ -7,11 +7,11 @@
             "previewLimit": 50,
             "server": "localhost",
             "port": 3306,
-            "askForPassword": true,
             "driver": "MySQL",
-            "name": "testdb",
-            "database": "test",
-            "username": "root"
+            "name": "Mysql",
+            "database": "farmer",
+            "username": "root",
+            "password": ""
         }
     ]
 }
