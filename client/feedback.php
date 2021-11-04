@@ -40,7 +40,7 @@ header("location: myprofile.php ?msg= Feedback successfully added");
 						<?php if(isset($_SESSION['uid'])!='')
 						{
 						?>
-						<li><a href="order.php" >Order</a></li>
+						<li><a href="cart.php" >Cart</a></li>
 						<?php
 						}
 						?>
@@ -62,7 +62,7 @@ header("location: myprofile.php ?msg= Feedback successfully added");
 						else
 						{
 						?>
-						<li><a href="Logout.php">Logout</a></li>
+						<li><a href="logout.php">Logout</a></li>
 						<?php
 						}
 						?>

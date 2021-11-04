@@ -28,7 +28,7 @@ if(isset($_SESSION['uid'])=='')
 						<?php if(isset($_SESSION['uid'])!='')
 						{
 						?>
-						<li><a href="order.php" >Order</a></li>
+						<li><a href="cart.php" >Cart</a></li>
 						<?php
 						}
 						?>
@@ -49,7 +49,7 @@ if(isset($_SESSION['uid'])=='')
 						else
 						{
 						?>
-						<li><a href="Logout.php">Logout</a></li>
+						<li><a href="logout.php">Logout</a></li>
 						<?php
 						}
 						?>
