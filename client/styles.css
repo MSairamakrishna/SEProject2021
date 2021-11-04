@@ -779,9 +779,9 @@ body {
 
 #btnEmpty {
 	background-color: #ffffff;
-	border: #417a07 1px solid;
+	border: #d00000 1px solid;
 	padding: 5px 10px;
-	color: #3d811c;
+	color: #d00000;
 	float: right;
 	text-decoration: none;
 	border-radius: 3px;
