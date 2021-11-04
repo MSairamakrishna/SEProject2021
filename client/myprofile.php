@@ -26,7 +26,7 @@ header("location:login.php ?msg=PLZ log in First");
 </head>
     <body>
     	<div id="wrap">
-		        <div id="menu">
+		      <div id="menu">
 					 <ul>
 						<li><a href="index.php">Home</a></li>
 						<li><a href="activities.php">Activities</a></li>

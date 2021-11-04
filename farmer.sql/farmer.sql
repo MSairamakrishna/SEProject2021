@@ -379,14 +379,14 @@ CREATE TABLE `tblproduct` (
 --
 
 INSERT INTO `tblproduct` (`id`, `name`, `code`, `image`, `price`) VALUES
-(1, 'FinePix Pro2 3D Camera', '3DcAM01', 'images/camera.jpg', 1500.00),
-(2, 'EXP Portable Hard Drive', 'USB03', 'images/external-hard-drive.jpg', 800.00),
-(3, 'Luxury Ultra thin Wrist Watch', 'wristWear04', 'images/watch.jpg', 300.00),
-(4, 'XP 1155 Intel Core Laptop', 'LPN1155', 'images/laptop.jpg', 800.00),
-(5, 'FinePix Pro2 3D Camera', '3DcAM03', 'images/camera.jpg', 1500.00),
-(6, 'EXP Portable Hard Drive', 'USB02', 'images/external-hard-drive.jpg', 800.00),
-(7, 'Luxury Ultra thin Wrist Watch', 'wristWear03', 'images/watch.jpg', 300.00),
-(8, 'XP 1155 Intel Core Laptop', 'LPN45', 'images/laptop.jpg', 800.00);
+(1, 'Premium Quality Apples', 'APPL', 'images/apple.jpeg', 15.00),
+(2, 'Beans', 'BEANS', 'images/beans.jpeg', 5.00),
+(3, 'Organic Tomatoes', 'TOMA', 'images/tomato.jpeg', 10.00),
+(4, 'Oragnic Brocolli', 'BROC', 'images/brocolli.jpeg', 20.00),
+(5, 'Pumpkin Seeds', 'PUMPKIN', 'images/pumpkin_seed.jpeg', 50.00),
+(6, 'Sunflower Seeds', 'SUN', 'images/sunflower_seeds.jpeg', 50.00),
+(7, 'Neemoil Pesticides', 'NEEN', 'images/neemoil_pesticides.jpeg', 100.00),
+(8, 'Liquid Chitosan Pesticides', 'LIQUID', 'images/Liquid_chitosan_pest.jpeg', 150.00);
 
 --
 -- Indexes for table `tblproduct`
