@@ -379,14 +379,14 @@ CREATE TABLE `tblproduct` (
 --
 
 INSERT INTO `tblproduct` (`id`, `name`, `code`, `image`, `price`) VALUES
-(1, 'FinePix Pro2 3D Camera', '3DcAM01', 'product-images/camera.jpg', 1500.00),
-(2, 'EXP Portable Hard Drive', 'USB02', 'product-images/external-hard-drive.jpg', 800.00),
-(3, 'Luxury Ultra thin Wrist Watch', 'wristWear03', 'product-images/watch.jpg', 300.00),
-(4, 'XP 1155 Intel Core Laptop', 'LPN45', 'product-images/laptop.jpg', 800.00),
-(5, 'FinePix Pro2 3D Camera', '3DcAM01', 'product-images/camera.jpg', 1500.00),
-(6, 'EXP Portable Hard Drive', 'USB02', 'product-images/external-hard-drive.jpg', 800.00),
-(7, 'Luxury Ultra thin Wrist Watch', 'wristWear03', 'product-images/watch.jpg', 300.00),
-(8, 'XP 1155 Intel Core Laptop', 'LPN45', 'product-images/laptop.jpg', 800.00);
+(1, 'FinePix Pro2 3D Camera', '3DcAM01', 'images/camera.jpg', 1500.00),
+(2, 'EXP Portable Hard Drive', 'USB03', 'images/external-hard-drive.jpg', 800.00),
+(3, 'Luxury Ultra thin Wrist Watch', 'wristWear04', 'images/watch.jpg', 300.00),
+(4, 'XP 1155 Intel Core Laptop', 'LPN1155', 'images/laptop.jpg', 800.00),
+(5, 'FinePix Pro2 3D Camera', '3DcAM03', 'images/camera.jpg', 1500.00),
+(6, 'EXP Portable Hard Drive', 'USB02', 'images/external-hard-drive.jpg', 800.00),
+(7, 'Luxury Ultra thin Wrist Watch', 'wristWear03', 'images/watch.jpg', 300.00),
+(8, 'XP 1155 Intel Core Laptop', 'LPN45', 'images/laptop.jpg', 800.00);
 
 --
 -- Indexes for table `tblproduct`

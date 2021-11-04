@@ -47,7 +47,7 @@ header("location:login.php? msg=Your ID or Password may be wrong");
 						<?php if (isset($_SESSION['uid'])!='')
 						{
 						?>
-						<li><a href="order.php">Order</a></li>
+						<li><a href="cart.php">Cart</a></li>
 						<?php
 						}
 						?>

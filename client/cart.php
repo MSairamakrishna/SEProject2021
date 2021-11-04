@@ -51,7 +51,7 @@ switch($_GET["action"]) {
 <HTML>
 <HEAD>
 <TITLE>Simple PHP Shopping Cart</TITLE>
-<link href="style.css" type="text/css" rel="stylesheet" />
+<link href="styles.css" type="text/css" rel="stylesheet" />
 </HEAD>
 <BODY>
 <div id="shopping-cart">
@@ -59,7 +59,6 @@ switch($_GET["action"]) {
 
 <a id="btnEmpty" href="cart.php?action=empty">Empty Cart</a>
 <a id="btnSubmit" href="cart.php?action=Submit">Submit Cart</a>
-
 <?php
 if(isset($_SESSION["cart_item"])){
     $total_quantity = 0;
@@ -112,6 +111,7 @@ if(isset($_SESSION["cart_item"])){
 
 <div id="product-grid">
 	<div class="txt-heading">Products</div>
+
 	<?php
 	$product_array = $db_handle->runQuery("SELECT * FROM tblproduct ORDER BY id ASC");
 	if (!empty($product_array)) { 

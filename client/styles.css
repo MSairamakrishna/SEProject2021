@@ -779,9 +779,9 @@ body {
 
 #btnEmpty {
 	background-color: #ffffff;
-	border: #d00000 1px solid;
+	border: #417a07 1px solid;
 	padding: 5px 10px;
-	color: #d00000;
+	color: #3d811c;
 	float: right;
 	text-decoration: none;
 	border-radius: 3px;
@@ -790,13 +790,13 @@ body {
 
 #btnSubmit {
 	background-color: #ffffff;
-	border: #d00000 1px solid;
+	border: #417a07 1px solid;
 	padding: 5px 10px;
-	color: #d00000;
+	color: #3d811c;
 	float: right;
 	text-decoration: none;
 	border-radius: 3px;
-	margin: 100px 0px;
+	margin: 10px 10px;
 }
 
 .btnAddAction {
