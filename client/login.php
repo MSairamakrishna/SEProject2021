@@ -44,10 +44,16 @@ header("location:login.php? msg=Your ID or Password may be wrong");
 					<ul>
 						<li><a href="index.php">Home</a></li>
 						<li><a href="activities.php">Activities</a></li>
+						<?php if (isset($_SESSION['uid'])!='')
+						{
+						?>
+						<li><a href="cart.php">Cart</a></li>
+						<?php
+						}
+						?>
 						<li><a href="register.php">Registration</a></li>
 						<?php if(isset($_SESSION['uid'])!='')
 						{?>
-						<li><a href="cart.php">Cart</a></li>
 						<li><a href="feedback.php">Feedback</a></li>
 						<li><a href="inquiry.php">Inquiry</a></li>
 						<li><a href="myprofile.php">Myprofile</a></li>
