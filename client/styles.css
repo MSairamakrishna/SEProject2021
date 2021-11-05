@@ -210,12 +210,12 @@ body {
 .img-indent {margin:0 20px 0 0; float:left;}
 .box1 {background:#1F330B; border:1px solid #c6c9cc; padding:25px 18px 14px 23px; min-height: 225px;}
 .box1.bg1 {background:#ececec;	padding-bottom:19px;}
-.box1 h2 {padding:6px 22px 6px 22px;margin: -12px -15px 17px -20px; padding-bottom: 10px; font-size: 24px; font-weight: normal}
+.box1 h2 {padding:6px 22px 6px 22px;margin: -12px -15px 17px -20px; padding-bottom: 10px; font-size: 24px; font-weight: normal; color:white; font-family: Georgia, 'Times New Roman', Times, serif;  }
 .inside p {margin-bottom:18px;}
-h4 {font-size:14px; color:#E3F89B;	font-weight:normal;	font-style:normal;	margin-bottom:25px;}
-.list1 li {font-size:10px; color:#E3F89B; text-transform:uppercase;	padding-bottom:10px; list-style: none}
+h4 {color:#99CC00;;	font-family:Georgia, 'Times New Roman', Times, serif; font-size:15px;;	margin-bottom:25px;}
+.list1 li {font-size:10px; color:#E3F89B; text-transform:uppercase; font-family:Georgia, 'Times New Roman', Times, serif; padding-bottom:10px; list-style: none}
 .list1 li a {color:#E3F89B;	padding:0 0 0 4px;}
-.indent H2 {padding-bottom: 20px; font-size: 20px; font-weight: normal}
+.indent H2 {padding-bottom: 20px; font-size: 20px; font-weight: normal; font-family:Georgia, 'Times New Roman', Times, serif; }
 
 /*
 	footer top
@@ -322,6 +322,7 @@ h4 {font-size:14px; color:#E3F89B;	font-weight:normal;	font-style:normal;	margin
 #footer_bot a, #footer_bot p{
 	color: #000000;
 	font-weight: normal;
+	font-family:Georgia, 'Times New Roman', Times, serif; 
 	padding: 0px;
 	margin: 0px
 }
@@ -338,6 +339,7 @@ h4 {font-size:14px; color:#E3F89B;	font-weight:normal;	font-style:normal;	margin
 
 .datebox a{
     font-weight: normal;
+	font-family:Georgia, 'Times New Roman', Times, serif; 
 }
 
 .date, .user, .com{
@@ -423,6 +425,7 @@ float: left;}
 	font-weight: 100;
 	background: url(images/spis_bot_a.gif) bottom repeat-x;
 	display: block;
+	font-family:Georgia, 'Times New Roman', Times, serif; 
 	font-weight:bold;}
 .spis_bot a:hover {
 	text-decoration: underline;
@@ -475,7 +478,7 @@ float: left;}
 }
 
 .contact_content_left h6 {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:Georgia, 'Times New Roman', Times, serif; 
     font-size:18px;
     font-weight: normal;
     color: #ffffff;
@@ -484,7 +487,7 @@ float: left;}
 }
 
 h5 {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:Georgia, 'Times New Roman', Times, serif; 
     font-size: 22px;
     font-weight: normal;
     color: #ffffff;
@@ -494,7 +497,7 @@ h5 {
 }
 
 .contact_content_right h6{
-    font-family: Arial, Helvetica, sans-serif;
+	font-family:Georgia, 'Times New Roman', Times, serif; 
     font-size: 18px;
     font-weight: normal;
     color: #ffffff;
@@ -516,7 +519,6 @@ h5 {
 
 .ls li{
     margin-bottom: 4px;
-
     background: url(images/bot_bor.png) repeat-x bottom;
 }
 
@@ -527,6 +529,7 @@ h5 {
     padding-bottom: 4px;
     color: #ffffff;
     font-weight: normal;
+	font-family:Georgia, 'Times New Roman', Times, serif; 
 }
 
 .ls li a:hover{
@@ -577,8 +580,8 @@ h5 {
     background-repeat:no-repeat;
     background-position:left bottom;
     border: none;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+	font-family:Georgia, 'Times New Roman', Times, serif; 
+	font-size: 14px;
     font-weight: bold;
 }
 
@@ -590,7 +593,7 @@ h5 {
     background-repeat:no-repeat;
     background-position:left bottom;
     border: none;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:Georgia, 'Times New Roman', Times, serif; 
     font-size: 14px;
     font-weight: bold;
 }
@@ -602,6 +605,7 @@ h5 {
     padding-left: 10px;
     padding-right: 10px;
     border: none;
+	font-family:Georgia, 'Times New Roman', Times, serif; 
     background: url(images/input_bg.jpg);
     background-repeat:no-repeat;
     background-position:left top;
@@ -617,6 +621,7 @@ h5 {
     padding-right: 10px;
     padding-bottom: 15px;
     border: none;
+	font-family:Georgia, 'Times New Roman', Times, serif; 
     background: url(images/mess_text.jpg);
     background-repeat:no-repeat;
     background-position:left top;
@@ -671,6 +676,7 @@ h5 {
 	font-size: 16px;
 	text-align: left;
 	font-weight: normal;
+	font-family:Georgia, 'Times New Roman', Times, serif; 
 }
 
 .box_razd {
@@ -683,6 +689,7 @@ h5 {
 	padding: 5px 0px 15px 8px;
 	color: #ffffff;
 	font-size: 16px;
+	font-family:Georgia, 'Times New Roman', Times, serif; 
 	background: url(images/h1_gallery.jpg) left top no-repeat;}
 
 .gal_num {
@@ -693,6 +700,7 @@ h5 {
 	background: url(images/gal_num.gif) left top no-repeat;
 	color: #174500;
 	font-size: 12px;
+	font-family:Georgia, 'Times New Roman', Times, serif; 
 	margin: 0px 10px 0px 0px;
 	text-decoration:none;
 	float: left;}
@@ -750,7 +758,7 @@ margin-bottom: -30px;
 
 body {
 	font-family: Arial;
-	color: #211a1a;
+	color:#99CC00;
 	font-size: 0.9em;
 }
 

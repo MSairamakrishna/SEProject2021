@@ -43,7 +43,6 @@ header("location:login.php? msg=Your ID or Password may be wrong");
 		        <div id="menu">
 					<ul>
 						<li><a href="index.php">Home</a></li>
-						<li><a href="activities.php">Activities</a></li>
 						<?php if (isset($_SESSION['uid'])!='')
 						{
 						?>
@@ -59,7 +58,7 @@ header("location:login.php? msg=Your ID or Password may be wrong");
 						<li><a href="myprofile.php">Myprofile</a></li>
 						<?php
 						}?>
-						
+						<li><a href="guest_feedback.php">Feedback</a></li>
 						<li><a href="contact.php">Contact</a></li>
 						<?php if(isset($_SESSION['uid'])=='')
 						{

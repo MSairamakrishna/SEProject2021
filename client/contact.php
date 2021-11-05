@@ -27,7 +27,6 @@ if(isset($_SESSION['uid'])=='')
 		        <div id="menu">
 					<ul>
 						<li><a href="index.php">Home</a></li>
-						<li><a href="activities.php">Activities</a></li>
 						<?php if(isset($_SESSION['uid'])!='')
 						{
 						?>
@@ -43,7 +42,7 @@ if(isset($_SESSION['uid'])=='')
 	
 					<?php
 						}?>
-						<li><a href="feedback.php">Feedback</a></li>
+						<li><a href="guest_feedback.php">Feedback</a></li>
 						<li><a href="contact.php" class="active">Contact</a></li>
 						<?php if(isset($_SESSION['uid'])=='')
 						{

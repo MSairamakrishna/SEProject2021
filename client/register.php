@@ -236,7 +236,6 @@ function getState(countryId)
 		        <div id="menu">
 					 <ul>
 						<li><a href="index.php">Home</a></li>
-						<li><a href="activities.php">Activities</a></li>
 						<?php if (isset($_SESSION['uid'])!='')
 						{
 						?>
@@ -251,11 +250,11 @@ function getState(countryId)
 						<li><a href="myprofile.php">Myprofile</a></li>
 						<?php
 						}?>
-						<li><a href="feedback.php">Feedback</a></li>
 						<li><a href="contact.php">Contact</a></li>
 						<?php if(isset($_SESSION['uid'])=='')
 						{
 						?>
+						<li><a href="guest_feedback.php">Feedback</a></li>
 						<li><a href="login.php">Login</a></li>
 						<?php
 						}

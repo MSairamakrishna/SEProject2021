@@ -69,7 +69,7 @@ session_start();
                   <tbody>
                     <tr>
                       <td class="ac_nrm_text11" valign="baseline" width="30" align="center"><span class="style5">1.</span></td>
-                      <td class="ac_nrm_text11"><div align="justify" class="style6" style="color:#FFFFFF;">Agriculture,
+                      <td class="ac_nrm_text11"><div align="justify" class="style6" style="color:#99CC00;">Agriculture,
                         including agricultural extension, agricultural engineering,   
                         agricultural statistics, crop protection from pests and diseases, 
                         agricultural   research and agricultural school and colleges, 
@@ -83,7 +83,7 @@ session_start();
                     </tr>
                     <tr>
                       <td class="ac_nrm_text11" valign="baseline" align="center"><span class="style6"><b>2.</b></span></td>
-                      <td class="ac_nrm_text11"><div align="justify" class="style6" style="color:#FFFFFF;">The
+                      <td class="ac_nrm_text11"><div align="justify" class="style6" style="color:#99CC00;">The
                         prevention of extension from one unit to another of infections of 
                         contagious   disease or pests affecting animals or plants.</div></td>
                     </tr>
@@ -93,7 +93,7 @@ session_start();
                     </tr>
                     <tr>
                       <td class="ac_nrm_text11" valign="baseline" align="center"><span class="style6"><b>3.</b></span></td>
-                      <td class="ac_nrm_text11"><div align="justify" class="style6" style="color:#FFFFFF;">The
+                      <td class="ac_nrm_text11"><div align="justify" class="style6" style="color:#99CC00;">The
                         prevention of extension from one unit to another of infections of 
                         contagious   disease or pests affecting animals or plants.</div></td>
                     </tr>
@@ -103,7 +103,7 @@ session_start();
                     </tr>
                     <tr>
                       <td class="ac_nrm_text11" valign="baseline" align="center"><span class="style6"><b>4.</b></span></td>
-                      <td class="ac_nrm_text11 style6" style="color:#FFFFFF;">Manure and fertilizers including trading schemes.</td>
+                      <td class="ac_nrm_text11 style6" style="color:#99CC00;">Manure and fertilizers including trading schemes.</td>
                     </tr>
                     <tr>
                       <td height="12" valign="baseline" align="center"><span class="style6"></span></td>
@@ -111,7 +111,7 @@ session_start();
                     </tr>
                     <tr>
                       <td class="ac_nrm_text11" valign="baseline" align="center"><span class="style6"><b>5.</b></span></td>
-                      <td class="ac_nrm_text11 style7">Control of fruit products.</td>
+                      <td class="ac_nrm_text11 style7" style="color:#99CC00;">Control of fruit products.</td>
                     </tr>
                     <tr>
                       <td height="12" valign="baseline" align="center"><span class="style6"></span></td>
@@ -119,7 +119,7 @@ session_start();
                     </tr>
                     <tr>
                       <td class="ac_nrm_text11" valign="baseline" align="center"><span class="style6"><b>6.</b></span></td>
-                      <td class="ac_nrm_text11 style7">Milk Schemes.</td>
+                      <td class="ac_nrm_text11 style7" style="color:#99CC00;">Milk Schemes.</td>
                     </tr>
                     <tr>
                       <td height="12" align="center" valign="baseline" class="ac_nrm_text11 style6"></td>
@@ -127,7 +127,7 @@ session_start();
                     </tr>
                     <tr>
                       <td class="ac_nrm_text11" valign="baseline" align="center"><span class="style6"><b>7.</b></span></td>
-                      <td class="ac_nrm_text11 style7">Administration of the Food Bonus Fund.</td>
+                      <td class="ac_nrm_text11 style7" style="color:#99CC00;">Administration of the Food Bonus Fund.</td>
                     </tr>
                     <tr>
                       <td height="12" valign="baseline" align="center"><span class="style6"></span></td>
@@ -135,7 +135,7 @@ session_start();
                     </tr>
                     <tr>
                       <td class="ac_nrm_text11" valign="baseline" align="center"><span class="style6"><b>8.</b></span></td>
-                      <td class="ac_nrm_text11 style7">Meteorological organizations and observatories.</td>
+                      <td class="ac_nrm_text11 style7" style="color:#99CC00;">Meteorological organizations and observatories.</td>
                     </tr>
                     <tr>
                       <td height="12" valign="baseline" align="center"><span class="style6"></span></td>
@@ -143,7 +143,7 @@ session_start();
                     </tr>
                     <tr>
                       <td class="ac_nrm_text11" valign="baseline" align="center"><span class="style6"><b>9.</b></span></td>
-                      <td class="ac_nrm_text11 style7">Support prices of agriculture products excluding food grains.</td>
+                      <td class="ac_nrm_text11 style7" style="color:#99CC00;">Support prices of agriculture products excluding food grains.</td>
                     </tr>
                     <tr>
                       <td height="12" align="center" valign="baseline" class="ac_nrm_text11 style6"></td>
@@ -151,7 +151,7 @@ session_start();
                     </tr>
                     <tr>
                       <td class="ac_nrm_text11" valign="baseline" align="center"><span class="style6"><b>10.</b></span></td>
-                      <td class="ac_nrm_text11"><div align="justify" class="style7">Lift
+                      <td class="ac_nrm_text11"><div align="justify" class="style7" style="color:#99CC00;">Lift
                         Irrigation by societies falling within the meaning of that term under 
                         the   Gujarat Co-operative Societies.</div></td>
                     </tr>
@@ -161,7 +161,7 @@ session_start();
                     </tr>
                     <tr>
                       <td class="ac_nrm_text11" valign="baseline" align="center"><span class="style6"><b>11.</b></span></td>
-                      <td class="ac_nrm_text11"><div align="justify" class="style7">Forest labourer&#8217;s Co-operative Societies</div></td>
+                      <td class="ac_nrm_text11"><div align="justify" class="style7" style="color:#99CC00;">Forest labourer&#8217;s Co-operative Societies</div></td>
                     </tr>
                     <tr>
                       <td align="center" valign="baseline" class="ac_nrm_text11 style6">&nbsp;</td>
@@ -169,7 +169,7 @@ session_start();
                     </tr>
                     <tr>
                       <td class="ac_nrm_text11" valign="baseline" align="center"><span class="style6"><b>12.</b></span></td>
-                      <td class="ac_nrm_text11"><div align="justify" class="style7">Aid to Housing Co-operative Societies through Gujarat State Co-operative Housing   Finance Society Limited, etc.</div></td>
+                      <td class="ac_nrm_text11"><div align="justify" class="style7" style="color:#99CC00;">Aid to Housing Co-operative Societies through Gujarat State Co-operative Housing   Finance Society Limited, etc.</div></td>
                     </tr>
                     <tr>
                       <td height="12" valign="baseline" align="center"><span class="style6"></span></td>
@@ -177,7 +177,7 @@ session_start();
                     </tr>
                     <tr>
                       <td class="ac_nrm_text11" valign="baseline" align="center"><span class="style6"><b>13.</b></span></td>
-                      <td class="ac_nrm_text11 style7">Money lending and Money lenders.</td>
+                      <td class="ac_nrm_text11 style7" style="color:#99CC00;">Money lending and Money lenders.</td>
                     </tr>
                     <tr>
                       <td height="38" valign="baseline" align="center"><span class="style6"></span></td>

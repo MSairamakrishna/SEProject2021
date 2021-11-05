@@ -80,21 +80,21 @@ session_start();
                             <td width="6%">&nbsp;</td>
                             <td width="85%"><table width="100%" height="123" border="0">
                               <tr>
-                                <td height="21"><div align="center" class="style25 style28">Latest News </div></td>
+                                <td height="21"><div align="center" class="style25 style28">Latest Activities </div></td>
                               </tr>
 							  <?php
 	                           include("connect.php");
-	                           $q=mysqli_query($conn,"select * from news order by nid desc") or die ("query fail");
+	                           $q=mysqli_query($conn,"select * from activities order by location desc") or die ("query fail");
 	                           while($data=mysqli_fetch_array($q))
 	                             {
 	                           ?>
                               <tr>
                                 <td height="94"><table width="100%" border="0">
                                   <tr>
-                                    <td colspan="3" bgcolor="#66CC66" style="font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; color:#000000"><span class="style27">Tittle</span>::)<?php echo $data['tittle'];?></td>
+                                    <td colspan="3" bgcolor="#66CC66" style="font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; color:#000000"><span class="style27">Title</span>:<?php echo $data['location'];?></td>
                                   </tr>
                                   <tr>
-                                    <td colspan="3" bgcolor="#99CC99"style="font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; color:#000000"><span class="style27">Description</span>::)<?php echo $data['description'];?></td>
+                                    <td colspan="3" bgcolor="#99CC99"style="font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; color:#000000"><span class="style27">Description</span>:<?php echo $data['description'];?></td>
                                   </tr>
                                 </table></td>
                               </tr>

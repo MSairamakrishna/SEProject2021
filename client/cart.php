@@ -58,7 +58,6 @@ switch($_GET["action"]) {
 		      <div id="menu">
 					 <ul>
 						<li><a href="index.php">Home</a></li>
-						<li><a href="activities.php">Activities</a></li>
 						<?php if(isset($_SESSION['uid'])!='')
 						{
 						?>

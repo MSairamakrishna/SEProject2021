@@ -26,10 +26,9 @@ header("location:login.php ?msg=PLZ log in First");
 </head>
     <body>
     	<div id="wrap">
-		      <div id="menu">
+		        <div id="menu">
 					 <ul>
 						<li><a href="index.php">Home</a></li>
-						<li><a href="activities.php">Activities</a></li>
 						<?php if(isset($_SESSION['uid'])!='')
 						{
 						?>
@@ -54,7 +53,7 @@ header("location:login.php ?msg=PLZ log in First");
 						else
 						{
 						?>
-						<li><a href="logout.php">Logout</a></li>
+						<li><a href="Logout.php">Logout</a></li>
 						<?php
 						}
 						?>

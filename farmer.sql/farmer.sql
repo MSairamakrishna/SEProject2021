@@ -80,6 +80,7 @@ CREATE TABLE IF NOT EXISTS `feedback` (
   `address` varchar(255) NOT NULL,
   `phone` varchar(13) NOT NULL,
   `village` varchar(15) NOT NULL,
+  'usertype' varchar(15) NOT NULL,
   `comment` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
@@ -88,17 +89,17 @@ CREATE TABLE IF NOT EXISTS `feedback` (
 -- Dumping data for table `feedback`
 --
 
-INSERT INTO `feedback` (`id`, `f_id`, `serv_no`, `address`, `phone`, `village`, `comment`) VALUES
-(1, 'mj', '   NMN M M', '45646', '554564', 'NKNJK', 'vfefowek wdidkiodoif dsodoid \r\n'),
-(2, 'raj003', '7', 'opposite temple of ffrf,', '9998344078', '', 'Very nice Information'),
-(3, '101', 'audgggs', 'hilldrive', '07698965420', 'Nuzvid', 'nice weebsite'),
-(4, '101', 'audgggs', 'hilldrive', '07698965420', 'Nuzvid', 'nice weebsite of the prroject\r\n\r\n'),
-(5, 'gautam1722', '544454478', 'kosamba', '8460577814', '', 'Very good 6\r\n\r\n'),
-(8, 'prem', '407', 'bhbhbhjb', '6661614611', '', ''),
-(9, 'prem', '407', 'bhbhbhjb', '6661614611', '', 'Super'),
-(10, 'prem', '407', 'bhbhbhjb', '6661614611', 'Nuzvid', 'nnknkn'),
-(11, 'prashant', '201', 'Bobbili', '8681885569', '', 'JBJHVBICG'),
-(12, 'prashant', '201', 'Bobbili', '8681885569', '', 'jbhbjjjb');
+INSERT INTO `feedback` (`id`, `f_id`, `serv_no`, `address`, `phone`, `village`, `usertype`, `comment`) VALUES
+(1, 'mj', '   NMN M M', '45646', '554564', 'NKNJK',`guest`, 'vfefowek wdidkiodoif dsodoid \r\n'),
+(2, 'raj003', '7', 'opposite temple of ffrf,', '9998344078', '',`buyer`, 'Very nice Information'),
+(3, '101', 'audgggs', 'hilldrive', '07698965420', 'Nuzvid',`guest`, 'nice weebsite'),
+(4, '101', 'audgggs', 'hilldrive', '07698965420', 'Nuzvid',`buyer`, 'nice weebsite of the prroject\r\n\r\n'),
+(5, 'gautam1722', '544454478', 'kosamba', '8460577814', '',`buyer`, 'Very good 6\r\n\r\n'),
+(8, 'prem', '407', 'bhbhbhjb', '6661614611', '',`guest`, ''),
+(9, 'prem', '407', 'bhbhbhjb', '6661614611', '',`buyer`, 'Super'),
+(10, 'prem', '407', 'bhbhbhjb', '6661614611', 'Nuzvid',`guest`, 'nnknkn'),
+(11, 'prashant', '201', 'Bobbili', '8681885569', '',`guest`, 'JBJHVBICG'),
+(12, 'prashant', '201', 'Bobbili', '8681885569', '',`buyer`, 'jbhbjjjb');
 
 -- --------------------------------------------------------
 
@@ -228,7 +229,31 @@ INSERT INTO `news` (`nid`, `tittle`, `description`) VALUES
 (23, 'mela', 'bhbhjv');
 
 -- --------------------------------------------------------
+--
+-- Table structure for table `activities`
+--
 
+CREATE TABLE IF NOT EXISTS `activities` (
+  `aid` int(11) NOT NULL AUTO_INCREMENT,
+  `location` varchar(20) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  PRIMARY KEY (`aid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
+
+--
+-- Dumping data for table `activities`
+--
+
+INSERT INTO `activities` (`aid`, `location`, `description`) VALUES
+(19, 'Texas', 'The prevention of extension from one unit to another of infections of contagious disease or pests affecting animals or plants.'),
+(20, 'North Carolina', 'Manure and fertilizers including trading schemes.'),
+(21, 'California', 'Control of fruit products.'),
+(17, 'Texas', 'Milk Schemes.'),
+(22, 'North Carolina', 'Support prices of agriculture products excluding food grains.'),
+(23, 'California', 'Forest Co-operative Societies'),
+(24, 'Okhlahoma', 'Forest labourer’s Co-operative Societies');
+
+-- --------------------------------------------------------
 --
 -- Table structure for table `register`
 --

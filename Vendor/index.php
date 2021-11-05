@@ -36,7 +36,7 @@ function chk()
 	}
 	else if(document.getElementById('t2').value=="")
 	{
-		alert('please enterr ur password');
+		alert('please enter ur password');
 		document.getElementById('t2').focus();
 		return false;
 	}

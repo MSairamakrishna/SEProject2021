@@ -1,9 +1,5 @@
 <?php
 session_start();
-if(isset($_SESSION['uid'])=='')
-{
-header("location: login.php ?msg=PLZ log in first");
-}
 include("connect.php");
 if(isset($_REQUEST['perform'])=="true")
 {
@@ -13,14 +9,9 @@ $a=$_REQUEST['add'];
 $p=$_REQUEST['phone'];
 $v=$_REQUEST['vill'];
 $c=$_REQUEST['com'];
-$result=mysqli_query($conn,"insert into feedback(f_id,serv_no,address,phone,village,usertype,comment) values('$f','$s','$a','$p','$v','$c','buyer')")or die('die');
-if ($result) {
-  echo "<script type='text/javascript'>alert('submitted successfully!')</script>";
-}
-else
-{
-  echo "<script type='text/javascript'>alert('failed!')</script>";
-}
+
+mysqli_query($conn,"insert into feedback(f_id,serv_no,address,phone,village,usertype,comment) values('NA','$s','$a','$p','$v','guest','$c')")or die('die');
+header("location: myprofile.php ?msg= Feedback successfully added");
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -67,7 +58,7 @@ else
 						else
 						{
 						?>
-						<li><a href="Logout.php">Logout</a></li>
+						<li><a href="logout.php">Logout</a></li>
 						<?php
 						}
 						?>
@@ -84,12 +75,7 @@ else
             	  <div class="wrapper"></div>
                 <form id="form1" method="post" action="" onsubmit="return validate();">
                   <input type="hidden" name="perform" value="true" />
-                  <?php
-     include("connect.php");
-     $id=$_SESSION['uid'];
-     $q=mysqli_query($conn,"select * from register where id=$id");
-     $data=mysqli_fetch_array($q);
-    ?>
+                  
                   <table width="575" height="538" align="center"  style="border-style: double; border-color: #000000; font-family:Georgia, 'Times New Roman', Times, serif;">
                     <tr>
                       <td height="41" colspan="3" align="center"><table width="100%" height="36
@@ -108,34 +94,27 @@ else
                       <span class="style2"></td>
                     </tr>
                     <tr>
-                      <td width="111"><span class="style1 style3">Farmer ID </span></td>
-                      <td width="8">::</td>
-                      <td width="268"><label>
-                        <input name="f_id" type="text" id="f_id" value="<?php echo $data['f_id'];?>" / readonly="">
-                      </label></td>
-                    </tr>
-                    <tr>
                       <td><span class="style1 style3">Servey No </span></td>
                       <td>::</td>
-                      <td><input name="serv" type="text" id="serv" value="<?php echo $data['s_num'];?>" / readonly=""></td>
+                      <td><input name="serv" type="text" id="serv" ></td>
                     </tr>
                     <tr>
                       <td><span class="style1 style3">Address</span></td>
                       <td>::</td>
-                      <td><input name="add" type="text" id="add" value="<?php echo $data['address'];?>" / readonly=""></td>
+                      <td><input name="add" type="text" id="add" ></td>
                     </tr>
                     <tr>
                       <td><span class="style1 style3">Mobile No </span></td>
                       <td>::</td>
                       <td><label>
-                        <input name="phone" type="text" id="phone" value="<?php echo $data['c_num'];?>" / readonly="">
+                        <input name="phone" type="text" id="phone" >
                       </label></td>
                     </tr>
                     <tr>
                       <td><span class="style1 style3">Village</span></td>
                       <td>::</td>
                       <td><label>
-                        <input name="vill" type="text" id="vill" value="<?php echo $data['v_name'];?>" / readonly="">
+                        <input name="vill" type="text" id="vill" >
                       </label></td>
                     </tr>
                     <tr>
@@ -147,7 +126,7 @@ else
                       <td height="73">&nbsp;</td>
                       <td>&nbsp;</td>
                       <td><label>
-                        <input type="submit" name="Submit" value="Feedback" onclick="alert();">
+                        <input type="submit" name="Submit" value="Feedback" / readonly="">
                       </label></td>
                     </tr>
                   </table>
