@@ -85,16 +85,19 @@ if(isset($_SESSION['uid'])=='')
                               <td><a href="animal.php">Read more</a></td>
                             </tr>
                           </table>
+						  <p>&nbsp; </p>
                       </div>
                     </div>
                   	<!-- /.box1 -->
                   </div>
               	  <div class="metam2">
                   	<!-- .box1 -->
-                  	<div class="box1">
+                  	<div class="box1" >
                     	<h2 align="center">Welcome </h2>
                         <h4 align="center" class="list1 style28">Hello Dear Farmer</h4>
-                        <h4 class="list1"> we welcome you to our site to feed up your needs with our all possible ways. </h4>                    </div>
+                        <p style="color:#99CC00; font-family:Georgia, 'Times New Roman', Times, serif; font-size:15px;"> we welcome you to our site to feed up your needs with our all possible ways. </p>                  
+						<p>&nbsp; </p>
+						</div>
                	  </div>
               	  <div class="metam3">
                   	<!-- .box1 -->
@@ -111,7 +114,7 @@ if(isset($_SESSION['uid'])=='')
 					{
 	  						?>
                           <tr>
-                            <td><?php echo $data['tittle'];?></td>
+                            <td style="color:#99CC00; font-family:Georgia, 'Times New Roman', Times, serif; font-size:15px;"><?php echo $data['tittle'];?></td>
                           </tr>
                           <?php
 						}
@@ -120,8 +123,8 @@ if(isset($_SESSION['uid'])=='')
                             <td><a href="news_all.php">Read More </a></td>
                           </tr>
                         </table>
-                    	<p>&nbsp; </p>
                   	</div>
+					  <p>&nbsp; </p>
                   	<!-- /.box1 -->
                   </div>
 				
@@ -130,44 +133,54 @@ if(isset($_SESSION['uid'])=='')
 					<div align="center" class="metam1">
 						<!-- .box1 -->
 						<div class="box1">
-							<h2 align="center" >Activities</h2>
-							<div class="img-box" style="height:150px;">
-							<p style="color:#99CC00; font-family:Georgia, 'Times New Roman', Times, serif; font-size:15px;"></span>For activities based on the location will be displayed, please navigate to below mentioned page.</span></p>
+							<h2 align="center">Activities</h2>
+							<p style="color:#99CC00; font-family:Georgia, 'Times New Roman', Times, serif; font-size:15px;">For activities based on the location will be displayed, please navigate to below mentioned page.</p>
 							<table width="80%" border="0">
                             <tr>
+							<p>&nbsp; </p>
+							<p>&nbsp; </p>
                               <td><a href="activities_all.php">Read more</a></td>
                             </tr>
                           </table>
-							<p>&nbsp; </p>
-						</div>
 						</div>
 						<!-- /.box1 -->
 					</div>
-					<div class="metam1">
+					<div class="metam2" >
 						<!-- .box1 -->
 						<div class="box1">
 							<h2>Weather</h2>
 							<table width="100%" height="164" border="0">
-							<tr>
-								<th scope="col"><span class="style25">Latest News </span></th>
-							</tr>
-							<?php
-								include("connect.php");
-								$q=mysqli_query($conn,"select * from news order by nid desc limit 3") or die ("query fail");
-								while($data=mysqli_fetch_array($q))
-								{
+								<tr>
+									<th>Location</th>
+									<th>Temperature in Celcius</th>
+									<th>Weather</th>
+								</tr>
+								<tr align="center">
+								<?php 
+								include("Texasweather.php");
 								?>
-							<tr>
-								<td><?php echo $data['tittle'];?></td>
-							</tr>
-							<?php
-								}
+									<td>  Texas  </td>
+								<?php
+									echo "<td>$temperature_in_celcius </td>";
+									echo "<td><img src='http://openweathermap.org/img/wn/" .$temperature_current_weather_icon. "@2x.png'/> </td>";	
 								?>
-							<tr>
-								<td><a href="news_all.php">Read More </a></td>
-							</tr>
+								</tr>						
+								<tr>
+								<tr align="center">
+								<?php 
+								include("Londonweather.php");
+								?>
+									<td>  London  </td>
+								<?php
+									echo "<td>$temperature_in_celcius </td>";
+									echo "<td><img src='http://openweathermap.org/img/wn/" .$temperature_current_weather_icon. "@2x.png'/> </td>";	
+								?>
+								</tr>	
+								</tr>
+								<tr>
+									<td></td>
+								</tr>
 							</table>
-							<p>&nbsp; </p>
 						</div>
 						<!-- /.box1 -->
 					</div>
