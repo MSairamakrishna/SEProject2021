@@ -46,9 +46,10 @@ header("location: myprofile.php ?msg= Feedback successfully added");
 						<li><a href="inquiry.php">Inquiry</a></li>
 						<?php
 						}?>
-						<li><a href="feedback.php" class="active"
+						<li><a href="guest_feedback.php" class="active"
 						>Feedback</a></li>
 						<li><a href="contact.php">Contact</a></li>
+            <li><a href="register.php">Registration</a></li>
 						<?php if(isset($_SESSION['uid'])=='')
 						{
 						?>

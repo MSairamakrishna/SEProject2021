@@ -43,6 +43,7 @@ if(isset($_SESSION['uid'])=='')
 					<?php
 						}?>
 						<li><a href="guest_feedback.php">Feedback</a></li>
+						<li><a href="register.php">Registration</a></li>
 						<li><a href="contact.php" class="active">Contact</a></li>
 						<?php if(isset($_SESSION['uid'])=='')
 						{

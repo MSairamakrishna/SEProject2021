@@ -7,7 +7,7 @@
 			<li><img src="images/header4.jpg" alt="" /></li>
 			<li><img src="images/header5.jpg" alt="" /></li>
 			<li><img src="images/header6.jpg" alt="" /></li>
-			<li><img src="images/header7.jpg" alt="" /></li>
+			<li><img src="images/header7.jpeg" alt="" /></li>
 			<li><img src="images/header8.jpg" alt="" /></li>
 			<li><img src="images/header9.jpg" alt="" /></li>
 </ul>
