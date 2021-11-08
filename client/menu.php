@@ -9,4 +9,5 @@
 					    <li><a href="login.php">Login</a></li>
                         <li><a href="logout.php">Logout</a></li>
 						<li><a href="guest_feedback.php">Feedback</a></li>
+						<li><a href="organicfarming.php" class="active">Farming</a></li>
 					</ul>

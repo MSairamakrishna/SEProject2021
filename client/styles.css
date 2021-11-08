@@ -65,6 +65,10 @@ body {
 	display: inline;
 }
 
+#organic ul li{
+	margin: 0px;
+}
+
 #menu ul li a{
 	font: Georgia, "Times New Roman", Times, serif; font-size:18px;
     color: #ffffff;
