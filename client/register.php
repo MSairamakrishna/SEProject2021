@@ -1,39 +1,42 @@
 <?php
+session_start();
 include("connect.php");
 if(isset($_REQUEST['perform'])=="true")
 {
-$fn=$_REQUEST['fn'];
-$mn=$_REQUEST['mn'];
-$ln=$_REQUEST['ln'];
-$name=$fn."-".$mn."-".$ln;
-$fid=$_REQUEST['id'];
+$bfname=$_REQUEST['fname'];
+$bmname=$_REQUEST['mname'];
+$lname=$_REQUEST['lname'];
+$name=$fname."-".$mname."-".$lname;
+$bid=$_REQUEST['buid'];
 $pd=$_REQUEST['pswd'];
 $age=$_REQUEST['age'];
+$sx=$_REQUEST['se'];
 $cntct=$_REQUEST['mobile'];
+$serv=$_REQUEST['surv'];
 $ad=$_REQUEST['add'];
-$dist=$_REQUEST['dist'];
-$tal=$_REQUEST['state'];
-$vill=$_REQUEST['vill'];
-$in=$_REQUEST['y_i'];
-$serv=$_REQUEST['serv'];
-$area=$_REQUEST['asn'];
+$loc=$_REQUEST['local'];
+$stt=$_REQUEST['state'];
+$prof=$_REQUEST['pro'];
+$inc=$_REQUEST['inco'];
+$fip=$_REQUEST['frinp'];
 $land=$_REQUEST['land'];
-$water=$_REQUEST['water'];
-
-$q1=mysqli_query($conn,"select * from register where f_id='$fid'") or die("QF");
-$q2=mysqli_query($conn,"select * from register where s_num='$serv'")or die ("QF");
+$chf=$_REQUEST['chaf'];
+$secq=$_REQUEST['secqu'];
+$seca=$_REQUEST['seca'];
+$q1=mysqli_query($conn,"select * from buyer where buyerid='$bid'") or die("QF");
+$q2=mysqli_query($conn,"select * from buyer where survey_no='$serv'")or die ("QF");
 	if(@mysqli_num_rows($q1)!= 0)		
 	{
 		$msg = "This ID  has been already taken";
 	}
 	else if(@mysqli_num_rows($q2)!=0)
 	{
-		$msg = "This servey number has been already registered";
+		$msg = "This survey number has been already registered";
 	}
 	else
 	{
-	mysqli_query($conn, "insert into register(f_name,f_id,password,age,c_num,address,d_name,t_name,v_name,y_income,s_num,area_of_serv_no,t_land,w_irrigation) values('$name','$fid','$pd','$age','$cntct','$ad','$dist','$tal','$vill','$in','$serv','$area','$land','$water')")or  die("qf");
-header("location: register.php ?msg=Registration has beeen done");
+		mysqli_query($conn, "insert into buyer(name,buyerid,password,age,sex,phone,survey_no,address,locality,state,profession,income,farming_in_practice,land_owned,challenges_faced,security_question,security_answer) values('$name','$bid','$pd','$age','$sx','$cntct','$serv','$ad','$loc','$stt','$prof','$inc','$fip','$land','$chf','$secq','$seca')") or die("qf");
+		header("location: register.php?msg=Account created successfully.");	
 	}
 }
 ?>
@@ -56,28 +59,22 @@ header("location: register.php ?msg=Registration has beeen done");
 <script language="javascript" type="text/javascript">
 function validate()
 {
-   if(document.getElementById('fn').value=="")
+   if(document.getElementById('fname').value=="")
     { 
 	   alert('please enter your first name');
-	   document.getElementById('fn').focus();
+	   document.getElementById('fname').focus();
 	   return false;
 	}
-	 if(document.getElementById('mn').value=="")
-    { 
-	   alert('please enter your middle name');
-	   document.getElementById('mn').focus();
-	   return false;
-	}
-	 if(document.getElementById('ln').value=="")
+	 if(document.getElementById('lname').value=="")
     { 
 	   alert('please enter your last name');
-	   document.getElementById('ln').focus();
+	   document.getElementById('lname').focus();
 	   return false;
 	}
-	if(document.getElementById('id').value=="")
+	if(document.getElementById('buid').value=="")
     { 
 	   alert('please enter your ID');
-	   document.getElementById('id').focus();
+	   document.getElementById('buid').focus();
 	   return false;
 	}
 	if(document.getElementById('pswd').value=="")
@@ -86,71 +83,101 @@ function validate()
 	   document.getElementById('pswd').focus();
 	   return false;
 	}
-	 if(document.getElementById('age').value=="")
+	if(document.getElementById('age').value=="")
     { 
 	   alert('please enter your age');
 	   document.getElementById('age').focus();
 	   return false;
 	}
-	 if(document.getElementById('mobile').value=="")
+	if(isNaN(document.getElementById('age').value))
+    { 
+	   alert('Age should be integer');
+	   document.getElementById('age').focus();
+	   return false;
+	}
+	if(document.getElementById('mobile').value=="")
     { 
 	   alert('please enter your contact number');
 	   document.getElementById('mobile').focus();
 	   return false;
 	}
-	 if(document.getElementById('add').value=="")
+	if(isNaN(document.getElementById('mobile').value))
+    { 
+	   alert('Mobile number should be integer');
+	   document.getElementById('mobile').focus();
+	   return false;
+	}
+	if(document.getElementById('surv').value=="")
+    { 
+	   alert('please enter your survey no.');
+	   document.getElementById('surv').focus();
+	   return false;
+	}
+	if(document.getElementById('add').value=="")
     { 
 	   alert('please enter your Address');
 	   document.getElementById('add').focus();
 	   return false;
 	}
-	 if(document.getElementById('dist').value=="Select Your District")
+	if(document.getElementById('local').value=="")
     { 
-	   alert('please enter your District');
-	   document.getElementById('dist').focus();
+	   alert('please enter your locality');
+	   document.getElementById('local').focus();
 	   return false;
 	}
-	 if(document.getElementById('state').value=="Select Your Taluka")
+	 if(document.getElementById('state').value=="")
     { 
-	   alert('please enter your Taluka');
+	   alert('please enter your State');
 	   document.getElementById('state').focus();
 	   return false;
 	}
-	 if(document.getElementById('vill').value=="")
+	 if(document.getElementById('pro').value=="")
     { 
-	   alert('please enter your village');
-	   document.getElementById('vill').focus();
+	   alert('please enter your profession');
+	   document.getElementById('pro').focus();
 	   return false;
 	}
-	 if(document.getElementById('y_i').value=="Select Your income")
+	 if(document.getElementById('inco').value=="Select Your income")
     { 
 	   alert('please enter your Yearly Income');
-	   document.getElementById('y_i').focus();
+	   document.getElementById('inco').focus();
 	   return false;
 	}
-	 if(document.getElementById('serv').value=="")
+	 if(document.getElementById('frinp').value=="")
     { 
-	   alert('please enter your Servey no');
-	   document.getElementById('serv').focus();
+	   alert('please enter your Farming in practice');
+	   document.getElementById('frinp').focus();
 	   return false;
 	}
-	 if(document.getElementById('asn').value=="")
+	if(document.getElementById('land').value=="")
     { 
-	   alert('please enter your area of servey no');
-	   document.getElementById('asn').focus();
-	   return false;
-	}
-	  if(document.getElementById('land').value=="Type of Land")
-    { 
-	   alert('please enter type of land you are using');
+	   alert('please enter your land owned in acres');
 	   document.getElementById('land').focus();
 	   return false;
 	}
-	 
-	 if(document.getElementById('water').value=="Water Irrigation Type")
+	if(isNaN(document.getElementById('land').value))
     { 
-	   alert('please enter water irrigation type');
-	   document.getElementById('water').focus();
+	   alert('Land owned should be integer');
+	   document.getElementById('land').focus();
+	   return false;
+	}
+	if(document.getElementById('chaf').value=="")
+    { 
+	   alert('please enter your challenges faced');
+	   document.getElementById('chaf').focus();
+	   return false;
+	}
+	  if(document.getElementById('secqu').value=="select your security question")
+    { 
+	   alert('please select your security question');
+	   document.getElementById('secqu').focus();
+	   return false;
+	}
+	 
+	 if(document.getElementById('seca').value=="")
+    { 
+	   alert('please enter you answer for security question');
+	   document.getElementById('seca').focus();
 	   return false;
 	}
 }
@@ -184,51 +211,6 @@ function getXMLHTTP()
 		}
 		 return xmlhttp;
 }
-	
-	
-function getState(countryId) 
-{		
-		
-		var strURL="findState.php?country="+countryId;
-		var req = getXMLHTTP();
-		
-		if (req) {
-			
-			req.onreadystatechange = function() {
-				if (req.readyState == 4) {
-					// only if "OK"
-					if (req.status == 200) {						
-						document.getElementById('statediv').innerHTML=req.responseText;						
-					} else {
-						alert("There was a problem while using XMLHTTP:\n" + req.statusText);
-					}
-				}				
-			}			
-			req.open("GET", strURL, true);
-			req.send(null);
-		}		
-	}
-	function getCity(countryId,stateId) {		
-		var strURL="findCity.php?country="+countryId+"&state="+stateId;
-		var req = getXMLHTTP();
-		
-		if (req) {
-			
-			req.onreadystatechange = function() {
-				if (req.readyState == 4) {
-					// only if "OK"
-					if (req.status == 200) {						
-						document.getElementById('citydiv').innerHTML=req.responseText;						
-					} else {
-						alert("There was a problem while using XMLHTTP:\n" + req.statusText);
-					}
-				}				
-			}			
-			req.open("GET", strURL, true);
-			req.send(null);
-		}
-				
-	}
 </script>
 
     <body>
@@ -248,6 +230,7 @@ function getState(countryId)
 						{?>
 						<li><a href="inquiry.php">Inquiry</a></li>
 						<li><a href="myprofile.php">Myprofile</a></li>
+						<li><a href="organicfarming.php">Farming</a></li>
 						<?php
 						}?>
 						<li><a href="contact.php">Contact</a></li>
@@ -298,135 +281,115 @@ function getState(countryId)
                         </tr></table></td>
                   </tr>
                    <tr>
-      <td height="56" colspan="3"><div align="center" class="style1">Register form </div>        <div align="center"></div>        <div align="center"></div></td>
+      <td height="56" colspan="3">
+	  <div align="center" class="style1">Create Account</div>        
+	  <div align="center"></div>       
+	<div align="center"></div></td>
     </tr>
     <tr>
 	
-      <td width="33%"><span class="style5">Farmer's Name</span></td>
-      <td width="1%"><div align="center">::</div></td>
+      <td width="33%"><span class="style5">Name</span></td>
       <td width="66%"><div align="left">
         <label>
-        <input name="fn" type="text" id="fn" />
+        <input name="fname" type="text" id="fname" />
         </label>
-        <input name="mn" type="text" id="mn" />
-        <input name="ln" type="text" id="ln" />
+        <input name="mname" type="text" id="mname" />
+        <input name="lname" type="text" id="lname" />
       </div></td>
     </tr>
     <tr>
-      <td height="31"><span class="style5">Farmer ID </span></td>
-      <td>::</td>
-      <td><input name="id" type="text" id="id" /></td>
+      <td height="31"><span class="style5">BuyerID </span></td>
+      <td><input name="buid" type="text" id="buid" /></td>
     </tr>
     <tr>
       <td height="31"><span class="style5">Password</span></td>
-      <td>::</td>
       <td><input name="pswd" type="password" id="pswd" /></td>
     </tr>
     <tr>
       <td height="31"><span class="style5">Age</span></td>
-      <td>::</td>
       <td><label>
         <input name="age" type="text" id="age" maxlength="3" />
       </label></td>
     </tr>
+	<tr>
+      <td height="31"><span class="style5">Sex</span></td>
+      <td><select name="se" id="se">
+        <option value="M" selected="selected">M</option>
+        <option value="F">F</option>
+      </select></td>
+    </tr>
     <tr>
       <td height="31"><span class="style5">Mobile no. </span></td>
-      <td>::</td>
       <td><input name="mobile" type="text" id="mobile" maxlength="10" /></td>
+    </tr>
+	<tr>
+      <td height="31"><span class="style5">Survey No. </span></td>
+      <td><input name="surv" type="text" id="surv" /></td>
     </tr>
     <tr>
       <td height="31"><span class="style5">Address</span></td>
-      <td><div align="center">::</div></td>
       <td><div align="left">
         <textarea name="add" id="add"></textarea>
       </div></td>
     </tr>
     <tr>
-      <td height="31"><span class="style5">District </span></td>
-      <td>::</td>
-      <td><select name="dist" id="dist" onChange="getState(this.value)">
-        <option value="Select Your District">Select Your District</option>
-        <?php
-		include("connect.php");
-		$q=mysqli_query($conn,"select * from  dist_mngt") or die ("QF");
-		while($data=mysqli_fetch_array($q))
-		{
-		?>
-		<option value="<?php echo $data['did'];?>"><?php echo $data['district'];?></option>
-        <?php
-		}
-		?>
-      </select></td>
+      <td height="31"><span class="style5">Locality </span></td>
+      <td><input name="local" type="text" id="local" /></td>
     </tr>
     <tr>
-      <td height="31"><span class="style5">Taluka</span></td>
-      <td>::</td>
-      <td>
-	  <div id="statediv"><select name="state" id="state">
-        <option value="Select Your Taluka" selected="selected">Select Your Taluka</option>
-         </select></div></td>
+      <td height="31"><span class="style5">State</span></td>
+	  <td><input name="state" type="text" id="state" />
+	  </td>
     </tr>
-    <tr>
-      <td height="31"><span class="style5">Village</span></td>
-      <td>::</td>
-      <td><label>
-        <input name="vill" type="text" id="vill" />
-      </label></td>
+	<tr>
+      <td height="31"><span class="style5">Profession</span></td>
+	  <td><input name="pro" type="text" id="pro" />
+	  </td>
     </tr>
     <tr>
       <td height="31"><span class="style5">Yearly income</span> </td>
-      <td>::</td>
-      <td><select name="y_i" id="y_i">
-        <option value="Select Your income">Select Your income</option>
+      <td><select name="inco" id="inco">
+        <option value="Select Your income" selected="selected">Select Your income</option>
         <option value="Less than 10000">Less than 10000</option>
-        <option value="10000-25000" selected="selected">10000-25000</option>
+        <option value="10000-25000" >10000-25000</option>
         <option value="25000-50000">25000-50000</option>
         <option value="50000-100000">50000-100000</option>
         <option value="More than 100000">More than 100000</option>
       </select></td>
     </tr>
     <tr>
-      <td height="31"><span class="style5">Servey no. </span></td>
-      <td>::</td>
-      <td><input name="serv" type="text" id="serv" />
-        <input name="textfield" type="text" value="Eg. 201" / readonly=""></td>
+      <td height="31"><span class="style5">Farming in Practice</span></td>
+	  <td><input name="frinp" type="text" id="frinp" />
+	  </td>
     </tr>
     <tr>
-      <td height="31"><span class="style5">Area of Servey no. (Sq.Km) </span></td>
-      <td>::</td>
-      <td><input name="asn" type="text" id="asn" /></td>
+      <td height="31"><span class="style5">Land Owned (Acres) </span></td>
+      <td><input name="land" type="text" id="land" /></td>
+    </tr>
+	<tr>
+      <td height="31"><span class="style5">Challenges Faced</span></td>
+      <td><input name="chaf" type="text" id="chaf" /></td>
     </tr>
     <tr>
-      <td height="31"><span class="style5">Type of Land</span> </td>
-      <td>::</td>
-      <td><select name="land" id="land">
-        <option value="Type of Land" selected="selected">Type of Land</option>
-        <option value="Black soil">Black soil</option>
-        <option value="Red soil">Red soil</option>
-        <option value="Desert soil">Desert soil</option>
-        <option value="Forest soil">Forest soil</option>
-        <option value="Residual sandy soil">Residual sandy soil</option>
-        <option value="Hill soil">Hill soil </option>
+      <td height="31"><span class="style5">Security Question</span> </td>
+      <td><select name="secqu" id="secqu">
+	  	<option value="select your security question" selected="selected">select your security question</option>
+        <option value="What is your school name" selected="selected">What is your school name</option>
+        <option value="What is your mother maiden name">What is your mother maiden name</option>
+        <option value="What is your pet name">what is your pet name</option>
+        <option value="What is your favorite movie">What is your favorite movie</option>
       </select></td>
     </tr>
-    <tr>
-      <td height="31"><span class="style5">Water irrigation type</span> </td>
-      <td>::</td>
-      <td><select name="water" id="water">
-        <option value="Water Irrigation Type" selected="selected">Water Irrigation Type</option>
-        <option value="Flood Irrigation">Flood Irrigation</option>
-        <option value="Spray Irrigation">Spray Irrigation</option>
-        <option value="Furrow Irrigation">Furrow Irrigation</option>
-        <option value="Drip Irrigation">Drip Irrigation</option>
-        <option value="Canal Irrigation">Canal Irrigation</option>
-      </select></td>
+	<tr>
+      <td height="31"><span class="style5">Security Answer</span></td>
+      <td><input name="seca" type="text" id="seca" /></td>
     </tr>
+	<tr>
+	<td>&nbsp;</td>
+	</tr>
     <tr>
-      <td height="24"><label>
-        <input name="submit2" type="reset" id="submit2" value="Reset" />
-      </label></td>
-      <td>&nbsp;</td>
-      <td><input name="register" type="submit" id="register" value="Register" /></td>
+	<td align="left"><input type="reset" name="reset" /></td>
+    <td align="left"><input type="submit" name="Submit" value="Create Account" /></td>
     </tr>
   </table>
 </form>

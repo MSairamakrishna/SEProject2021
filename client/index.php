@@ -10,6 +10,7 @@ if(isset($_SESSION['uid'])=='')
         <meta name="keywords" content="" />
         <meta name="description" content="" />
         <link href="styles.css" rel="stylesheet" type="text/css" media="screen" />
+		<link rel="stylesheet" class="fa" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style type="text/css">
 <!--
 .style22 {color: #99FF00}
@@ -23,7 +24,8 @@ if(isset($_SESSION['uid'])=='')
 .style27 {font-size: 13px}
 .style28 {color: #FF3333}
 -->
-        </style>
+</style>
+
 </head>
     <body>
     	<div id="wrap">
@@ -44,15 +46,16 @@ if(isset($_SESSION['uid'])=='')
 						
 						<li><a href="inquiry.php">Inquiry</a></li>
 						<li><a href="myprofile.php">Myprofile</a></li>
+						<li><a href="organicfarming.php">Farming</a></li>
 						<?php
 						}?>
-						<li><a href="contact.php">Contact</a></li>
 						<?php if(isset($_SESSION['uid'])=='')
 						{
 						?>
-						<li><a href="guest_feedback.php">Feedback</a></li>
 						<li><a href="register.php">Register</a></li>
 						<li><a href="login.php">Login</a></li>
+						<li><a href="guest_feedback.php">Feedback</a></li>
+						<li><a href="contact.php">Contact</a></li>
 						<?php
 						}
 						else
@@ -134,10 +137,11 @@ if(isset($_SESSION['uid'])=='')
 						<!-- .box1 -->
 						<div class="box1">
 							<h2 align="center">Activities</h2>
-							<p style="color:#99CC00; font-family:Georgia, 'Times New Roman', Times, serif; font-size:15px;">For activities based on the location will be displayed, please navigate to below mentioned page.</p>
+							<p style="color:#99CC00; font-family:Georgia, 'Times New Roman', Times, serif; font-size:15px;">Activities based on the location will be displayed, please navigate to below mentioned page.</p>
+							<p style="color:#99CC00; font-family:Georgia, 'Times New Roman', Times, serif; font-size:15px;">Specific activities like government schemes, gatherings, seed distribution will be shown </p>
+							<p style="color:#99CC00; font-family:Georgia, 'Times New Roman', Times, serif; font-size:15px;">Major locations like Texas, California details are shown. </p>							
 							<table width="80%" border="0">
                             <tr>
-							<p>&nbsp; </p>
 							<p>&nbsp; </p>
                               <td><a href="activities_all.php">Read more</a></td>
                             </tr>
@@ -181,6 +185,30 @@ if(isset($_SESSION['uid'])=='')
 									<td></td>
 								</tr>
 							</table>
+						</div>
+						<!-- /.box1 -->
+					</div>
+					<div class="metam3" >
+						<!-- .box1 -->
+						<div class="box1">
+							<h2>Social Media</h2>
+							<table width="100%" height="164" border="0">
+
+								<tr>
+									<th align="center" colspan="3"><a href="https://www.facebook.com/" class="fa fa-facebook"></a></th>
+								</tr>
+								<tr>
+									<th align="center" colspan="3"><a href="https://www.instagram.com/" class="fa fa-instagram"></a></th>
+								</tr>
+								<tr>
+									<th align="center" colspan="3"><a href="https://twitter.com/?lang=en" class="fa fa-twitter"></a></th>
+								</tr>
+								<tr>
+									<th align="center" colspan="3"><a href="https://www.youtube.com/" class="fa fa-youtube"></a></th>
+								</tr>
+							</table>
+							<p>&nbsp; </p>
+							<p>&nbsp; </p>
 						</div>
 						<!-- /.box1 -->
 					</div>

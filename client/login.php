@@ -5,8 +5,8 @@ if(isset($_REQUEST['login'])=="true")
 include("connect.php");
 $un=$_REQUEST['id'];
 $pass=$_REQUEST['ps'];
-$q=mysqli_query($conn, "SELECT * FROM register 
-where f_id='$un' and password='$pass'") or die("qf");
+$q=mysqli_query($conn, "SELECT * FROM buyer 
+where buyerid='$un' and password='$pass'") or die("qf");
 if(mysqli_num_rows($q))
 {
    $data=mysqli_fetch_array($q);
@@ -56,6 +56,7 @@ header("location:login.php? msg=Your ID or Password may be wrong");
 						<li><a href="feedback.php">Feedback</a></li>
 						<li><a href="inquiry.php">Inquiry</a></li>
 						<li><a href="myprofile.php">Myprofile</a></li>
+						<li><a href="organicfarming.php">Farming</a></li>
 						<?php
 						}?>
 						<li><a href="guest_feedback.php">Feedback</a></li>

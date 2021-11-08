@@ -53,6 +53,7 @@ else
 						{?>
 						<li><a href="myprofile.php">Myprofile</a></li>
 						<li><a href="inquiry.php">Inquiry</a></li>
+            <li><a href="organicfarming.php">Farming</a></li>
 						<?php
 						}?>
 						<li><a href="feedback.php" class="active"
@@ -87,7 +88,7 @@ else
                   <?php
      include("connect.php");
      $id=$_SESSION['uid'];
-     $q=mysqli_query($conn,"select * from register where id=$id");
+     $q=mysqli_query($conn,"select * from buyer where buyerid=$id");
      $data=mysqli_fetch_array($q);
     ?>
                   <table width="575" height="538" align="center"  style="border-style: double; border-color: #000000; font-family:Georgia, 'Times New Roman', Times, serif;">

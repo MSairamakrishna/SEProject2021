@@ -73,10 +73,10 @@ else
 		      <?php
 	include("connect.php");	
 	$i=1;
-	$sql2 = "select * from register";
+	$sql2 = "select * from buyer";
 	$fetch = mysqli_query($conn,$sql2) or die("query failed");
 	$nume = mysqli_num_rows($fetch);
-	$sql_group=mysqli_query($conn,"select * from register order by id desc limit $eu,$limit ");
+	$sql_group=mysqli_query($conn,"select * from buyer order by id desc limit $eu,$limit ");
 	if(mysqli_num_rows($sql_group)>0)
 	{
 	$n=0;

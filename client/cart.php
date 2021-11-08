@@ -61,14 +61,15 @@ switch($_GET["action"]) {
 						<?php if(isset($_SESSION['uid'])!='')
 						{
 						?>
-						<li><a href="cart.php">Cart</a></li>
+						<li><a href="cart.php" class="active" >Cart</a></li>
 						<?php
 						}
 						?>
 						<?php if(isset($_SESSION['uid'])!='')
 						{?>
-						<li><a href="myprofile.php" class="active">Myprofile</a></li>
+						<li><a href="myprofile.php">Myprofile</a></li>
 						<li><a href="inquiry.php">Inquiry</a></li>
+						<li><a href="organicfarming.php">Farming</a></li>
 						<?php
 						}?>
 						<li><a href="feedback.php">Feedback</a></li>

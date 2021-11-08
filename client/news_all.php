@@ -43,6 +43,7 @@ session_start();
 						
 						<li><a href="inquiry.php">Inquiry</a></li>
 						<li><a href="myprofile.php">Myprofile</a></li>
+						<li><a href="organicfarming.php">Farming</a></li>
 						<?php
 						}?>
 						

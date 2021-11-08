@@ -187,36 +187,38 @@ INSERT INTO `activities` (`aid`, `location`, `description`) VALUES
 
 -- --------------------------------------------------------
 --
--- Table structure for table `register`
+-- Table structure for table `buyer`
 --
 
-CREATE TABLE IF NOT EXISTS `register` (
+CREATE TABLE IF NOT EXISTS `buyer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `f_name` text NOT NULL,
-  `f_id` varchar(20) NOT NULL,
+  `name` text NOT NULL,
+  `buyerid` varchar(20) NOT NULL UNIQUE,
   `password` varchar(15) NOT NULL,
   `age` int(3) NOT NULL,
-  `c_num` varchar(13) NOT NULL,
+  `sex` varchar(1) NOT NULL,
+  `phone` bigint NOT NULL,
+  `survey_no` VARCHAR(10) NOT NULL,
   `address` varchar(30) NOT NULL,
-  `d_name` varchar(15) NOT NULL,
-  `t_name` varchar(15) NOT NULL,
-  `v_name` varchar(15) NOT NULL,
-  `y_income` varchar(25) NOT NULL,
-  `s_num` varchar(10) NOT NULL,
-  `area_of_serv_no` varchar(10) NOT NULL,
-  `t_land` varchar(20) NOT NULL,
-  `w_irrigation` varchar(20) NOT NULL,
-  `total` int(20) NOT NULL,
+  `locality` varchar(15) NOT NULL,
+  `state` varchar(15) NOT NULL,
+  `profession` varchar(15) NOT NULL,
+  `income` VARCHAR(20) NOT NULL,
+  `farming_in_practice` varchar(10) NOT NULL,
+  `land_owned` varchar(10) NOT NULL,
+  `challenges_faced` varchar(20) NOT NULL,
+  `security_question` varchar(50) NOT NULL,
+  `security_answer` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `register`
+-- Dumping data for table `buyer`
 --
 
-INSERT INTO `register` (`id`, `f_name`, `f_id`, `password`, `age`, `c_num`, `address`, `d_name`, `t_name`, `v_name`, `y_income`, `s_num`, `area_of_serv_no`, `t_land`, `w_irrigation`, `total`) VALUES
-(1, 'Prem Kumar', 'prem', '123', 21, '8681885569', 'Nuzvid', '12', '13', 'Nuzvid', '10000-25000', '407', '12540', 'Black soil', 'Spray Irrigation', 0),
-(2, 'Sai ram', 'sai', '123', 21, '8681885569', 'gghg', '1', '1', 'konhhn', '10000-25000', '402', '12500', 'Black soil', 'Flood Irrigation', 0);
+INSERT INTO `buyer` (`id`, `name`, `buyerid`, `password`, `age`, `sex`, `phone`,`survey_no`, `address`, `locality`, `state`, `profession`, `income`, `farming_in_practice`, `land_owned`, `challenges_faced`,`security_question`,`security_answer`) VALUES
+(1, 'Manoj', 'man12', '123', 21, 'M', 8765487654,'101/24', 'Stella street', 'Denton', 'Texas', 'farmer', '10000-25000', 'paddy', '5', 'NA','What is your pet name ','puppy'),
+(2, 'Sai ram', 'sai14', '123', 21, 'M', 9123491234, '125/5a','Hickory street', 'Denton', 'Texas', 'engineer', '10000-25000', 'watermelon', '20', 'Irrigation issue','what is your school name','sai vignan');
 
 -----------------------------------------------------------
 

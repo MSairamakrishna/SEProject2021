@@ -6,7 +6,7 @@ if(isset($_SESSION['admin'])=="")
 }
 include("connect.php");
 $i=$_REQUEST['did'];
-mysqli_query($conn,"delete from register where id=$i") or die ("query fail");
+mysqli_query($conn,"delete from buyer where id=$i") or die ("query fail");
 header("location: show_user.php?msg=data are deleted...");
 
 ?>
