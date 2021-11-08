@@ -53,6 +53,7 @@ else
 						{?>
 						<li><a href="myprofile.php">Myprofile</a></li>
 						<li><a href="inquiry.php">Inquiry</a></li>
+            <li><a href="organicfarming.php" class="active">Farming</a></li>
 						<?php
 						}?>
 						<li><a href="feedback.php" class="active"
