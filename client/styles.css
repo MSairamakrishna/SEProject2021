@@ -78,10 +78,6 @@ body {
 	line-height: 61px;
 }
 
-#organic ul li{
-	margin: 0px;
-}
-
 #menu ul li a:hover,  #menu ul li .active{
 	background: url(images/active.png) center;
 }
