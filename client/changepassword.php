@@ -16,7 +16,7 @@ $secans = mysqli_query($conn,"select * from buyer where buyerid='$bid' and secur
 if(mysqli_num_rows($secans))
 {
     mysqli_query($conn,"update buyer set password='$pd' where buyerid='$bid'") or die ("QF");
-    header("location: prod.php?msg=Password updated successfully");
+    header("location: changepassword.php?msg=Password updated successfully");
 
 }
 else
