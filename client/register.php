@@ -3,10 +3,7 @@ session_start();
 include("connect.php");
 if(isset($_REQUEST['perform'])=="true")
 {
-$bfname=$_REQUEST['fname'];
-$bmname=$_REQUEST['mname'];
-$lname=$_REQUEST['lname'];
-$name=$fname."-".$mname."-".$lname;
+$name=$_REQUEST['fname'];
 $bid=$_REQUEST['buid'];
 $pd=$_REQUEST['pswd'];
 $age=$_REQUEST['age'];
@@ -35,7 +32,7 @@ $q2=mysqli_query($conn,"select * from buyer where survey_no='$serv'")or die ("QF
 	}
 	else
 	{
-		mysqli_query($conn, "insert into buyer(name,buyerid,password,age,sex,phone,survey_no,address,locality,state,profession,income,farming_in_practice,land_owned,challenges_faced,security_question,security_answer) values('$name','$bid','$pd','$age','$sx','$cntct','$serv','$ad','$loc','$stt','$prof','$inc','$fip','$land','$chf','$secq','$seca')") or die("qf");
+		mysqli_query($conn, "insert into buyer(name,buyerid,password,age,sex,phone,survey_no,address,locality,state,profession,income,farming_in_practice,land_owned,challenges_faced,security_question,security_answer) values('$name','$bid','$pd',$age,'$sx',$cntct,'$serv','$ad','$loc','$stt','$prof','$inc','$fip',$land,'$chf','$secq','$seca')") or die("qf");
 		header("location: register.php?msg=Account created successfully.");	
 	}
 }
@@ -95,7 +92,7 @@ function validate()
 	   document.getElementById('age').focus();
 	   return false;
 	}
-	if(document.getElementById('mobile').value=="")
+	 if(document.getElementById('mobile').value=="")
     { 
 	   alert('please enter your contact number');
 	   document.getElementById('mobile').focus();
@@ -293,8 +290,6 @@ function getXMLHTTP()
         <label>
         <input name="fname" type="text" id="fname" />
         </label>
-        <input name="mname" type="text" id="mname" />
-        <input name="lname" type="text" id="lname" />
       </div></td>
     </tr>
     <tr>
@@ -312,7 +307,7 @@ function getXMLHTTP()
       </label></td>
     </tr>
 	<tr>
-      <td height="31"><span class="style5">Sex</span></td>
+      <td height="31"><span class="style5">Sex</span> </td>
       <td><select name="se" id="se">
         <option value="M" selected="selected">M</option>
         <option value="F">F</option>
@@ -351,7 +346,7 @@ function getXMLHTTP()
       <td><select name="inco" id="inco">
         <option value="Select Your income" selected="selected">Select Your income</option>
         <option value="Less than 10000">Less than 10000</option>
-        <option value="10000-25000" >10000-25000</option>
+        <option value="10000-25000">10000-25000</option>
         <option value="25000-50000">25000-50000</option>
         <option value="50000-100000">50000-100000</option>
         <option value="More than 100000">More than 100000</option>
@@ -374,7 +369,7 @@ function getXMLHTTP()
       <td height="31"><span class="style5">Security Question</span> </td>
       <td><select name="secqu" id="secqu">
 	  	<option value="select your security question" selected="selected">select your security question</option>
-        <option value="What is your school name" selected="selected">What is your school name</option>
+        <option value="What is your school name" >What is your school name</option>
         <option value="What is your mother maiden name">What is your mother maiden name</option>
         <option value="What is your pet name">what is your pet name</option>
         <option value="What is your favorite movie">What is your favorite movie</option>
