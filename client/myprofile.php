@@ -82,7 +82,7 @@ header("location:login.php ?msg=PLZ log in First");
             <tr>
               <td height="47" colspan="3"><table width="100%" height="36" border="0">
                 <tr>
-                  <td width="34%" bgcolor="#CCFF99"><span class="style2">WELCOME--------</span><span class="style2"><?php echo      "               " ;echo $data['f_name'];?></span></td>
+                  <td width="34%" bgcolor="#CCFF99"><span class="style2">Welcome </span><span class="style2"><?php echo      "               " ;echo $data['f_name'];?></span></td>
                   <td width="66%" bgcolor="#CCFF99"><span style="background-color:#CCFF99; font:Georgia, 'Times New Roman', Times, serif; font-size:18px; color:#990033;">
                     <?php 
 	                      if(isset($_REQUEST['msg'])!="")

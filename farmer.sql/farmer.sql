@@ -218,39 +218,6 @@ INSERT INTO `register` (`id`, `f_name`, `f_id`, `password`, `age`, `c_num`, `add
 (1, 'Prem Kumar', 'prem', '123', 21, '8681885569', 'Nuzvid', '12', '13', 'Nuzvid', '10000-25000', '407', '12540', 'Black soil', 'Spray Irrigation', 0),
 (2, 'Sai ram', 'sai', '123', 21, '8681885569', 'gghg', '1', '1', 'konhhn', '10000-25000', '402', '12500', 'Black soil', 'Flood Irrigation', 0);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `s_prod`
---
-
-CREATE TABLE IF NOT EXISTS `s_prod` (
-  `sid` int(11) NOT NULL AUTO_INCREMENT,
-  `m_pro` varchar(20) NOT NULL,
-  `sp_name` varchar(20) NOT NULL,
-  PRIMARY KEY (`sid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
-
---
--- Dumping data for table `s_prod`
---
-
-INSERT INTO `s_prod` (`sid`, `m_pro`, `sp_name`) VALUES
-(1, 'Crop', 'Bajra'),
-(2, 'Crop', 'Wheat'),
-(3, 'Crop', 'Rice'),
-(4, 'Crop', 'Cotton'),
-(5, 'Crop', 'Sugarcane'),
-(6, 'Crop', 'Tobacco'),
-(7, 'Crop', 'Potato'),
-(8, 'Crop', 'Mango'),
-(9, 'Crop', 'Tomato'),
-(10, 'Pesticides', 'ShooterSc'),
-(11, 'Pesticides', 'Multibloom(FLR-06)'),
-(12, 'Pesticides', 'Deltame Therin Raven'),
-(13, 'Pesticides', 'Adsufan'),
-(14, 'Pesticides', 'Jel-kill-v');
-
 -----------------------------------------------------------
 
 --
