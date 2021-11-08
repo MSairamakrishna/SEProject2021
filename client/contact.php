@@ -27,27 +27,28 @@ if(isset($_SESSION['uid'])=='')
 		        <div id="menu">
 					<ul>
 						<li><a href="index.php">Home</a></li>
-						<?php if(isset($_SESSION['uid'])!='')
+						<?php if (isset($_SESSION['uid'])!='')
 						{
 						?>
-						<li><a href="cart.php" >Cart</a></li>
+						<li><a href="cart.php">Cart</a></li>
+						<li><a href="feedback.php">Feedback</a></li>
 						<?php
 						}
 						?>
+						
 						<?php if(isset($_SESSION['uid'])!='')
 						{?>
+						
+						<li><a href="inquiry.php">Inquiry</a></li>
 						<li><a href="myprofile.php">Myprofile</a></li>
-	
-					<li><a href="inquiry.php">Inquiry</a></li>
-	
-					<?php
+						<?php
 						}?>
-						<li><a href="guest_feedback.php">Feedback</a></li>
-						<li><a href="register.php">Registration</a></li>
 						<li><a href="contact.php" class="active">Contact</a></li>
 						<?php if(isset($_SESSION['uid'])=='')
 						{
 						?>
+						<li><a href="guest_feedback.php">Feedback</a></li>
+						<li><a href="register.php">Register</a></li>
 						<li><a href="login.php">Login</a></li>
 						<?php
 						}

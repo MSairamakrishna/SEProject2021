@@ -49,7 +49,7 @@ header("location: myprofile.php ?msg= Feedback successfully added");
 						<li><a href="guest_feedback.php" class="active"
 						>Feedback</a></li>
 						<li><a href="contact.php">Contact</a></li>
-            <li><a href="register.php">Registration</a></li>
+            <li><a href="register.php">Register</a></li>
 						<?php if(isset($_SESSION['uid'])=='')
 						{
 						?>

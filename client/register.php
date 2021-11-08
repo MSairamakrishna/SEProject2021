@@ -243,7 +243,7 @@ function getState(countryId)
 						<?php
 						}
 						?>
-						<li><a href="register.php" class="active">Registration</a></li>
+						<li><a href="register.php" class="active">Register</a></li>
 						<?php if(isset($_SESSION['uid'])!='')
 						{?>
 						<li><a href="inquiry.php">Inquiry</a></li>

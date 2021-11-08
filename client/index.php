@@ -51,7 +51,7 @@ if(isset($_SESSION['uid'])=='')
 						{
 						?>
 						<li><a href="guest_feedback.php">Feedback</a></li>
-						<li><a href="register.php">Registration</a></li>
+						<li><a href="register.php">Register</a></li>
 						<li><a href="login.php">Login</a></li>
 						<?php
 						}

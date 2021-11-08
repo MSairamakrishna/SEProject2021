@@ -50,7 +50,7 @@ header("location:login.php? msg=Your ID or Password may be wrong");
 						<?php
 						}
 						?>
-						<li><a href="register.php">Registration</a></li>
+						<li><a href="register.php">Register</a></li>
 						<?php if(isset($_SESSION['uid'])!='')
 						{?>
 						<li><a href="feedback.php">Feedback</a></li>
