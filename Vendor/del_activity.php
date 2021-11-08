@@ -6,6 +6,6 @@ if(isset($_SESSION['admin'])=="")
 }
 include("connect.php");
 $i=$_REQUEST['did'];
-$q=mysqli_query($conn,"delete from activity where aid=$i") or die ("query fail");
+$q=mysqli_query($conn,"delete from activities where aid=$i") or die ("query fail");
 header("location:show_activity.php?msg=activity is deleted...")
 ?>

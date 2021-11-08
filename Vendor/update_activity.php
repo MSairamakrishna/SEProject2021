@@ -11,7 +11,7 @@ if(isset($_SESSION['admin'])=="")
 	$t=$_REQUEST['t1'];
 	$d=$_REQUEST['t2'];
 	 
-	mysqli_query($conn,"update activity set location='$t',description='$d' where aid=$i") or die ("query fail");
+	mysqli_query($conn,"update activities set location='$t',description='$d' where aid=$i") or die ("query fail");
 	
 	header("location:show_activity.php?msg=Activities are Updated...");
 }
@@ -46,7 +46,7 @@ if(isset($_SESSION['admin'])=="")
     <td width="74%"><?php 
 		include("connect.php");
 		$i=$_REQUEST['uid'];
-		$q=mysqli_query($conn,"select * from activity where aid=$i") or die ("query fail");
+		$q=mysqli_query($conn,"select * from activities where aid=$i") or die ("query fail");
 		$data=mysqli_fetch_array($q);
 	?>
         <form id="form1" name="form1" method="post" action="">

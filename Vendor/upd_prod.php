@@ -8,10 +8,16 @@ if(isset($_REQUEST['update'])=="true")
 {
 include("connect.php");
 $i=$_REQUEST['upid'];
-$m=$_REQUEST['mp'];
-$s=$_REQUEST['sp'];
-mysqli_query($conn,"update s_prod set m_pro='$m', sp_name='$s' where sid=$i") or die ("QF");
-header("location: prod.php?msg=Product has Updated sucessfully");
+$na=$_REQUEST['nm'];
+$co=$_REQUEST['cd'];
+$im=$_REQUEST['img'];
+$qu=$_REQUEST['qun'];
+$qua=$_REQUEST['qual'];
+$ct=$_REQUEST['cat'];
+$pr=$_REQUEST['pri'];
+
+mysqli_query($conn,"update product set name='$na',code='$co',image='$na',quantity='$qu',quality='$qua', category='$ct',price='$pr' where id=$i") or die ("QF");
+header("location: prod.php?msg=Product has Updated successfully");
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -23,11 +29,46 @@ header("location: prod.php?msg=Product has Updated sucessfully");
 <script language="javascript" type="text/javascript">
 function validate()
 {
-  
-	if(document.getElementById('mp').value=="Select Product")
+   if(document.getElementById('nm').value=="")
     { 
-	   alert('plz select product you want to update');
-	   document.getElementById('mp').focus();
+	   alert('Please enter Name');
+	   document.getElementById('nm').focus();
+	   return false;
+	}
+	 if(document.getElementById('cd').value=="")
+    { 
+	   alert('Please enter Code');
+	   document.getElementById('cd').focus();
+	   return false;
+	}
+  if(document.getElementById('img').value=="")
+    { 
+	   alert('Please enter Image Path');
+	   document.getElementById('img').focus();
+	   return false;
+	}
+	if(document.getElementById('qun').value=="")
+    { 
+	   alert('Please enter quantity');
+	   document.getElementById('qun').focus();
+	   return false;
+	}
+	if(document.getElementById('qual').value=="Select Quality")
+    { 
+	   alert('Please select quality');
+	   document.getElementById('qual').focus();
+	   return false;
+	}
+	if(document.getElementById('cat').value=="Select Category")
+    { 
+	   alert('Please select category');
+	   document.getElementById('cat').focus();
+	   return false;
+	}
+  if(document.getElementById('pri').value=="")
+    { 
+	   alert('Please enter price');
+	   document.getElementById('pri').focus();
 	   return false;
 	}
 	
@@ -50,29 +91,54 @@ function validate()
 	<?php
 	include("connect.php");
 	$i=$_REQUEST['uid'];
-	$q=mysqli_query($conn,"select * from s_prod where sid=$i") or die ("QF");
+	$q=mysqli_query($conn,"select * from product where id=$i") or die ("QF");
 	$data=mysqli_fetch_array($q);
 	?>
 	<form id="form1" name="form1" method="post" action="" onsubmit="return validate();">
 	<input type="hidden" name="update" value="true" />
-	<input type="hidden" name="upid" value="<?php echo $data['sid'];?>" />
-	  <table width="100%" border="1" align="center" class="table">
+	<input type="hidden" name="upid" value="<?php echo $data['id'];?>" />
+	  <table width="50%" border="1" align="center" class="table">
         <tr>
-          <td colspan="3" class="font">Update New Product </td>
+          <td colspan="3" class="font">Update Product </td>
         </tr>
         <tr>
-          <td width="43%" class="font">Select Main Product </td>
-          <td width="4%" class="font">::</td>
-          <td width="53%" class="font"><select name="mp" id="mp">
-              <option value="Select Product" selected="selected">Select Product</option>
-              <option value="Crop">Crop</option>
-              <option value="Pesticides">Pesticides</option>
-            </select>          </td>
+          <td class="font">  Name </td>
+          <td class="font"><input name="nm" type="text" id="nm" size="30" value="<?php echo $data['name'];?>"/></td>
+        </tr> 
+        <tr>
+          <td class="font"> Code </td>
+          <td class="font"><input name="cd" type="text" id="cd" size="30" value="<?php echo $data['code'];?>"/></td>
+        </tr> 
+        <tr>
+          <td class="font"> Image path </td>
+          <td class="font"><input name="img" type="text" id="img" size="30" value="<?php echo $data['image'];?>"/></td>
+        </tr> 
+        <tr>
+          <td class="font"> Quantity </td>
+          <td class="font"><input name="qun" type="text" id="qun" size="30" value="<?php echo $data['quantity'];?>"/></td>
         </tr>
         <tr>
-          <td class="font">Name Of Sub Product </td>
-          <td class="font">::</td>
-          <td class="font"><input name="sp" type="text" id="sp" size="30"  value="<?php echo $data['sp_name'];?>"/></td>
+          <td width="50%" class="font">Quality </td>
+          <td width="50%" class="font"><select name="qual" id="qual">
+            <option value="<?php echo $data['quality'];?>" selected="selected"><?php echo $data['quality'];?></option>
+            <option value="High">High</option>
+            <option value="Moderate">Moderate</option>
+          </select>          </td>
+        </tr>
+        <tr>
+          <td width="50%" class="font">Category </td>
+          <td width="50%" class="font"><select name="cat" id="cat">
+            <option value="<?php echo $data['category'];?>" selected="selected"><?php echo $data['category'];?></option>
+            <option value="fruit">Fruits</option>
+            <option value="vegetable">Vegetables</option>
+            <option value="seed">Seed</option>
+            <option value="pesticide">Pesticide</option>
+          </select>          
+          </td>
+        </tr>
+        <tr>
+          <td class="font">Price</td>
+          <td class="font"><input name="pri" type="text" id="pri" size="30" value="<?php echo $data['price'];?>"/></td>
         </tr>
         <tr>
           <td>&nbsp;</td>

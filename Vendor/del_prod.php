@@ -6,6 +6,13 @@ if(isset($_SESSION['admin'])=='')
 }
 include("connect.php");
 $id=$_REQUEST['did'];
-mysqli_query($conn,"delete from s_prod where sid=$id");
-header("location: prod.php?msg=Product has Deleted sucessfully");
+$query=mysqli_query($conn,"delete from product where sid=$id");
+if($query)
+{
+	header("location: prod.php?msg=Product has Deleted successfully");
+} 
+else 
+{
+	header("location: prod.php?msg=Product can't be deleted");
+}
 ?>

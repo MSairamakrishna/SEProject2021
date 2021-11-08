@@ -42,34 +42,6 @@ INSERT INTO `admin` (`aid`, `a_login`, `a_password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dist_mngt`
---
-
-CREATE TABLE IF NOT EXISTS `dist_mngt` (
-  `did` int(11) NOT NULL AUTO_INCREMENT,
-  `district` varchar(20) NOT NULL,
-  PRIMARY KEY (`did`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
-
---
--- Dumping data for table `dist_mngt`
---
-
-INSERT INTO `dist_mngt` (`did`, `district`) VALUES
-(1, 'Kadapa'),
-(2, 'Chittoor'),
-(3, 'Kurnool'),
-(5, 'Nellore'),
-(6, 'Guntur'),
-(7, 'Vishakapatnam'),
-(12, 'Krishna'),
-(9, 'East Godavari'),
-(10, 'West Godavari'),
-(11, 'Anantapur');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `feedback`
 --
 
@@ -100,46 +72,6 @@ INSERT INTO `feedback` (`id`, `f_id`, `serv_no`, `address`, `phone`, `village`, 
 (10, 'prem', '407', 'bhbhbhjb', '6661614611', 'Nuzvid',`guest`, 'nnknkn'),
 (11, 'prashant', '201', 'Bobbili', '8681885569', '',`guest`, 'JBJHVBICG'),
 (12, 'prashant', '201', 'Bobbili', '8681885569', '',`buyer`, 'jbhbjjjb');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `god_mngt`
---
-
-CREATE TABLE IF NOT EXISTS `god_mngt` (
-  `gid` int(11) NOT NULL AUTO_INCREMENT,
-  `taluka` varchar(20) NOT NULL,
-  `godown_name` varchar(20) NOT NULL,
-  `stock` varchar(10) NOT NULL,
-  PRIMARY KEY (`gid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
-
---
--- Dumping data for table `god_mngt`
---
-
-INSERT INTO `god_mngt` (`gid`, `taluka`, `godown_name`, `stock`) VALUES
-(1, 'Kodur', 'Kodur G-1', '500'),
-(2, 'Rajampet', 'Rajampet G-2', '640'),
-(3, 'Tirupati', 'Tirupati G-1', '450'),
-(7, 'Renigunta', 'Renigunta G-2', '600'),
-(6, 'Dhone', 'Dhone G-2', '700'),
-(8, 'Nandyal', 'Nandyal G-1', '550'),
-(9, 'Kavali', 'Kavali G-1', '590'),
-(10, 'Gudur', 'Gudur G-2', '400'),
-(11, 'Amaravati', 'Amaravati G-1', '600'),
-(12, 'Tenali', 'Tenali G-2', '650'),
-(13, 'Bobbili', 'Bobbili G-1', '582'),
-(14, 'Vizag', 'Vizag G-2', '820'),
-(15, 'Nuzvid', 'Nuzvid G-1', '541'),
-(16, 'Vijayawada', 'Vijayawada G-2', '580'),
-(17, 'Tuni', 'Tuni G-1', '740'),
-(18, 'Rajahmundry', 'Rajahmundry G-2', '670'),
-(19, 'Attili', 'Attili G-1', '860'),
-(20, 'Bhimavaram', 'Bhimavaram G-2', '647'),
-(21, 'Atmakur', 'Atmakur G-1', '850'),
-(22, 'Guntakal', 'Guntakal G-2', '250		 			 ');
 
 -- --------------------------------------------------------
 
@@ -319,104 +251,41 @@ INSERT INTO `s_prod` (`sid`, `m_pro`, `sp_name`) VALUES
 (13, 'Pesticides', 'Adsufan'),
 (14, 'Pesticides', 'Jel-kill-v');
 
--- --------------------------------------------------------
+-----------------------------------------------------------
 
 --
--- Table structure for table `transfer`
+-- Table structure for table `product`
 --
 
-CREATE TABLE IF NOT EXISTS `transfer` (
-  `tid` int(11) NOT NULL AUTO_INCREMENT,
-  `ftaluka` varchar(25) NOT NULL,
-  `fgodown` varchar(25) NOT NULL,
-  `ttaluka` varchar(25) NOT NULL,
-  `tgodown` varchar(25) NOT NULL,
-  `product` varchar(15) NOT NULL,
-  `sub_product` varchar(20) NOT NULL,
-  `tones` varchar(10) NOT NULL,
-  PRIMARY KEY (`tid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
-
---
--- Dumping data for table `transfer`
---
-
-INSERT INTO `transfer` (`tid`, `ftaluka`, `fgodown`, `ttaluka`, `tgodown`, `product`, `sub_product`, `tones`) VALUES
-(5, 'Nuzvid', 'g2', 'Madhavpur', 'g5', 'Crop', 'oxydiogen', '25'),
-(4, 'Somnath', 'g2', 'Nuzvid', 'g1', 'Crop', 'uhsda', '5'),
-(6, 'Nuzvid', 'G2', 'ramapuram', 'g2', 'Crop', 'wheet', '10'),
-(7, 'ramapuram', 'g2', 'ramapuram', 'g3', 'Crop', 'Bajari', '120');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `village_mngt`
---
-
-CREATE TABLE IF NOT EXISTS `village_mngt` (
-  `vid` int(11) NOT NULL AUTO_INCREMENT,
-  `did` int(10) NOT NULL,
-  `village` varchar(20) NOT NULL,
-  PRIMARY KEY (`vid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
-
---
--- Dumping data for table `village_mngt`
-
---
-
-INSERT INTO `village_mngt` (`vid`, `did`, `village`) VALUES
-(1, 1, 'Kodur'),
-(2, 1, 'Rajampet'),
-(3, 2, 'Tirupati'),
-(4, 2, 'Renigunta'),
-(5, 3, 'Nandyal'),
-(6, 3, 'Dhone'),
-(7, 5, 'Kavali'),
-(8, 5, 'Gudur'),
-(9, 6, 'Amaravati'),
-(10, 6, 'Tenali'),
-(11, 7, 'Bobbili'),
-(12, 7, 'Vizag'),
-(13, 12, 'Nuzvid'),
-(14, 12, 'Vijayawada'),
-(15, 9, 'Tuni'),
-(16, 9, 'Rajahmundry'),
-(17, 10, 'Attili'),
-(18, 10, 'Bhimavaram'),
-(19, 11, 'Atmakur'),
-(20, 11, 'Guntakal');
-
---
--- Table structure for table `tblproduct`
---
-
-CREATE TABLE `tblproduct` (
+CREATE TABLE IF NOT EXISTS `product` (
   `id` int(8) NOT NULL,
   `name` varchar(255) NOT NULL,
   `code` varchar(255) NOT NULL,
   `image` text NOT NULL,
+  `quantity` int NOT NULL,
+  `quality` text NOT NULL,
+  `category` text NOT NULL,
   `price` double(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tblproduct`
+-- Dumping data for table `product`
 --
 
-INSERT INTO `tblproduct` (`id`, `name`, `code`, `image`, `price`) VALUES
-(1, 'Premium Quality Apples', 'APPL', 'images/apple.jpeg', 15.00),
-(2, 'Beans', 'BEANS', 'images/beans.jpeg', 5.00),
-(3, 'Organic Tomatoes', 'TOMA', 'images/tomato.jpeg', 10.00),
-(4, 'Oragnic Brocolli', 'BROC', 'images/brocolli.jpeg', 20.00),
-(5, 'Pumpkin Seeds', 'PUMPKIN', 'images/pumpkin_seed.jpeg', 50.00),
-(6, 'Sunflower Seeds', 'SUN', 'images/sunflower_seeds.jpeg', 50.00),
-(7, 'Neemoil Pesticides', 'NEEN', 'images/neemoil_pesticides.jpeg', 100.00),
-(8, 'Liquid Chitosan Pesticides', 'LIQUID', 'images/Liquid_chitosan_pest.jpeg', 150.00);
+INSERT INTO `product` (`id`, `name`, `code`, `image`,`quantity`, `quality`, `category`, `price`) VALUES
+(1, 'Premium Quality Apples', 'APPL', 'images/apple.jpeg',10, 'high','fruit', 15.00),
+(2, 'Beans', 'BEANS', 'images/beans.jpeg',20, 'moderate','vegetable', 5.00),
+(3, 'Organic Tomatoes', 'TOMA', 'images/tomato.jpeg',20, 'high','vegetable', 10.00),
+(4, 'Oragnic Brocolli', 'BROC', 'images/brocolli.jpeg',10, 'moderate','vegetable', 20.00),
+(5, 'Pumpkin Seeds', 'PUMPKIN', 'images/pumpkin_seed.jpeg',4, 'high','seed', 50.00),
+(6, 'Sunflower Seeds', 'SUN', 'images/sunflower_seeds.jpeg',5, 'moderate','seed', 50.00),
+(7, 'Neemoil Pesticides', 'NEEN', 'images/neemoil_pesticides.jpeg',6, 'high','pesticide', 100.00),
+(8, 'Liquid Chitosan Pesticides', 'LIQUID', 'images/Liquid_chitosan_pest.jpeg',1, 'moderate','pesticide', 150.00);
 
 --
--- Indexes for table `tblproduct`
+-- Indexes for table `product`
 --
-ALTER TABLE `tblproduct`
+ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `product_code` (`code`);
 
@@ -425,7 +294,7 @@ ALTER TABLE `tblproduct`
 --
 
 --
--- AUTO_INCREMENT for table `tblproduct`
+-- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `tblproduct`
   MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;

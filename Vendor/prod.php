@@ -37,9 +37,9 @@ else
   <tr>
     <td colspan="3"><?php include("header.php");?></td>
   </tr>
+  
   <tr>
-    <td>&nbsp;</td>
-    <td><table width="97%" border="1" class="table">
+    <td><table width="75%" border="1" class="table" align="center">
       <tr>
         <td colspan="3"><?php 
 		if(isset($_REQUEST['msg'])!="")
@@ -47,22 +47,26 @@ else
 			echo $_REQUEST['msg'];
 		}
 		?></td>
-        <td colspan="2"><a href="add_prod.php">Add New Product </a></td>
+        <td align="center"><a href="add_prod.php">Add New Product </a></td>
       </tr>
       <tr>
-        <td class="font">No</td>
-        <td class="font">Main Prod. Name </td>
-        <td class="font">Sub Prod. Name </td>
-        <td colspan="2" class="font">Action</td>
+        <td class="font" align="center">No</td>
+        <td class="font" align="center"> Category </td>
+		<td class="font" align="center"> Name </td>
+        <td class="font" align="center"> Code </td>
+        <td class="font" align="center"> Quality </td>
+        <td class="font" align="center"> Quantity <br> per lb</td>
+		<td class="font" align="center"> price </td>
+        <td colspan="2" class="font" align="center">Action</td>
       </tr>
      <!--CODE FOR PAGGING-->
 		      <?php
 	include("connect.php");	
 	$i=1;
-	$sql2 = "select * from s_prod";
+	$sql2 = "select * from product";
 	$fetch = mysqli_query($conn,$sql2) or die("query failed");
 	$nume = mysqli_num_rows($fetch);
-	$sql_group=mysqli_query($conn,"select * from s_prod order by sid desc limit $eu,$limit ");
+	$sql_group=mysqli_query($conn,"select * from product order by id desc limit $eu,$limit ");
 	if(mysqli_num_rows($sql_group)>0)
 	{
 	$n=0;
@@ -71,12 +75,16 @@ else
 			 
 	?>
          <!--CODE FOR PAGGING-->
-	  <tr>
+	  <tr align="center"> 
         <td><?php echo $i;?></td>
-        <td><?php echo $data['m_pro'];?></td>
-        <td><?php echo $data['sp_name'];?></td>
-        <td><a href="del_prod.php?did=<?php echo $data['sid'];?>">Del</a></td>
-	    <td><a href="upd_prod.php?uid=<?php echo $data['sid'];?>">Update</a></td>
+		<td><?php echo $data['category'];?></td>
+        <td><?php echo $data['name'];?></td>
+		<td><?php echo $data['code'];?></td>
+		<td><?php echo $data['quality'];?></td>
+		<td><?php echo $data['quantity'];?></td>
+        <td><?php echo $data['price'];?></td>
+        <td><a href="del_prod.php?did=<?php echo $data['id'];?>">Del</a></td>
+	    <td><a href="upd_prod.php?uid=<?php echo $data['id'];?>">Update</a></td>
 	  </tr>
 	  <?php
 	  $i++;
@@ -85,35 +93,6 @@ else
     </table>
     <p>
       <?php 
-
-echo "<table border=1 align=center style=border:#2980C5; border-style:groove>";
-while($r=mysqli_fetch_array($sql_group))
-
-{
-	
-	echo "<table width='97%' border='1' class='table'>
-      <tr>
-        
-        <td colspan='2'><a href='add_prod.php'>Add New Product </a></td>
-      </tr>
-      <tr>
-        <td class='font'>No</td>
-        <td class='font'>Main Prod. Name </td>
-        <td class='font'>Sub Prod. Name </td>
-        <td colspan='2' class='font'>Action</td>
-      </tr>
-    
-	  <tr>
-        <td>". $i."</td>
-        <td>". $data['m_pro']."</td>
-        <td>". $data['sp_name']."</td>
-        <td><a href='del_prod.php?did=".$data['sid']."'>Del</a></td>
-	    <td><a href='upd_prod.php?uid=".$data['sid']."'>Update</a></td>
-	  </tr>
-	  
-    </table>";
-} 
-echo "</table>";
 
 
 
@@ -151,7 +130,6 @@ if($this1 < $nume)
 
 ?>
 	</p></td>
-    <td width="18%">&nbsp;</td>
   </tr>
   <tr>
     <td colspan="3">&nbsp;</td>

@@ -13,7 +13,7 @@ if(isset($_REQUEST['perform'])=="true")
 	
 	mysqli_query($conn,"insert into activities(location,description) values ('$t','$d')") or die ("query fail");
 	 
-	header("location:show_news.php?msg=Activities are added..."); 
+	header("location:show_activity.php?msg=Activities are added..."); 
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -60,7 +60,7 @@ function validate()
           <td class="font"><a href="add_activities.php">Add Activity</a></td>
         </tr>
         <tr>
-          <td class="font"><a href="show_news.php">Show Activities</a></td>
+          <td class="font"><a href="show_activity.php">Show Activities</a></td>
         </tr>
       </table>
     <p></p></td>
