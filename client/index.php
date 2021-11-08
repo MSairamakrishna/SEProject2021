@@ -41,7 +41,7 @@ if(isset($_SESSION['uid'])=='')
 						
 						<?php if(isset($_SESSION['uid'])!='')
 						{?>
-						<li><a href="organicfarming.php">Farming</a></li>
+						
 						<li><a href="inquiry.php">Inquiry</a></li>
 						<li><a href="myprofile.php">Myprofile</a></li>
 						<?php

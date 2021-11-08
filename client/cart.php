@@ -69,7 +69,6 @@ switch($_GET["action"]) {
 						{?>
 						<li><a href="myprofile.php" class="active">Myprofile</a></li>
 						<li><a href="inquiry.php">Inquiry</a></li>
-						<li><a href="organicfarming.php" class="active">Farming</a></li>
 						<?php
 						}?>
 						<li><a href="feedback.php">Feedback</a></li>
