@@ -17,6 +17,22 @@ if (isset($_SESSION['uid']) == '')
             font-size: 15px;
             font-family: Georgia, "Times New Roman", Times, serif;
         }
+
+        style25 {
+            font-size: 15px;
+            color: #FF0000;
+        }
+
+        .style27 {
+            color: #FF3333;
+            font-size: 15px;
+        }
+
+        .style28 {
+            font-family: Georgia, "Times New Roman", Times, serif;
+            font-size: 18px;
+            color: #CC3300;
+        }
         -->
     </style>
 </head>
@@ -62,27 +78,56 @@ if (isset($_SESSION['uid']) == '')
 
             <div class="inside" style="border: #000000; border-style:double;">
                 <div class="row-1 outdent">
-                    <div class="wrapper" style=" width:1000px; height:30px; border: #000000; color:whitesmoke; padding:20px; ">
-                        <h2>Identifying the best of the best in organic agriculture</h2>
-                    </div>
+                    <table width="100%" height="209" border="0">
+                        <tr>
+                            <td colspan="3">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td width="6%">&nbsp;</td>
+                            <td width="85%">
+                                <table width="100%" height="123" border="0">
+                                    <tr>
+                                        <td height="21">
+                                            <div align="center" class="style25 style28">ORGANIC FARMING </div>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                    include("connect.php");
+                                    $q = mysqli_query($conn, "select * from organicfarming order by cropid desc") or die("query fail");
+                                    while ($data = mysqli_fetch_array($q)) {
+                                    ?>
+                                        <tr>
+                                            <td height="94">
+                                                <table width="100%" border="0">
+                                                    <tr>
+                                                        <td colspan="3" bgcolor="#66CC66" style="font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; color:#000000"><span class="style27">Crop Name</span>:<?php echo $data['cropname']; ?></td>
+                                                        <p>&nbsp;</p>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3" bgcolor="#99CC99" style="font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; color:#000000"><span class="style27">Best Practices</span>:<?php echo $data['bestpractices']; ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3" bgcolor="#99CC99" style="font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; color:#000000"><span class="style27">Articles</span>:<a href="<?php echo $data['articles']; ?>" style="color:#21618C;"> <?php echo $data['articles']; ?></a></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    ?>
+                                </table>
+                            </td>
+                            <td width="9%">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">&nbsp;</td>
+                        </tr>
+                    </table>
 
-                    <p></p>
-                    <p align="left" class="style8 style4">Even with good things, there is the best of the best. So it is with organic agriculture. Organic farming techniques have long been proven to help foster and restore soil health, replenish soil organic carbon and preserve underground biodiversity. And some organic strategies provide a bigger bang for soil health than others.</p>
-                    <p align="left" class="style8 style4">Four practices that are the most critical to good soil health: </p>
-                    <div id="organic"
-                        <ul> 
-                            <li>Planting cover crops,</li>
-                            <li>Applying combinations of organic inputs,</li>
-                            <li>Increasing crop rotation diversity and length, and</li>
-                            <li>Conservation tillage.</li>
-                        </ul></p>
-                    </div>
-                    <!-- 
-                    <p align="left" class="style8 style4">&nbsp;</p>
-                    <p align="left" class="style8 style4">Techniques:</p>
-                    <p align="left" class="style8 style4">Techniques such as artificial insemination and embryo transfer are frequently used today, not only as methods to guarantee that females breed regularly but also to help improve herd genetics.</p>
-                    <p align="left" class="style8 style4">This may be done by transplanting embryos from stud-quality females into flock-quality surrogate mothers - freeing up the stud-quality mother to be reimpregnated. This practice vastly increases the number of offspring which may be produced by a small selection of stud-quality parent animals. On the one hand, this improves the ability of the animals to convert feed to meat, milk, or fibre more efficiently, and improve the quality of the final product. On the other, it decreases genetic diversity, increasing the severity of disease outbreaks among other risks.</p>
-                    -->
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
                 </div>
                 <div class="row-2">
                     <div class="wrapper"></div>
