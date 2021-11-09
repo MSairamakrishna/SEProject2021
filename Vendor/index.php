@@ -5,11 +5,11 @@ if(isset($_REQUEST['perform'])=="true")
    include("connect.php");
    $l=$_REQUEST['t1'];
    $p=$_REQUEST['t2'];
-   $q=mysqli_query($conn,"select * from admin where a_login='$l' and a_password='$p'")or die("qf");
+   $q=mysqli_query($conn,"select * from vendor where v_login='$l' and v_password='$p'")or die("qf");
    if(mysqli_num_rows($q))
    {
       $data=mysqli_fetch_array($q);
-	  $_SESSION['admin']=$data['aid'];
+	  $_SESSION['vendor']=$data['vid'];
 	  header("location: home.php");
 	  
    }
@@ -62,7 +62,7 @@ function chk()
   <p>&nbsp;</p>
   <table width="544" height="171" border="1" align="center" class="table">
     <tr>
-      <td colspan="3"><div align="center" class="font style1">Admin Log in </div></td>
+      <td colspan="3"><div align="center" class="font style1">Vendor Log in </div></td>
     </tr>
     <tr>
       <td colspan="3" bgcolor="#CC99FF" class="table"><font color= color="#000000">
@@ -75,14 +75,14 @@ function chk()
       </font></td>
     </tr>
     <tr>
-      <td width="108" class="font">Admin ID </td>
+      <td width="108" class="font">Vendor ID </td>
       <td width="8">&nbsp;</td>
       <td width="375"><label>
         <input name="t1" type="text" id="t1" />
       </label></td>
     </tr>
     <tr>
-      <td class="font">Admin Password </td>
+      <td class="font">Vendor Password </td>
       <td>&nbsp;</td>
       <td><input name="t2" type="password" id="t2" /></td>
     </tr>

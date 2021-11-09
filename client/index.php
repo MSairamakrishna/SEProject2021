@@ -52,9 +52,9 @@ if(isset($_SESSION['uid'])=='')
 						<?php if(isset($_SESSION['uid'])=='')
 						{
 						?>
+						<li><a href="guest_feedback.php">Feedback</a></li>
 						<li><a href="register.php">Register</a></li>
 						<li><a href="login.php">Login</a></li>
-						<li><a href="guest_feedback.php">Feedback</a></li>
 						<li><a href="contact.php">Contact</a></li>
 						<?php
 						}
@@ -192,7 +192,7 @@ if(isset($_SESSION['uid'])=='')
 						<!-- .box1 -->
 						<div class="box1">
 							<h2>Social Media</h2>
-							<table width="100%" height="164" border="0">
+							<table width="50%" height="100" border="0">
 
 								<tr>
 									<th align="center" colspan="3"><a href="https://www.facebook.com/" class="fa fa-facebook"></a></th>
@@ -207,7 +207,6 @@ if(isset($_SESSION['uid'])=='')
 									<th align="center" colspan="3"><a href="https://www.youtube.com/" class="fa fa-youtube"></a></th>
 								</tr>
 							</table>
-							<p>&nbsp; </p>
 							<p>&nbsp; </p>
 						</div>
 						<!-- /.box1 -->
