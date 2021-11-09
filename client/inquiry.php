@@ -90,6 +90,61 @@ function validate()
 					<div class="inside" align="center">
             	<div class="row-1 outdent">
             	  <div class="wrapper"></div>
+				  <form id="form1" method="post" action="" onsubmit="return validate();">
+                  <input type="hidden" name="perform" value="true" />
+				  <?php
+					include("connect.php");
+					$id=$_SESSION['uid'];
+					$q=mysqli_query($conn,"select * from buyer where id=$id");
+					$data=mysqli_fetch_array($q);
+					?>
+                  <table width="50%" height="250" border="0" align="center" style="border:#000000 double;">
+                    <tr>
+                      <td colspan="3"><table width="100%" height="36" border="0">
+                        <tr>
+						<td align="center" style="background-color:#CCFF99; font-size:18px; font-family:Georgia, 'Times New Roman', Times, serif; color:#990033;">
+						  <?php 
+	                      if(isset($_REQUEST['msg'])!="")
+	                       {
+	                        echo $_REQUEST['msg'];
+	                       }
+	                         ?>
+							 </td>
+                        </tr></table></td>
+                    </tr>
+                    <tr>
+                      <td width="22%"><span class="style1">BuyerID</span></td>
+                      <td width="77%"><label>
+                        <input name="bid" type="text" id="bid" value="<?php echo $data['buyerid'];?>" / readonly="">
+                      </label></td>
+                    </tr>
+                    <tr>
+                      <td width="22%"><span class="style1">Name</span></td>
+                      <td width="77%"><label>
+                        <input name="name" type="text" id="name" value="<?php echo $data['name'];?>"/ readonly="">
+                      </label></td>
+                    </tr>
+                    <tr>
+                      <td><span class="style4">Query topic</span> </td>
+                      <td><label>
+                        <input name="qu" type="text" id="qu" />
+                      </label></td>
+                    </tr>
+                    <tr>
+						<td height="31"><span class="style1">Details</span></td>
+						<td><div align="left">
+							<textarea name="deta" id="deta"></textarea>
+						</div></td>
+					</tr>
+                    <tr>
+                      <td>&nbsp;</td>
+                      <td  align="left" >
+                        <input type="submit" name="Submit" value="Submit" />
+                      </td>
+                    </tr>
+                  </table>
+                </form>
+<!---------------------------------------------------------------!>
                 <form id="form1" method="post" action="" onsubmit="return validate();">
                   <input type="hidden" name="perform" value="true" />
 				  <?php
