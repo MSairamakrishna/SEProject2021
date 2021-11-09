@@ -24,11 +24,19 @@ header("location:login.php ?msg=Please log in First");
 function validate()
 {
    if(document.getElementById('name').value=="")
-    { 
-	   alert('please enter query topic');
-	   document.getElementById('name').focus();
-	   return false;
-	}
+   {
+        if (document.getElementById('local').value=="") 
+        { 
+            if (document.getElementById('state').value=="") 
+            {
+                if (document.getElementById('fip').value=="") 
+                {
+                    alert('please enter any one search fields');
+                    return false;
+                }
+            }
+        }
+    }
 	
 	 
 }
@@ -115,10 +123,10 @@ function validate()
                       </label></td>
                     </tr>
                     <tr align="center">
-						<td height="31"><span class="style1">Farming in practice</span></td>
-						<td><div align="center">
-							<textarea name="fip" id="fip"></textarea>
-						</div></td>
+						<td height="31"><span class="style1">Search by Farming in practice</span></td>
+						<td><label>
+                        <input name="fip" type="text" id="fip" />
+                      </label></td>
 					</tr>
                     <tr>
                       <td  align="center" colspan="2">
@@ -132,14 +140,14 @@ function validate()
               	<div class="wrapper"></div>
               </div>
             </div>
---------------------------------------------
 <?php
-        if(isset($_REQUEST['perform'])=="true")
+    if(isset($_REQUEST['perform'])=="true")
         {
             ?> 
             <div>			    
-        <table width="100%" border="1" align="center" class="table">
+        <table width="100%" border="1" align="center" color>
           <tr>
+             <td width="10%" class="font" align="center">No.</td>
             <td width="10%" class="font" align="center">Buyer Name.</td>
             <td width="10%" class="font" align="center">Phone</td>
             <td width="10%" class="font" align="center">Address</td>
@@ -147,6 +155,7 @@ function validate()
             <td width="10%" class="font" align="center">State</td>
             <td width="10%" class="font" align="center">Profession</td>
             <td width="10%" class="font" align="center">Challenges Faced</td>
+            <td width="10%" class="font" align="center">Farming in practice</td>
             <td width="10%" class="font" align="center">Landowned</td>
           </tr>
 		      <?php
@@ -156,34 +165,38 @@ function validate()
         $q2=$_REQUEST['local'];
         $q3=$_REQUEST['state'];
         $q4=$_REQUEST['fip'];
-	$sql2 = mysqli_query($conn,"select * from buyer where name='$q1' or locality='$q2' or state='$q3' or farming_in_practice='$q4'")or die("query failed");
-	$nume = mysqli_num_rows($fetch);
-
-	if(mysqli_num_rows($nume)>0)
-	{
-	$n=0;
-	while($data=mysqli_fetch_array($sql2))
-	{
-	?>
-          <tr>
-            <td><?php echo $i;?></td>
-            <td><?php echo $data['name'];?></td>
-            <td><?php echo $data['phone'];?></td>
-            <td><?php echo $data['address'];?></td>
-            <td><?php echo $data['locality'];?></td>
-            <td><?php echo $data['state'];?></td>
-            <td><?php echo $data['profession'];?></td>
-            <td><?php echo $data['challenges_faced'];?></td>
-            <td><?php echo $data['land_owned'];?></td>
+        $sql2 = mysqli_query($conn,"select * from buyer where name='$q1' or locality='$q2' or state='$q3' or farming_in_practice='$q4'")or die("query failed");
+        if(mysqli_num_rows($sql2)!=0)
+        {
             
-          </tr>
-          <?php
-	$i++;
-	}
-	?>
-        </table>
-        </div>
-        <?php	
+            $n=0;
+            while($data=mysqli_fetch_array($sql2))
+            {
+            ?>
+                <tr font-color: while>
+                    <td><?php echo $i;?></td>
+                    <td><?php echo $data['name'];?></td>
+                    <td><?php echo $data['phone'];?></td>
+                    <td><?php echo $data['address'];?></td>
+                    <td><?php echo $data['locality'];?></td>
+                    <td><?php echo $data['state'];?></td>
+                    <td><?php echo $data['profession'];?></td>
+                    <td><?php echo $data['challenges_faced'];?></td>
+                    <td><?php echo $data['farming_in_practice'];?></td>
+                    <td><?php echo $data['land_owned'];?></td>
+                    
+                </tr>
+                <?php
+            $i++;
+            }
+            ?>
+                </table>
+                </div>
+                <?php	
+        }
+        else{
+            $msg ="No Profile found";
+        }
     }
     ?>
 

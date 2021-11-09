@@ -30,7 +30,7 @@ function chk()
 {
 	if(document.getElementById('t1').value=="")
 	{
-		alert('please enter product ID');
+		alert('please enter vendor ID');
 		document.getElementById('t1').focus();
 		return false;
 	}
