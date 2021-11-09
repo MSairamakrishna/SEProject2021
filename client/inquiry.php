@@ -4,16 +4,12 @@ session_start();
 if(isset($_REQUEST['perform'])=="true")
 {
 include("connect.php");
-$n=$_REQUEST['name'];
-$p=$_REQUEST['mobile'];
-$d=$_REQUEST['dist'];
-$t=$_REQUEST['taluka'];
-$v=$_REQUEST['vill'];
-$a=$_REQUEST['add'];
-$s=$_REQUEST['serv'];
-$c=$_REQUEST['com'];
-mysqli_query ($conn,"insert into inquiry(f_name,c_num,d_name,t_name,v_name,address,serv_no,comments) values('$n','$p','$d','$t','$v','$a','$s','$c')")or die("qf");
-header("location: myprofile.php?msg=  Inquiry is done..");
+$query=$_REQUEST['qu'];
+$det=$_REQUEST['deta'];
+$buyid=$_REQUEST['bid'];
+$name=$_REQUEST['name'];
+mysqli_query ($conn,"insert into inquiry(query_topic,details,buyerid) values('$query','$det','$buyid')")or die("qf");
+header("location: inquiry.php?msg=  Inquiry is done..");
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -33,64 +29,16 @@ header("location: myprofile.php?msg=  Inquiry is done..");
 		<script language="javascript" type="text/javascript">
 function validate()
 {
-   if(document.getElementById('name').value=="")
+   if(document.getElementById('qu').value=="")
     { 
-	   alert('plz enter ur name');
+	   alert('please enter query topic');
 	   document.getElementById('name').focus();
 	   return false;
 	}
-	 if(document.getElementById('mobile').value=="")
+	if(document.getElementById('deta').value=="")
     { 
-	   alert('plz enter ur phone num');
-	   document.getElementById('mobile').focus();
-	   return false;
-	}
-	if(document.getElementById('mobile').value.lenght<10)
-    { 
-	   alert('plz enter ur phone num has not enough digits ');
-	   document.getElementById('mobile').focus();
-	   return false;
-	}
-	if(document.getElementById('mobile').value.lenght>10)
-    { 
-	   alert('plz have entered more than 13 digits');
-	   document.getElementById('mobile').focus();
-	   return false;
-	}
-	 if(document.getElementById('dist').value=="")
-    { 
-	   alert('plz enter ur District name');
-	   document.getElementById('dist').focus();
-	   return false;
-	}
-	if(document.getElementById('taluka').value=="")
-    { 
-	   alert('plz enter ur taluka name');
-	   document.getElementById('taluka').focus();
-	   return false;
-	}
-	if(document.getElementById('vill').value=="")
-    { 
-	   alert('plz enter ur village name');
-	   document.getElementById('vill').focus();
-	   return false;
-	}
-	 if(document.getElementById('add').value=="")
-    { 
-	   alert('plz enter ur address');
-	   document.getElementById('add').focus();
-	   return false;
-	}
-	 if(document.getElementById('serv').value=="")
-    { 
-	   alert('plz enter ur servey no.');
-	   document.getElementById('serv').focus();
-	   return false;
-	}
-	 if(document.getElementById('com').value=="")
-    { 
-	   alert('plz enter ur comments');
-	   document.getElementById('com').focus();
+	   alert('please enter details of query');
+	   document.getElementById('name').focus();
 	   return false;
 	}
 	 
@@ -139,87 +87,60 @@ function validate()
 				<div id="content_top"></div>				
 				<div id="content_bg_repeat">
 					
-					<div class="inside">
+					<div class="inside" align="center">
             	<div class="row-1 outdent">
             	  <div class="wrapper"></div>
                 <form id="form1" method="post" action="" onsubmit="return validate();">
                   <input type="hidden" name="perform" value="true" />
-                  <table width="80%" height="545" border="0" align="center" style="border:#000000 double;">
+				  <?php
+					include("connect.php");
+					$id=$_SESSION['uid'];
+					$q=mysqli_query($conn,"select * from buyer where id=$id");
+					$data=mysqli_fetch_array($q);
+					?>
+                  <table width="50%" height="250" border="0" align="center" style="border:#000000 double;">
                     <tr>
-                      <td colspan="3"><table width="100%" height="36
-					  " border="0">
+                      <td colspan="3"><table width="100%" height="36" border="0">
                         <tr>
-                          <td style=" font-size:18px; font-family:Georgia, 'Times New Roman', Times, serif; "><?php 
+						<td align="center" style="background-color:#CCFF99; font-size:18px; font-family:Georgia, 'Times New Roman', Times, serif; color:#990033;">
+						  <?php 
 	                      if(isset($_REQUEST['msg'])!="")
 	                       {
 	                        echo $_REQUEST['msg'];
 	                       }
-	                         ?></td>
+	                         ?>
+							 </td>
                         </tr></table></td>
                     </tr>
-                    
+                    <tr>
+                      <td width="22%"><span class="style1">BuyerID</span></td>
+                      <td width="77%"><label>
+                        <input name="bid" type="text" id="bid" value="<?php echo $data['buyerid'];?>" / readonly="">
+                      </label></td>
+                    </tr>
                     <tr>
                       <td width="22%"><span class="style1">Name</span></td>
-                      <td width="1%">::</td>
                       <td width="77%"><label>
-                        <input name="name" type="text" id="name" />
+                        <input name="name" type="text" id="name" value="<?php echo $data['name'];?>"/ readonly="">
                       </label></td>
                     </tr>
                     <tr>
-                      <td><span class="style4">Mobile No</span> </td>
-                      <td>::</td>
+                      <td><span class="style4">Query topic</span> </td>
                       <td><label>
-                        <input name="mobile" type="text" id="mobile" maxlength="10" />
+                        <input name="qu" type="text" id="qu" />
                       </label></td>
                     </tr>
                     <tr>
-                      <td><span class="style1">District</span></td>
-                      <td>::</td>
-                      <td><label>
-                      <input name="dist" type="text" id="dist" />
-                      </label></td>
-                    </tr>
-                    <tr>
-                      <td><span class="style1">Taluka</span></td>
-                      <td>::</td>
-                      <td><label>
-                        <input name="taluka" type="text" id="taluka" />
-                      </label></td>
-                    </tr>
-                    <tr>
-                      <td><span class="style1">Village</span></td>
-                      <td>::</td>
-                      <td><label>
-                        <input name="vill" type="text" id="vill" />
-                      </label></td>
-                    </tr>
-                    <tr>
-                      <td><span class="style1">Address</span></td>
-                      <td>::</td>
-                      <td><label>
-                        <textarea name="add" id="add"></textarea>
-                      </label></td>
-                    </tr>
-                    <tr>
-                      <td><span class="style1">Servey No </span></td>
-                      <td>::</td>
-                      <td><label>
-                        <input name="serv" type="text" id="serv" />
-                      </label></td>
-                    </tr>
-                    <tr>
-                      <td><span class="style1">Comments</span></td>
-                      <td>::</td>
-                      <td><label>
-                        <textarea name="com" id="com"></textarea>
-                      </label></td>
-                    </tr>
+						<td height="31"><span class="style1">Details</span></td>
+						<td><div align="left">
+							<textarea name="deta" id="deta"></textarea>
+						</div></td>
+					</tr>
                     <tr>
                       <td>&nbsp;</td>
-                      <td>&nbsp;</td>
-                      <td><label>
+                      <td  align="left" >
                         <input type="submit" name="Submit" value="Submit" />
-                      </label></td>
+                      </td>
                     </tr>
                   </table>
                 </form>

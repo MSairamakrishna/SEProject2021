@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['admin'])=='')
+if(isset($_SESSION['vendor'])=='')
 {
 	header("location: index.php?msg=Please login to access..");
 }?>

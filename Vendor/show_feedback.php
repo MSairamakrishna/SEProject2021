@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['admin'])=="")
+if(isset($_SESSION['vendor'])=="")
 {
 	header("location: index.php?msg=Please login to access..");
 }
@@ -51,14 +51,13 @@ else
 	  }
 	  ?></td>
       </tr>
-      <tr>
-        <td width="14%" class="font">No</td>
-        <td width="21%" class="font">Servey No </td>
-        <td width="12%" class="font">Address</td>
-        <td width="12%" class="font">Phone</td>
-        <td width="12%" class="font">Village</td>
+      <tr align="center">
+        <td width="5%" class="font">No</td>
+        <td width="12%" class="font">BuyerID </td>
+        <td width="12%" class="font">Name</td>
         <td width="12%" class="font">Comments</td>
-        <td width="13%" class="font">Action</td>
+        <td width="12%" class="font">User Type</td>
+        <td width="12%" class="font">Action</td>
       </tr>
       <!--CODE FOR PAGGING-->
 		      <?php
@@ -74,20 +73,14 @@ else
 	while($data=mysqli_fetch_array($sql_group))
 	{
 			  
-	
-	//$q=mysql_query("select * from news order by nid desc ");
-	 
-	//while($data=mysql_fetch_array($q))
-	//{
 	?>
          <!--CODE FOR PAGGING-->
-      <tr>
+      <tr align="center">
         <td><?php echo $i;?></td>
-        <td><?php echo $data['serv_no'];?></td>
-        <td><?php echo $data['address'];?></td>
-        <td><?php echo $data['phone'];?></td>
-        <td><?php echo $data['village'];?></td>
-        <td><?php echo $data['comment'];?></td>
+        <td><?php echo $data['buyerid'];?></td>
+        <td><?php echo $data['name'];?></td>
+        <td><?php echo $data['comments'];?></td>
+        <td><?php echo $data['usertype'];?></td>
         <td><div align="center"><a href="del_feedback.php?did=<?php echo $data['id'];?>">Delete</a></div></td>
       </tr>
       <?php
@@ -97,37 +90,6 @@ else
     </table>
     <p>
       <?php 
-
-echo "<table border=1 align=center style=border:#2980C5; border-style:groove>";
-while($r=mysqli_fetch_array($sql_group))
-
-{
-	
-	echo "<table width='97%' border='1' class='table'>
-      
-      <tr>
-        <td width='14%' class='font'>No</td>
-        <td width='21%' class='font'>Servey No </td>
-        <td width='12%' class='font'>Address</td>
-        <td width='12%' class='font'>Phone</td>
-        <td width='12%' class='font'>Village</td>
-        <td width='12%' class='font'>Comments</td>
-        <td width='13%' class='font'>Action</td>
-      </tr>
-     
-      <tr>
-        <td>". $i."</td>
-        <td>". $data['serv_no']."</td>
-        <td>". $data['address']."</td>
-        <td>". $data['phone']."</td>
-        <td>". $data['village']."</td>
-        <td>". $data['comment']."</td>
-        <td><a href='del_feedback.php?did=".$data['id']."'>Delete</a></div></td>
-      </tr>
-      
-    </table>";
-} 
-echo "</table>";
 
 
 

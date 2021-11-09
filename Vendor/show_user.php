@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['admin'])=="")
+if(isset($_SESSION['vendor'])=="")
 {
 	header("location: index.php?msg=Please login to access..");
 }
@@ -26,7 +26,7 @@ else
 }
 		
 		$eu = ($start - 0); 
-		$limit = 3;          
+		$limit = 5;          
 		$this1 = $eu + $limit; 
 		$back = $eu - $limit; 
 		$next = $eu + $limit; 
@@ -40,7 +40,6 @@ else
     <td colspan="3"><?php include("header.php");?></td>
   </tr>
   <tr>
-    <td width="7%">&nbsp;</td>
     <td width="86%">
 	<table width="100%" border="1" class="table">
       <tr>
@@ -52,21 +51,18 @@ else
 	  ?></td>
       </tr>
       <tr>
-        <td width="13%" class="font">ID</td>
+        <td width="6%" class="font">ID</td>
         <td width="6%" class="font">Name</td>
-        <td width="6%" class="font">F_id</td>
-        <td width="6%" class="font">Password</td>
-        <td width="6%" class="font">Age</td>
-        <td width="6%" class="font">Contact</td>
+        <td width="6%" class="font">BuyerID</td>
+        <td width="6%" class="font">Survey No.</td>
         <td width="6%" class="font">Address</td>
-        <td width="6%" class="font">District</td>
-        <td width="6%" class="font">Taluka</td>
-        <td width="6%" class="font">Village</td>
+        <td width="6%" class="font">Locality</td>
+        <td width="6%" class="font">State</td>
+        <td width="6%" class="font">Profession</td>
         <td width="6%" class="font">Income</td>
-        <td width="6%" class="font">Serv.no</td>
-        <td width="6%" class="font">Area</td>
-        <td width="6%" class="font">Land</td>
-        <td width="3%" class="font">Irrigation</td>
+        <td width="6%" class="font">Farming In practice</td>
+        <td width="6%" class="font">Land owned in Acres</td>
+        <td width="6%" class="font">Challenges faced</td>
         <td width="4%" class="font">Action</td>
       </tr>
       <!--CODE FOR PAGGING-->
@@ -82,42 +78,21 @@ else
 	$n=0;
 	while($data=mysqli_fetch_array($sql_group))
 	{
-			  
-	
-	//$q=mysql_query("select * from news order by nid desc ");
-	 
-	//while($data=mysql_fetch_array($q))
-	//{
 	?>
          <!--CODE FOR PAGGING-->
       <tr>
         <td><?php echo $i;?></td>
-        <td><?php echo $data['f_name'];?></td>
-        <td><?php echo $data['f_id'];?></td>
-        <td><?php echo $data['password'];?></td>
-        <td><?php echo $data['age'];?></td>
-        <td><?php echo $data['c_num'];?></td>
+        <td><?php echo $data['name'];?></td>
+        <td><?php echo $data['buyerid'];?></td>
+        <td><?php echo $data['survey_no'];?></td>
         <td><?php echo $data['address'];?></td>
-        <td><?php  
-			$t1=$data['d_name'];
-			$q2=mysqli_query($conn,"select district  from dist_mngt where did=$t1");
-			$data2=mysqli_fetch_array($q2);
-			echo $data2['district'];
-		
-		?></td>
-        <td><?php
-				
-				$t=$data['t_name'];
-				$q1=mysqli_query($conn,"select village  from village_mngt where vid=$t");
-				$data1=mysqli_fetch_array($q1);
-				echo $data1['village'];
-		 ?></td>
-        <td><?php echo $data['v_name'];?></td>
-        <td><?php echo $data['y_income'];?></td>
-        <td><?php echo $data['s_num'];?></td>
-        <td><?php echo $data['area_of_serv_no'];?></td>
-        <td><?php echo $data['t_land'];?></td>
-        <td><?php echo $data['w_irrigation'];?></td>
+        <td><?php echo $data['locality'];?></td>
+        <td><?php echo $data['state'];?></td>
+        <td><?php echo $data['profession'];?></td>
+        <td><?php echo $data['income'];?></td>
+        <td><?php echo $data['farming_in_practice'];?></td>
+        <td><?php echo $data['land_owned'];?></td>
+        <td><?php echo $data['challenges_faced'];?></td>
         <td><div align="center"><a href="del_userdata.php?did=<?php echo $data['id'];?>">Delete</a></div></td>
       </tr>
       <?php
@@ -127,58 +102,6 @@ else
     </table>
 	<p>
 	  <?php 
-
-echo "<table border=1 align=center style=border:#2980C5; border-style:groove>";
-while($r=mysqli_fetch_array($sql_group))
-
-{
-	
-	echo "<table width='100%' border='1' class='table'>
-      
-      <tr>
-        <td width='13%' class='font'>ID</td>
-        <td width='6%' class='font'>Name</td>
-        <td width='6%' class='font'>F_id</td>
-        <td width='6%' class='font'>Password</td>
-        <td width='6%' class='font'>Age</td>
-        <td width='6%' class='font'>Contact</td>
-        <td width='6%' class='font'>Address</td>
-        <td width='6%' class='font'>District</td>
-        <td width='6%' class='font'>Taluka</td>
-        <td width='6%' class='font'>Village</td>
-        <td width='6%' class='font'>Income</td>
-        <td width='6%' class='font'>Serv.no</td>
-        <td width='6%' class='font'>Area</td>
-        <td width='6%' class='font'>Land</td>
-        <td width='3%' class='font'>Irrigation</td>
-        <td width='4%' class='font'>Action</td>
-      </tr>
-     
-		     
-      <tr>
-        <td>".$i."</td>
-        <td>".$data['f_name']."</td>
-        <td>".$data['f_id']."</td>
-        <td>".$data['password']."</td>
-        <td>".$data['age']."</td>
-        <td>".$data['c_num']."</td>
-        <td>".$data['address']."</td>
-        
-        <td>
-				". $data1['village']."
-		</td>
-        <td>".$data['v_name']."</td>
-        <td>".$data['y_income']."</td>
-        <td>".$data['s_num']."</td>
-        <td>".$data['area_of_serv_no']."</td>
-        <td>".$data['t_land']."</td>
-        <td>".$data['w_irrigation']."</td>
-        <td><a href='del_userdata.php?did=".$data['id']."'>Delete</a></div></td>
-      </tr>
-     
-    </table>";
-} 
-echo "</table>";
 
 
 
@@ -224,9 +147,7 @@ if($this1 < $nume)
 	 
     <td width="7%">&nbsp;</td>
   </tr>
-  <tr>
-    <td colspan="3">&nbsp;</td>
-  </tr>
+  
 </table>
 </body>
 </html>

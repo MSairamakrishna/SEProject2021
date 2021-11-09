@@ -212,7 +212,7 @@ function validate()
 				<div id="content_top"></div>				
 				<div id="content_bg_repeat">
 					
-					<div class="inside">
+					<div class="inside" align="center">
             	<div class="row-1 outdent">
               
             	  <div class="wrapper"></div>
@@ -335,7 +335,7 @@ function validate()
             </tr>
               <tr>
               <td align="center"><a href="changepassword.php"<?php echo $data['id'];?>">Change Password</a></td>
-              <td align="left" ><input type="submit" name="Submit" value="Edit/Update Profile" /></td>
+              <td align="left" ><input type="submit" name="Submit" value="Update Profile" /></td>
               </tr>
               <tr>
             <td>&nbsp;</td>

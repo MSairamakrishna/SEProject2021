@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['admin'])=="")
+if(isset($_SESSION['vendor'])=="")
 {
 	header("location: index.php?msg=Please login to access..");
 }
@@ -47,17 +47,12 @@ else
 	  }
 	  ?></td>
       </tr>
-      <tr>
-        <td width="8%" class="font">NO</td>
-        <td width="6%" class="font">Name</td>
-        <td width="7%" class="font">Phone</td>
-        <td width="7%" class="font">District</td>
-        <td width="7%" class="font">Taluka</td>
-        <td width="7%" class="font">Village</td>
-        <td width="11%" class="font">Address</td>
-        <td width="11%" class="font">Servey No. </td>
-        <td width="14%" class="font">Comments</td>
-        <td colspan="2" class="font">Action</td>
+      <tr align="center">
+        <td width="8%" class="font">No.</td>
+        <td width="7%" class="font">BuyerID</td>
+        <td width="7%" class="font">Query Topic</td>
+        <td width="7%" class="font">Details</td>
+        <td  class="font">Action</td>
       </tr>
           <?php
 	include("connect.php");	
@@ -73,17 +68,11 @@ else
 	{
 		?>
  	
-      <tr>
+      <tr align="center">
         <td><?php echo $i;?></td>
-        <td><?php echo $data['f_name'];?></td>
-        <td><?php echo $data['c_num'];?></td>
-        <td><?php echo $data['d_name'];?></td>
-        <td><?php echo $data['t_name'];?></td>
-        <td><?php echo $data['v_name'];?></td>
-        <td><?php echo $data['address'];?></td>
-        <td><?php echo $data['serv_no'];?></td>
-        <td><?php echo $data['comments'];?></td>
-        <td width="11%"><a href="inq_reply.php?rid=<?php  echo $data['iid'];?>">Reply</a></td>
+        <td><?php echo $data['buyerid'];?></td>
+        <td><?php echo $data['query_topic'];?></td>
+        <td><?php echo $data['details'];?></td>
         <td width="11%"><a href="del_inquiry.php?did=<?php  echo $data['iid'];?>">Delete</a></td>
       </tr>
       <?php
@@ -102,36 +91,22 @@ while($data=mysqli_fetch_array($sql_group))
 	echo "<table width='100%' border='1' align='center' class='background'>
       
       <tr>
-        <td width='8%' class='font'>NO</td>
-        <td width='6%' class='font'>Name</td>
-        <td width='7%' class='font'>Phone</td>
-        <td width='7%' class='font'>District</td>
-        <td width='7%' class='font'>Taluka</td>
-        <td width='7%' class='font'>Village</td>
-        <td width='11%' class='font'>Address</td>
-        <td width='11%' class='font'>Servey No. </td>
-        <td width='14%' class='font'>Comments</td>
-        <td colspan='2' class='font'>Action</td>
+        <td width='8%' class='font'>No.</td>
+        <td width='6%' class='font'>BuyerID</td>
+        <td width='7%' class='font'>Query Topic</td>
+        <td width='7%' class='font'>Details</td>
+        <td  class='font'>Action</td>
       </tr>
      
       <tr>
         <td>".$i."</td>
-        <td>".$data['f_name']."</td>
-        <td>".$data['c_num']."</td>
-        <td>".$data['d_name']."</td>
-        <td>".$data['t_name']."</td>
-        <td>".$data['v_name']."</td>
-        <td>".$data['address']."</td>
-        <td>".$data['serv_no']."</td>
-        <td>".$data['comments']."</td>
-        <td width='11%'><a href='inq_reply.php?rid=".$data['iid']."'>Reply</a></td>
+        <td>".$data['buyerid']."</td>
+        <td>".$data['query_topic']."</td>
+        <td>".$data['details']."</td>
         <td width='11%'><a href='del_inquiry.php?did=".$data['iid']."'>Delete</a></td>
       </tr>
    
     </table>";
-	
-	
-	
 } 
 echo "</table>";
 

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['admin'])=='')
+if(isset($_SESSION['vendor'])=='')
 {
 	header("location: index.php?msg=Please login to access..");
 }?>
@@ -50,129 +50,45 @@ else
     <tr>
       <td class="background"><table width="98%" border="1" class="table">
         <tr>
-          <td class="font">Taluko</td>
-          <td class="font">Godown</td>
-          <td class="font">Stock(kg)</td>
+		<td class="font" align="center">No</td>
+        <td class="font" align="center"> Category </td>
+		<td class="font" align="center"> Name </td>
+        <td class="font" align="center"> Code </td>
+        <td class="font" align="center"> Quality </td>
+        <td class="font" align="center"> Quantity <br> per lb</td>
+		<td class="font" align="center"> price </td>
         </tr>
 		<!--CODE FOR PAGGING-->
 		      <?php
 	include("connect.php");	
 	$i=1;
-	$sql2 = "select * from god_mngt";
+	$sql2 = "select * from product";
 	$fetch = mysqli_query($conn,$sql2) or die("query failed");
 	$nume = mysqli_num_rows($fetch);
-	$sql_group=mysqli_query($conn,"select * from god_mngt order by gid desc limit $eu,$limit ");
+	$sql_group=mysqli_query($conn,"select * from product order by id desc limit $eu,$limit ");
 	if(mysqli_num_rows($sql_group)>0)
 	{
 	$n=0;
 	while($data=mysqli_fetch_array($sql_group))
 	{
-			  
-	
-	//$q=mysql_query("select * from news order by nid desc ");
-	 
-	//while($data=mysql_fetch_array($q))
-	//{
 	?>
          <!--CODE FOR PAGGING-->
-        <tr>
-          <td>
-		  <?php 
-		  	if(($data['stock'])<50)
-			{
-			?><font color="#FF0000"><?php  echo $data['taluka'];?></font>
-			<?php
-			}
-			else
-			{
-			?>
-			<font color="#FFFFFF"><?php echo $data['taluka'];?></font><?php }?>		  
-		  </td>
-          <td>
-		  <?php 
-		  	if(($data['stock'])<50)
-			{
-			?><font color="#FF0000"><?php  echo $data['godown_name'];?></font>
-			<?php
-			}
-			else
-			{
-			?>
-			<font color="#FFFFFF"><?php echo $data['godown_name'];?></font><?php }?>
-		  </td>
-          <td><?php 
-		  	if(($data['stock'])<50)
-			{
-			?><font color="#FF0000"><?php  echo $data['stock'];?></font>
-			<?php
-			}
-			else
-			{
-			?>
-			<font color="#FFFFFF"><?php echo $data['stock'];?></font><?php }?>
-		  </td>
-        </tr>
-		<?php
-		}
-		?>
-      </table>
-      <p>
-        <?php 
-
-echo "<table border=1 align=center style=border:#2980C5; border-style:groove>";
-while($r=mysqli_fetch_array($sql_group))
-
-{
-	
-	echo "<table width='98%' border='1' class='table'>
-        <tr>
-          <td class='font'>Taluko</td>
-          <td class='font'>Godown</td>
-          <td class='font'>Stock(kg)</td>
-        </tr>
-		
-        <tr>
-          <td>
-		
-		  	if((".$data['stock'].")<50)
-			{
-			<font color='#FF0000'>".$data['taluka']."</font>
-			
-			}
-			else
-			{
-		
-			<font color='#FFFFFF'>".$data['taluka']."</font> }	  
-		  </td>
-          <td>
-		  
-		  	if((".$data['stock'].")<50)
-			{
-			?><font color='#FF0000'>".$data['godown_name']."</font>
-			
-			else
-			{
-			
-			<font color='#FFFFFF'>".$data['godown_name']."</font> }
-		  </td>
-          <td> 
-		  	if((".$data['stock'].")<50)
-			{
-			<font color='#FF0000'><".$data['stock']."</font>
-			
-			}
-			else
-			{
-	
-			<font color='#FFFFFF'>".$data['stock']."</font>}
-		  </td>
-        </tr>
-		
-      </table>";
-} 
-echo "</table>";
-
-
+		 <tr align="center"> 
+        <td><?php echo $i;?></td>
+		<td><?php echo $data['category'];?></td>
+        <td><?php echo $data['name'];?></td>
+		<td><?php echo $data['code'];?></td>
+		<td><?php echo $data['quality'];?></td>
+		<td><?php echo $data['quantity'];?></td>
+        <td><?php echo $data['price'];?></td>
+	  </tr>
+	  <?php
+	  $i++;
+	  }
+	  ?>
+    </table>
+    <p>
+      <?php 
 
 echo "<table align = 'center' width='50%'><tr><td  align='left' width='30%'>";
 

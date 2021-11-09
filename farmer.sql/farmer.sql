@@ -22,21 +22,21 @@ USE `farmer`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Table structure for table `vendor`
 --
 
-CREATE TABLE IF NOT EXISTS `admin` (
-  `aid` int(11) NOT NULL AUTO_INCREMENT,
-  `a_login` varchar(20) NOT NULL,
-  `a_password` varchar(20) NOT NULL,
-  PRIMARY KEY (`aid`)
+CREATE TABLE IF NOT EXISTS `vendor` (
+  `vid` int(11) NOT NULL AUTO_INCREMENT,
+  `v_login` varchar(20) NOT NULL,
+  `v_password` varchar(20) NOT NULL,
+  PRIMARY KEY (`vid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `admin`
+-- Dumping data for table `vendor`
 --
 
-INSERT INTO `admin` (`aid`, `a_login`, `a_password`) VALUES
+INSERT INTO `vendor` (`vid`, `v_login`, `v_password`) VALUES
 (1, 'sai', '123');
 
 -- --------------------------------------------------------
@@ -47,32 +47,22 @@ INSERT INTO `admin` (`aid`, `a_login`, `a_password`) VALUES
 
 CREATE TABLE IF NOT EXISTS `feedback` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `f_id` varchar(20) NOT NULL,
-  `serv_no` varchar(35) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `phone` varchar(13) NOT NULL,
-  `village` varchar(15) NOT NULL,
-  'usertype' varchar(15) NOT NULL,
-  `comment` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
+  `buyerid` varchar(20) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `comments` varchar(35) NOT NULL,
+  `usertype` varchar(15) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`buyerid`) REFERENCES buyer(`buyerid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `feedback`
 --
 
-INSERT INTO `feedback` (`id`, `f_id`, `serv_no`, `address`, `phone`, `village`, `usertype`, `comment`) VALUES
-(1, 'mj', '   NMN M M', '45646', '554564', 'NKNJK',`guest`, 'vfefowek wdidkiodoif dsodoid \r\n'),
-(2, 'raj003', '7', 'opposite temple of ffrf,', '9998344078', '',`buyer`, 'Very nice Information'),
-(3, '101', 'audgggs', 'hilldrive', '07698965420', 'Nuzvid',`guest`, 'nice weebsite'),
-(4, '101', 'audgggs', 'hilldrive', '07698965420', 'Nuzvid',`buyer`, 'nice weebsite of the prroject\r\n\r\n'),
-(5, 'gautam1722', '544454478', 'kosamba', '8460577814', '',`buyer`, 'Very good 6\r\n\r\n'),
-(8, 'prem', '407', 'bhbhbhjb', '6661614611', '',`guest`, ''),
-(9, 'prem', '407', 'bhbhbhjb', '6661614611', '',`buyer`, 'Super'),
-(10, 'prem', '407', 'bhbhbhjb', '6661614611', 'Nuzvid',`guest`, 'nnknkn'),
-(11, 'prashant', '201', 'Bobbili', '8681885569', '',`guest`, 'JBJHVBICG'),
-(12, 'prashant', '201', 'Bobbili', '8681885569', '',`buyer`, 'jbhbjjjb');
-
+INSERT INTO `feedback` (`id`, `buyerid`,`name`, `comments`, `usertype`) VALUES
+(1, 'man12','manoj', 'The website is nice', 'buyer'),
+(2, 'sai12','sai ram', 'slider is nice in homepage', 'buyer'),
+(3, 'NA','viswas', 'nice weebsite','guest');
 -- --------------------------------------------------------
 
 --
@@ -81,59 +71,23 @@ INSERT INTO `feedback` (`id`, `f_id`, `serv_no`, `address`, `phone`, `village`, 
 
 CREATE TABLE IF NOT EXISTS `inquiry` (
   `iid` int(11) NOT NULL AUTO_INCREMENT,
-  `f_name` varchar(20) NOT NULL,
-  `c_num` varchar(13) NOT NULL,
-  `d_name` varchar(20) NOT NULL,
-  `t_name` varchar(20) NOT NULL,
-  `v_name` varchar(20) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `serv_no` varchar(20) NOT NULL,
-  `comments` varchar(255) NOT NULL,
-  PRIMARY KEY (`iid`)
+  `query_topic` varchar(20) NOT NULL,
+  `details` varchar(20) NOT NULL,
+  `buyerid` varchar(20) NOT NULL,
+  PRIMARY KEY (`iid`),
+  FOREIGN KEY  (`buyerid`) REFERENCES buyer(`buyerid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `inquiry`
 --
 
-INSERT INTO `inquiry` (`iid`, `f_name`, `c_num`, `d_name`, `t_name`, `v_name`, `address`, `serv_no`, `comments`) VALUES
-(11, 'prem', 'B', 'prem', 'lkn', 'jbkj', 'nkbk. ', '  kjbvk', 'lhl vgc cuu'),
-(12, 'prem', 'nnhjnjn', 'jnjnjkn', 'jnkjnjkn', 'nkjnkj', 'nkjnjknknkj', 'jknkkn', 'nkjnknn'),
-(13, 'kjnjn', 'nlnlnn', 'lnknlnl', 'nlnlnl', 'nnnln', 'lknlknlkn', 'nlknn', 'lmlmm'),
-(14, 'jnjkknn', 'kjnnkjn', 'kjnkjnn', 'kjnjknnj', 'nnkjnkjn', 'jnnkjnkjnkjn', 'jkjknnkj', 'nnjkjknkn'),
-(15, 'mnnmsd', 'hjbhjbkjb ', 'jbkjbkb', 'bjb', 'kjkb', 'jbjkkjkb', 'kjb', 'kjb'),
-(16, 'vghh', 'hjvhjvhj', 'vjhvhjv', 'hhjvjh', 'vjhvhjvhv', 'jhvhjv', 'jvjhvj', 'hghbj');
+INSERT INTO `inquiry` (`iid`, `query_topic`, `details`, `buyerid`) VALUES
+(1, 'sowing', 'How to sow seeds', 'sai14'),
+(2, 'harvesting', 'Harvesting issues', 'man12'),
+(3, 'water irrigation', 'Best irrigation method', 'varun12'),
+(4, 'pesticide', 'What pesticides best for carrot farmin', 'shravan14');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `my_order`
---
-
-CREATE TABLE IF NOT EXISTS `my_order` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `rid` int(10) NOT NULL,
-  `name` varchar(30) NOT NULL,
-  `taluka` varchar(20) NOT NULL,
-  `main_prod` varchar(20) NOT NULL,
-  `sub_prod` varchar(20) NOT NULL,
-  `amount` int(10) NOT NULL,
-  `flag` int(1) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
-
---
--- Dumping data for table `my_order`
---
-
-INSERT INTO `my_order` (`id`, `rid`, `name`, `taluka`, `main_prod`, `sub_prod`, `amount`, `flag`) VALUES
-(1, 1, 'premkumar', 'Nuzvid', '1', '3', 10, 1),
-(4, 1, 'premkumar', 'Nuzvid', '1', '8', 10, 1),
-(5, 1, 'premkumar', 'Nuzvid', '1', '7', 10, 1),
-(6, 1, 'premkumar', 'Nuzvid', '1', '7', 10, 1),
-(8, 1, 'premkumar', 'Nuzvid', '1', '5', 14, 1),
-(9, 2, 'sai ram', 'Kodur', '1', '7', 10, 1),
-(10, 2, 'sai ram', 'Kodur', '1', '4', 10, 1);
 
 -- --------------------------------------------------------
 
@@ -268,3 +222,23 @@ ALTER TABLE `product`
 ALTER TABLE `tblproduct`
   MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
+
+-------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `organicfarming` (
+  `cropid` int(11) NOT NULL AUTO_INCREMENT,
+  `cropname` varchar(20) NOT NULL,
+  `bestpractices` varchar(1000) NOT NULL,
+  `articles` varchar(1000) NOT NULL,
+  PRIMARY KEY (`cropid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
+
+--
+-- Dumping data for table `Organic Farming`
+--
+
+INSERT INTO `organicfarming`(`cropid`, `cropname`, `bestpractices`, `articles`) VALUES 
+(1,'paddy','Prepare fields uniformly and as level as possible.Select the right seeding date and rate.Ensure uniform crop nutrition across the field and apply nutrition in time.Keep a uniform water level on the field, and drain the field at the right time prior to harvest.','http://www.knowledgebank.irri.org/step-by-step-production/postharvest/milling/milling-and-quality/item/improving-paddy-quality'),
+(2,'wheat','Implement crop rotation.Bury crop residues with tillage, if possible.Choose varieties with resistance to disease and insect pests.Plant on time (not too early, not too late) in a well-prepared seedbed.Use correct seeding rates, drill calibration, and drill operation','https://content.ces.ncsu.edu/north-carolina-organic-commodities-production-guide/chapter-4-crop-production-management-organic-wheat-and-small-grains'),
+(3,'tomatoes','Soil preparation for growing tomatoes organically. Production of agricultural products that contain no chemical residues, the development of environmentally friendly production methods and application of production methods that restore and maintain soil fertility. For organic farming of Tomatoes, Open Pollinated Varieties is preferred.','https://www.agrifarming.in/growing-tomatoes-organically-cultivation-practices'),
+(4,'onions','Choose a variety suited to day length in your areas. Direct seed or plant sets. Plant into well-prepared soil in full sun. Keep well watered, fertilize regularly. Harvest by pulling bulbs and drying them for 2 weeks. Common pests and diseases are thrips, wireworms, botrytis rot and downy mildew.','https://www.planetnatural.com/growing-onions/');

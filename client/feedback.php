@@ -7,20 +7,13 @@ header("location: login.php ?msg=PLZ log in first");
 include("connect.php");
 if(isset($_REQUEST['perform'])=="true")
 {
-$f=$_REQUEST['f_id'];
-$s=$_REQUEST['serv'];
-$a=$_REQUEST['add'];
-$p=$_REQUEST['phone'];
-$v=$_REQUEST['vill'];
-$c=$_REQUEST['com'];
-$result=mysqli_query($conn,"insert into feedback(f_id,serv_no,address,phone,village,usertype,comment) values('$f','$s','$a','$p','$v','$c','buyer')")or die('die');
-if ($result) {
-  echo "<script type='text/javascript'>alert('submitted successfully!')</script>";
-}
-else
-{
-  echo "<script type='text/javascript'>alert('failed!')</script>";
-}
+$bid=$_REQUEST['buid'];
+$com=$_REQUEST['comm'];
+$ut=$_REQUEST['utype'];
+$name=$_REQUEST['name'];
+$surv=$_REQUEST['sur'];
+mysqli_query($conn,"insert into feedback(buyerid,name,comments,usertype) values('$bid','$name','$com','buyer')")or die('QF');
+header("location: feedback.php?msg=Feedback Submitted.");	
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -36,6 +29,17 @@ else
 .style3 {font-size: 13px}
 -->
         </style>
+<script language="javascript" type="text/javascript">
+function validate()
+{
+   if(document.getElementById('comm').value=="")
+    { 
+	   alert('please fill feedback');
+	   document.getElementById('comm').focus();
+	   return false;
+	}
+}
+</script>
 </head>
 <body>
     	<div id="wrap">
@@ -80,7 +84,7 @@ else
 				<div id="content_top"></div>				
 				<div id="content_bg_repeat">
 					
-					<div class="inside">
+					<div class="inside" align="center">
             	<div class="row-1 outdent">
             	  <div class="wrapper"></div>
                 <form id="form1" method="post" action="" onsubmit="return validate();">
@@ -88,67 +92,50 @@ else
                   <?php
      include("connect.php");
      $id=$_SESSION['uid'];
-     $q=mysqli_query($conn,"select * from buyer where buyerid=$id");
+     $q=mysqli_query($conn,"select * from buyer where id=$id");
      $data=mysqli_fetch_array($q);
     ?>
-                  <table width="575" height="538" align="center"  style="border-style: double; border-color: #000000; font-family:Georgia, 'Times New Roman', Times, serif;">
+                  <table width="50%" height="250" border="0" align="center" style="border:#000000 double;">
                     <tr>
-                      <td height="41" colspan="3" align="center"><table width="100%" height="36
-					  " border="0">
+                    <td colspan="3"><table width="100%" height="36" border="0">
                         <tr>
-                          <td style=" font-size:18px;"><?php 
+                        <td align="center" style="background-color:#CCFF99; font-size:18px; font-family:Georgia, 'Times New Roman', Times, serif; color:#990033;">
+                          <?php 
 	                      if(isset($_REQUEST['msg'])!="")
 	                       {
 	                        echo $_REQUEST['msg'];
 	                       }
-	                         ?></td>
-                        </tr></table>
-                        <table width="100%" border="1"><tr></tr>
-                      </table>
-                        <p>&nbsp;</p>
-                      <span class="style2"></td>
-                    </tr>
-                    <tr>
-                      <td width="111"><span class="style1 style3">Farmer ID </span></td>
-                      <td width="8">::</td>
-                      <td width="268"><label>
-                        <input name="f_id" type="text" id="f_id" value="<?php echo $data['f_id'];?>" / readonly="">
-                      </label></td>
-                    </tr>
-                    <tr>
-                      <td><span class="style1 style3">Servey No </span></td>
-                      <td>::</td>
-                      <td><input name="serv" type="text" id="serv" value="<?php echo $data['s_num'];?>" / readonly=""></td>
-                    </tr>
-                    <tr>
-                      <td><span class="style1 style3">Address</span></td>
-                      <td>::</td>
-                      <td><input name="add" type="text" id="add" value="<?php echo $data['address'];?>" / readonly=""></td>
-                    </tr>
-                    <tr>
-                      <td><span class="style1 style3">Mobile No </span></td>
-                      <td>::</td>
+	                         ?>		 </td>
+                           </tr></table></td>
+                       </tr>
+                       <tr>
+                         <td width="22%"><span class="style1">BuyerID</span></td>
+                         <td width="77%"><label>
+                           <input name="bid" type="text" id="bid" value="<?php echo $data['buyerid'];?>" / readonly="">
+                         </label></td>
+                       </tr>
+                       <tr>
+                         <td width="22%"><span class="style1">Name</span></td>
+                         <td width="77%"><label>
+                           <input name="name" type="text" id="name" value="<?php echo $data['name'];?>"/ readonly="">
+                         </label></td>
+                       </tr>
+                       <tr>
+                         <td width="22%"><span class="style1">Survey No.</span></td>
+                         <td width="77%"><label>
+                           <input name="sur" type="text" id="sur" value="<?php echo $data['survey_no'];?>"/ readonly="">
+                         </label></td>
+                       </tr>
+                       
+                        <td height="31"><span class="style1">Comments</span></td>
+                        <td><div align="left">
+                          <textarea name="comm" id="comm"></textarea>
+                        </div></td>
+                      </tr>
+                       <tr>
+                         <td>&nbsp;</td>
                       <td><label>
-                        <input name="phone" type="text" id="phone" value="<?php echo $data['c_num'];?>" / readonly="">
-                      </label></td>
-                    </tr>
-                    <tr>
-                      <td><span class="style1 style3">Village</span></td>
-                      <td>::</td>
-                      <td><label>
-                        <input name="vill" type="text" id="vill" value="<?php echo $data['v_name'];?>" / readonly="">
-                      </label></td>
-                    </tr>
-                    <tr>
-                      <td><span class="style1 style3">Comments</span></td>
-                      <td>::</td>
-                      <td><textarea name="com" id="com"></textarea></td>
-                    </tr>
-                    <tr>
-                      <td height="73">&nbsp;</td>
-                      <td>&nbsp;</td>
-                      <td><label>
-                        <input type="submit" name="Submit" value="Feedback" onclick="alert();">
+                        <input type="submit" name="Submit" value="Submit"">
                       </label></td>
                     </tr>
                   </table>
