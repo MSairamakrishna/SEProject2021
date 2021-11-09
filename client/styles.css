@@ -9,16 +9,6 @@ img{
     padding: 0px;
     border: none;
 }
-table
-{ 
- border:#000000 groove;
- }
-font
-{
-font:Georgia, "Times New Roman", Times, serif;
-font-size:18px;
-color: #ffffff;
-}
 a{	
     color: #ffffff;
     font-weight: bold;

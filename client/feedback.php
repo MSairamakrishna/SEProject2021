@@ -2,7 +2,7 @@
 session_start();
 if(isset($_SESSION['uid'])=='')
 {
-header("location: login.php ?msg=PLZ log in first");
+header("location: login.php ?msg=Please log in first");
 }
 include("connect.php");
 if(isset($_REQUEST['perform'])=="true")

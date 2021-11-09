@@ -41,7 +41,7 @@ $q2=mysqli_query($conn,"select * from buyer where survey_no='$serv'")or die ("QF
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>Farmer Land Information System</title>
+        <title>Farmer Information System</title>
         <meta name="keywords" content="" />
         <meta name="description" content="" />
         <link href="styles.css" rel="stylesheet" type="text/css" media="screen" />
@@ -72,6 +72,12 @@ function validate()
     { 
 	   alert('please enter your ID');
 	   document.getElementById('buid').focus();
+	   return false;
+	}
+	if(document.getElementById('pswd').value=="")
+    { 
+	   alert('please enter your password');
+	   document.getElementById('pswd').focus();
 	   return false;
 	}
 	if(document.getElementById('pswd').value=="")
@@ -298,7 +304,8 @@ function getXMLHTTP()
     </tr>
     <tr>
       <td height="31"><span class="style5">Password</span></td>
-      <td><input name="pswd" type="password" id="pswd" /></td>
+      <td><input name="pswd" type="password" id="pswd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters" required"></td>
+	  
     </tr>
     <tr>
       <td height="31"><span class="style5">Age</span></td>

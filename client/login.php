@@ -58,8 +58,8 @@ header("location:login.php? msg=Your ID or Password may be wrong");
 						<li><a href="organicfarming.php">Farming</a></li>
 						<?php
 						}?>
-						<li><a href="guest_feedback.php">Feedback</a></li>
 						<li><a href="contact.php">Contact</a></li>
+						<li><a href="guest_feedback.php">Feedback</a></li>
 						<?php if(isset($_SESSION['uid'])=='')
 						{
 						?>
