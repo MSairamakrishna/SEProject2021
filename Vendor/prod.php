@@ -48,6 +48,7 @@ else
 		}
 		?></td>
         <td align="center"><a href="add_prod.php">Add New Product </a></td>
+		<td colspan="5">&nbsp; </td>
       </tr>
       <tr>
         <td class="font" align="center">No</td>
