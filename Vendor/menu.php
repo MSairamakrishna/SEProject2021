@@ -6,5 +6,6 @@
 <li><a href="prod.php">Product Mgmt.</a></li>
 <li><a href="show_news.php">News</a></li>
 <li><a href="show_activity.php">Activities</a></li>
+<li><a href="show_farming.php">Farming</a></li>
 <li><a href="logout.php">Logout</a></li>
 </ul>

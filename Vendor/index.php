@@ -15,7 +15,7 @@ if(isset($_REQUEST['perform'])=="true")
    }
    else
    {
-     header("location: index.php?msg= Enter your Correct ID AND PASSWORD");
+     header("location: index.php?msg= Incorrect credentials");
    }
 }
 ?>
