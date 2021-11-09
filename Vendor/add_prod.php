@@ -14,8 +14,17 @@ if(isset($_REQUEST['save'])=="true")
   $qua=$_REQUEST['qual'];
   $ct=$_REQUEST['cat'];
   $pr=$_REQUEST['pri'];
-	mysqli_query($conn,"insert into product (name,code,image,quantity,quality,category,price) values ('$na','$co','$im','$qu','$qua','$ct','$pr')") or die ("QF");
-	header("location: prod.php?msg=New Product has inserted successfully");
+  $q1=mysqli_query($conn,"select * from product where code='$co'") or die("QF");
+  if(@mysqli_num_rows($q1)!= 0)		
+	{
+		$msg = "This code is already assigned";
+	}
+	else
+	{
+		mysqli_query($conn,"insert into product (name,code,image,quantity,quality,category,price) values ('$na','$co','$im','$qu','$qua','$ct','$pr')") or die ("QF");
+	  header("location: prod.php?msg=New Product has inserted successfully");
+	}
+	
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

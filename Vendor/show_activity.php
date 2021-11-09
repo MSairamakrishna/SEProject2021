@@ -27,7 +27,7 @@ else
 }
 		
 		$eu = ($start - 0); 
-		$limit = 3;          
+		$limit = 5;          
 		$this1 = $eu + $limit; 
 		$back = $eu - $limit; 
 		$next = $eu + $limit; 
@@ -94,9 +94,6 @@ else
 	}
 	?>
         </table>
-		
-           
-      <p>
         	  	  <?php 
 
 echo "<table border=1 align=center style=border:#2980C5; border-style:groove>";
