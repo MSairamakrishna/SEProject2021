@@ -6,7 +6,7 @@ if(isset($_SESSION['vendor'])=='')
 }
 include("connect.php");
 $id=$_REQUEST['did'];
-$query=mysqli_query($conn,"delete from product where sid=$id");
+$query=mysqli_query($conn,"delete from product where id=$id");
 if($query)
 {
 	header("location: prod.php?msg=Product has Deleted successfully");

@@ -95,6 +95,11 @@ if (isset($_SESSION['uid']) == '')
                                     include("connect.php");
                                     $q = mysqli_query($conn, "select * from organicfarming order by cropid desc") or die("query fail");
                                     while ($data = mysqli_fetch_array($q)) {
+
+                                                    $d1 = $data["cropname"];
+                                                    $q1 = mysqli_query($conn, "select * from buyer where farming_in_practice = '$d1'") or die("query fail");
+                                                    $data2 =mysqli_fetch_array($q1)
+
                                     ?>
                                         <tr>
                                             <td height="94">
@@ -108,6 +113,10 @@ if (isset($_SESSION['uid']) == '')
                                                     </tr>
                                                     <tr>
                                                         <td colspan="3" bgcolor="#99CC99" style="font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; color:#000000"><span class="style27">Articles</span>:<a href="<?php echo $data['articles']; ?>" style="color:#21618C;"> <?php echo $data['articles']; ?></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td bgcolor="#66CC66" style="font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; color:#000000"><span class="style27">Farmer Name</span>:<?php echo $data2['name']; ?></td>
+                                                        <td bgcolor="#66CC66" style="font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; color:#000000"><span class="style27">Phone:  </span><?php echo $data2['phone']; ?></td>
                                                     </tr>
                                                 </table>
                                             </td>
