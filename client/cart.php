@@ -1,205 +1,239 @@
 <?php
 session_start();
-$rid=$_SESSION['uid'];
-if(isset($_SESSION['uid'])=='')
-{
-header("location: login.php ?msg=PLZ log in first");
+$rid = $_SESSION['uid'];
+if (isset($_SESSION['uid']) == '') {
+	header("location: login.php ?msg=PLZ log in first");
 }
 require_once("dbcontroller.php");
 $db_handle = new DBController();
-if(!empty($_GET["action"])) {
-switch($_GET["action"]) {
-	case "add":
-		if(!empty($_POST["quantity"])) {
-			$productByCode = $db_handle->runQuery("SELECT * FROM product WHERE code='" . $_GET["code"] . "'");
-			$itemArray = array($productByCode[0]["code"]=>array('name'=>$productByCode[0]["name"], 'code'=>$productByCode[0]["code"], 'quantity'=>$_POST["quantity"], 'price'=>$productByCode[0]["price"], 'image'=>$productByCode[0]["image"]));
-			
-			if(!empty($_SESSION["cart_item"])) {
-				if(in_array($productByCode[0]["code"],array_keys($_SESSION["cart_item"]))) {
-					foreach($_SESSION["cart_item"] as $k => $v) {
-							if($productByCode[0]["code"] == $k) {
-								if(empty($_SESSION["cart_item"][$k]["quantity"])) {
+if (!empty($_GET["action"])) {
+	switch ($_GET["action"]) {
+		case "add":
+			if (!empty($_POST["quantity"])) {
+				$productByCode = $db_handle->runQuery("SELECT * FROM product WHERE code='" . $_GET["code"] . "' ");
+				$itemArray = array($productByCode[0]["code"] => array('name' => $productByCode[0]["name"], 'code' => $productByCode[0]["code"], 'quantity' => $_POST["quantity"], 'price' => $productByCode[0]["price"], 'image' => $productByCode[0]["image"]));
+
+				if (!empty($_SESSION["cart_item"])) {
+					if (in_array($productByCode[0]["code"], array_keys($_SESSION["cart_item"]))) {
+						foreach ($_SESSION["cart_item"] as $k => $v) {
+							if ($productByCode[0]["code"] == $k) {
+								if (empty($_SESSION["cart_item"][$k]["quantity"])) {
 									$_SESSION["cart_item"][$k]["quantity"] = 0;
 								}
 								$_SESSION["cart_item"][$k]["quantity"] += $_POST["quantity"];
-								echo $_POST["quantity"];
-								echo $productByCode[0]["quantity"];
-								$qua= $productByCode[0]["quantity"] - $_SESSION["cart_item"][$k]["quantity"];
-								echo $qua;
+								
 							}
-#							mysqli_query($conn,"update product set quantity='$qua' WHERE code='$k'") or die("QF");
+							#							mysqli_query($conn,"update product set quantity='$qua' WHERE code='$k'") or die("QF");
 
+						}
+					} else {
+						$_SESSION["cart_item"] = array_merge($_SESSION["cart_item"], $itemArray);
 					}
 				} else {
-					$_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$itemArray);
+					$_SESSION["cart_item"] = $itemArray;
 				}
-			} else {
-				$_SESSION["cart_item"] = $itemArray;
 			}
-		}
-	break;
-	case "remove":
-		if(!empty($_SESSION["cart_item"])) {
-			foreach($_SESSION["cart_item"] as $k => $v) {
-					if($_GET["code"] == $k)
-						unset($_SESSION["cart_item"][$k]);				
-					if(empty($_SESSION["cart_item"]))
+			break;
+		case "remove":
+			if (!empty($_SESSION["cart_item"])) {
+				foreach ($_SESSION["cart_item"] as $k => $v) {
+					if ($_GET["code"] == $k)
+						unset($_SESSION["cart_item"][$k]);
+					if (empty($_SESSION["cart_item"]))
 						unset($_SESSION["cart_item"]);
-			}
 				}
-	break;
-	case "empty":
-		unset($_SESSION["cart_item"]);
-	break;	
-}
+			}
+			break;
+		case "empty":
+			unset($_SESSION["cart_item"]);
+			break;
+	}
 }
 ?>
 <HTML>
+
 <HEAD>
-<link href="styles.css" type="text/css" rel="stylesheet" />
+	<link href="styles.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="lib/jquery.js"></script>
+	<script>
+		$(window).load(function () {
+					$(".trigger_popup_fricc").click(function(){
+					$('.hover_bkgr_fricc').show();
+					});
+					$('.hover_bkgr_fricc').click(function(){
+						$('.hover_bkgr_fricc').hide();
+					});
+					$('.popupCloseButton').click(function(){
+						$('.hover_bkgr_fricc').hide();
+					});
+		});
+		function popup(){
+			a = $('#popup')
+			a1 = $('#insidepopup')
+			a1[0].innerHTML += a[0].outerHTML
+		}
+	</script>
 </HEAD>
+
 <BODY>
-<div id="wrap">
-		      <div id="menu">
-					 <ul>
-						<li><a href="index.php">Home</a></li>
-						<?php if(isset($_SESSION['uid'])!='')
-						{
-						?>
-						<li><a href="cart.php" class="active" >Cart</a></li>
-						<?php
-						}
-						?>
-						<?php if(isset($_SESSION['uid'])!='')
-						{?>
-						<li><a href="myprofile.php">Myprofile</a></li>
-						<li><a href="inquiry.php">Inquiry</a></li>
-						<li><a href="organicfarming.php">Farming</a></li>
-						<?php
-						}?>
-						<li><a href="feedback.php">Feedback</a></li>
-						<li><a href="contact.php">Contact</a></li>
-						<?php if(isset($_SESSION['uid'])=='')
-						{
-						?>
-						<li><a href="login.php">Login</a></li>
-						<?php
-						}
-						else
-						{
-						?>
-						<li><a href="logout.php">Logout</a></li>
-						<?php
-						}
-						?>
-						</ul>
-				</div>
-				
-				<div id="top_padding"></div>
-				
-				<div id="content_top"></div>				
-				<div id="content_bg_repeat">
+<div class="hover_bkgr_fricc">
+<span class="helper"></span>
+	<div id="insidepopup">
+		<div class="popupCloseButton">&times;</div>
+		<p>Only Cash on delivery available<br />Please find the items and details you have bought</p>
+	</div>
+</div>
+	<div id="wrap">
+		<div id="menu">
+			<ul>
+				<li><a href="index.php">Home</a></li>
+				<?php if (isset($_SESSION['uid']) != '') {
+				?>
+					<li><a href="cart.php" class="active">Cart</a></li>
+				<?php
+				}
+				?>
+				<?php if (isset($_SESSION['uid']) != '') { ?>
+					<li><a href="myprofile.php">Myprofile</a></li>
+					<li><a href="inquiry.php">Inquiry</a></li>
+					<li><a href="organicfarming.php">Farming</a></li>
+				<?php
+				} ?>
+				<li><a href="feedback.php">Feedback</a></li>
+				<li><a href="contact.php">Contact</a></li>
+				<?php if (isset($_SESSION['uid']) == '') {
+				?>
+					<li><a href="login.php">Login</a></li>
+				<?php
+				} else {
+				?>
+					<li><a href="logout.php">Logout</a></li>
+				<?php
+				}
+				?>
+			</ul>
+		</div>
+
+		<div id="top_padding"></div>
+
+		<div id="content_top"></div>
+		<div id="content_bg_repeat">
+
+			<div class="inside">
+				<div class="row-1 outdent">
+					<div class="wrapper"></div>
+
 					
-					<div class="inside">
-            	<div class="row-1 outdent">
-            	  <div class="wrapper"></div>
-                
 
-				<div id="shopping-cart">
-				<div class="txt-heading">Shopping Cart</div>
+					<div id="shopping-cart">
+						<div class="txt-heading">Shopping Cart</div>
 
-					<a id="btnEmpty" href="cart.php?action=empty">Empty Cart</a>
-					<a id="btnSubmit" href="cart.php?action=Submit">Submit Cart</a>
-					<?php
-					if(isset($_SESSION["cart_item"])){
-						$total_quantity = 0;
-						$total_price = 0;
-					?>	
-					<table class="tbl-cart" cellpadding="10" cellspacing="1">
-					<tbody>
-					<tr>
-					<th style="text-align:center;">Name</th>
-					<th style="text-align:center;">Code</th>
-					<th style="text-align:center;" width="5%">Quantity</th>
-					<th style="text-align:center;" width="10%">Unit Price <br>per lb</th>
-					<th style="text-align:center;" width="10%">Price</th>
-					<th style="text-align:center;" width="5%">Remove</th>
-					</tr>	
-					<?php		
-						foreach ($_SESSION["cart_item"] as $item){
-							$item_price = $item["quantity"]*$item["price"];
-							?>		
+						<a id="btnEmpty" href="cart.php?action=empty">Empty Cart</a>
+						<a class="trigger_popup_fricc" id="btnSubmit" onclick="popup()" >Submit Cart</a>
+						<?php
+						if (isset($_SESSION["cart_item"])) {
+							$total_quantity = 0;
+							$total_price = 0;
+						?>
+							<table class="tbl-cart" cellpadding="10" cellspacing="1" id="popup">
+								<tbody>
 									<tr>
-									<td ><img src="<?php echo $item["image"]; ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
-									<td style="text-align:center;"><?php echo $item["code"]; ?></td>
-									<td style="text-align:center;"><?php echo $item["quantity"]; ?></td>
-									<td  style="text-align:center;"><?php echo "$ ".$item["price"]; ?></td>
-									<td  style="text-align:center;"><?php echo "$ ". number_format($item_price,2); ?></td>
-									<td style="text-align:center;"><a href="cart.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction"><img src="images/icon-delete.png" alt="Remove Item" /></a></td>
+										<th style="text-align:center;">Name</th>
+										<th style="text-align:center;">Code</th>
+										<th style="text-align:center;" width="5%">Quantity</th>
+										<th style="text-align:center;" width="10%">Unit Price <br>per lb</th>
+										<th style="text-align:center;" width="10%">Price</th>
+										<th style="text-align:center;" width="5%">Remove</th>
 									</tr>
 									<?php
-									
-									$total_quantity += $item["quantity"];
-									$total_price += ($item["price"]*$item["quantity"]);
+									foreach ($_SESSION["cart_item"] as $item) {
+										$item_price = $item["quantity"] * $item["price"];
+									?>
+										<tr>
+											<td><img src="<?php echo $item["image"]; ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
+											<td style="text-align:center;"><?php echo $item["code"]; ?></td>
+											<td style="text-align:center;"><?php echo $item["quantity"]; ?></td>
+											<td style="text-align:center;"><?php echo "$ " . $item["price"]; ?></td>
+											<td style="text-align:center;"><?php echo "$ " . number_format($item_price, 2); ?></td>
+											<td style="text-align:center;"><a href="cart.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction"><img src="images/icon-delete.png" alt="Remove Item" /></a></td>
+										</tr>
+									<?php
 
-							}
-							?>
+										$total_quantity += $item["quantity"];
+										$total_price += ($item["price"] * $item["quantity"]);
+									}
+									?>
 
-					<tr>
-					<td colspan="2" align="right">Total:</td>
-					<td align="right"><?php echo $total_quantity; ?></td>
-					<td align="right" colspan="2"><strong><?php echo "$ ".number_format($total_price, 2); ?></strong></td>
-					<td></td>
-					</tr>
-					</tbody>
-					</table>		
-					<?php
-					} else {
-					?>
-					<div class="no-records">Your Cart is Empty</div>
-					<?php 
-					}
-					?>
-					</div>
-
-					<div id="product-grid">
-						<div class="txt-heading">Products</div>
-
+									<tr>
+										<td colspan="2" align="right">Total:</td>
+										<td align="right"><?php echo $total_quantity; ?></td>
+										<td align="right" colspan="2"><strong><?php echo "$ " . number_format($total_price, 2); ?></strong></td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
 						<?php
-						$product_array = $db_handle->runQuery("SELECT * FROM product ORDER BY id ASC");
-						if (!empty($product_array)) { 
-							foreach($product_array as $key=>$value){
+						} else {
 						?>
-							<div class="product-item">
-								<form method="post" action="cart.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">
-								<div class="product-image"><img src="<?php echo $product_array[$key]["image"]; ?>"></div>
-								<div class="product-tile-footer">
-								<div class="product-title"><?php echo $product_array[$key]["name"]; ?></div>
-								<div class="product-price"><?php echo "$".$product_array[$key]["price"]; ?></div>
-								<div class="product-quality" align="right"><?php echo "Quality: " .$product_array[$key]["quality"]; ?></div>
-								<div class="product-Aquantity" align="left"><?php echo "Available: " .$product_array[$key]["quantity"]; ?></div>
-								<div class="cart-action" align="center">
-								<input type="number" class="product-quantity"  name="quantity" value="1" size="2" min="1" max="<?=$product_array[$key]['quantity']?>" />
-								<input type="submit" value="Add to Cart" class="btnAddAction"  /></div>
-								</div>
-								</form>
-							</div>
+							<div class="no-records">Your Cart is Empty</div>
 						<?php
-							}
 						}
 						?>
 					</div>
-              <div class="row-2">
-              	<div class="wrapper"></div>
-              </div>
-            </div>
-					
-				</div>
-				<div id="content_bottom"></div>
-				<div id="footer_top">
-				  <div class="clear"></div>
-				</div>
+					<?php
+					$cat_arry = array("fruit", "pesticide", "seed", "vegetable");
+
+					foreach ($cat_arry as $eachcat) {
+					?>
+						<div id="product-grid">
+							<div class="txt-heading"><?php echo $eachcat ?></div>
+
+
+
+							<!-- <div class="txt-heading"><?php echo $eachcat ?></div> -->
+							<?php
+							$product_array = $db_handle->runQuery("SELECT * FROM product where category='$eachcat'");
+							if (!empty($product_array)) {
+								foreach ($product_array as $key => $value) {
+							?>
+
+									<div class="product-item">
+										<form method="post" action="cart.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">
+											<center><div class="product-image"><img src="<?php echo $product_array[$key]["image"]; ?>"></div></center>
+											
+											<div class="product-tile-footer">
+												<div class="product-title"><?php echo $product_array[$key]["name"]; ?></div>
+												<div class="product-price"><?php echo "$" . $product_array[$key]["price"]; ?></div>
+												<div class="product-quality" align="right"><?php echo "Quality: " . $product_array[$key]["quality"]; ?></div>
+												<div class="product-Aquantity" align="left"><?php echo "Available: " . $product_array[$key]["quantity"]; ?></div>
+												<div class="cart-action" align="center">
+													<input type="number" class="product-quantity" name="quantity" value="1" size="2" min="1" max="<?= $product_array[$key]['quantity'] ?>" />
+													<input type="submit" value="Add to Cart" class="btnAddAction" />
+												</div>
+											</div>
+										</form>
+									</div>
+							<?php
+								}
+							}
+							?>
+						</div>
+					<?php
+					}
+					?>
+
+					<div class="row-2">
+						<div class="wrapper"></div>
 					</div>
-					</div>
+				</div>
+
+			</div>
+			<div id="content_bottom"></div>
+			<div id="footer_top">
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
 </BODY>
+
 </HTML>
