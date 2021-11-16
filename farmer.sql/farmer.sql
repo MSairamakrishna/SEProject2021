@@ -174,8 +174,7 @@ INSERT INTO `buyer` (`id`, `name`, `buyerid`, `password`, `age`, `sex`, `phone`,
 (1, 'Manoj', 'man12', '123', 21, 'M', 8765487654,'101/24', 'Stella street', 'Denton', 'Texas', 'farmer', '10000-25000', 'paddy', '5', 'NA','What is your pet name ','puppy'),
 (2, 'Sai ram', 'sai14', '123', 21, 'M', 9123491234, '125/5a','Hickory street', 'Denton', 'Texas', 'engineer', '10000-25000', 'watermelon', '20', 'Irrigation issue','what is your school name','sai vignan');
 
------------------------------------------------------------
-
+-- --------------------------------------------------------
 --
 -- Table structure for table `product`
 --
@@ -219,11 +218,10 @@ ALTER TABLE `product`
 --
 -- AUTO_INCREMENT for table `product`
 --
-ALTER TABLE `tblproduct`
+ALTER TABLE `product`
   MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-COMMIT;
 
--------------------------------------------------
+-- -------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS `organicfarming` (
   `cropid` int(11) NOT NULL AUTO_INCREMENT,
