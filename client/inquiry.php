@@ -3,6 +3,7 @@ session_start();
 //if(isset($_SESSION['uid'])=='')
 if(isset($_REQUEST['perform'])=="true")
 {
+	/* Inserting details into inquiry table */
 include("connect.php");
 $query=$_REQUEST['qu'];
 $det=$_REQUEST['deta'];
@@ -29,6 +30,7 @@ header("location: inquiry.php?msg=  Inquiry is done..");
 		<script language="javascript" type="text/javascript">
 function validate()
 {
+	/* Script to validate user input */
    if(document.getElementById('qu').value=="")
     { 
 	   alert('please enter query topic');
@@ -52,6 +54,7 @@ function validate()
 						<li><a href="index.php">Home</a></li>
 						<?php if(isset($_SESSION['uid'])!='')
 						{
+							/* Header menu for UI */
 						?>
 						<li><a href="cart.php" >Cart</a></li>
 						<?php
@@ -93,6 +96,7 @@ function validate()
 				  <form id="form1" method="post" action="" onsubmit="return validate();">
                   <input type="hidden" name="perform" value="true" />
 				  <?php
+				  /* Fetching details from buyer table */
 					include("connect.php");
 					$id=$_SESSION['uid'];
 					$q=mysqli_query($conn,"select * from buyer where id=$id");

@@ -7,6 +7,7 @@ if(isset($_SESSION['vendor'])=="")
 }
 if(isset($_REQUEST['perform'])=="true")
 {
+  /* Inserting values into news table */
 	include("connect.php");
 	$t=$_REQUEST['t1'];
 	$d=$_REQUEST['t2'];
@@ -30,6 +31,7 @@ if(isset($_REQUEST['perform'])=="true")
 <script language="javascript" type="text/javascript">
 function validate()
 {
+  /* Script to validate user inputs */
   
 	if(document.getElementById('t1').value=="")
     { 

@@ -4,6 +4,7 @@ if(isset($_SESSION['vendor'])=="")
 {
 	header("location: index.php?msg=Please login to access..");
 }
+/* Deleting details from organicfarming table */
 include("connect.php");
 $i=$_REQUEST['did'];
 $q=mysqli_query($conn,"delete from organicfarming where cropid=$i") or die ("query fail");

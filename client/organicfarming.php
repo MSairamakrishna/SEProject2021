@@ -44,6 +44,7 @@ if (isset($_SESSION['uid']) == '')
                 <li><a href="index.php">Home</a></li>
                 <?php if (isset($_SESSION['uid']) != '') {
                 ?>
+                /* Header menu for UI */
                     <li><a href="cart.php">Cart</a></li>
                     <li><a href="feedback.php">Feedback</a></li>
                 <?php
@@ -92,6 +93,7 @@ if (isset($_SESSION['uid']) == '')
                                         </td>
                                     </tr>
                                     <?php
+                                    /* Fetching details from organicfarming table */
                                     include("connect.php");
                                     $q = mysqli_query($conn, "select * from organicfarming order by cropid desc") or die("query fail");
                                     while ($data = mysqli_fetch_array($q)) {

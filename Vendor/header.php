@@ -7,7 +7,7 @@
 </script>
 
 <link rel="stylesheet" type="text/css" href="styles.css" />
-
+<!-- Header menu for UI -->
 <ul id="gooeymenu1" class="gelbuttonmenu">
 <li><a href="home.php">Home</a></li>
 <li><a href="show_inquiry.php">Show_inquiry</a></li>

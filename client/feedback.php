@@ -4,12 +4,12 @@ if(isset($_SESSION['uid'])=='')
 {
 header("location: login.php ?msg=Please log in first");
 }
+/* Inserting values into feedback table */
 include("connect.php");
 if(isset($_REQUEST['perform'])=="true")
 {
 $bid=$_REQUEST['buid'];
 $com=$_REQUEST['comm'];
-$ut=$_REQUEST['utype'];
 $name=$_REQUEST['name'];
 $surv=$_REQUEST['sur'];
 mysqli_query($conn,"insert into feedback(buyerid,name,comments,usertype) values('$bid','$name','$com','buyer')")or die('QF');
@@ -32,6 +32,7 @@ header("location: feedback.php?msg=Feedback Submitted.");
 <script language="javascript" type="text/javascript">
 function validate()
 {
+	/* Script to validate user input */
    if(document.getElementById('comm').value=="")
     { 
 	   alert('please fill feedback');
@@ -48,6 +49,7 @@ function validate()
 						<li><a href="index.php">Home</a></li>
 						<?php if(isset($_SESSION['uid'])!='')
 						{
+							/* Header menu for UI */
 						?>
 						<li><a href="cart.php" >Cart</a></li>
 						<?php
@@ -72,7 +74,7 @@ function validate()
 						else
 						{
 						?>
-						<li><a href="Logout.php">Logout</a></li>
+						<li><a href="logout.php">Logout</a></li>
 						<?php
 						}
 						?>
@@ -90,6 +92,7 @@ function validate()
                 <form id="form1" method="post" action="" onsubmit="return validate();">
                   <input type="hidden" name="perform" value="true" />
                   <?php
+				  /* Fetching details from buyer table */
      include("connect.php");
      $id=$_SESSION['uid'];
      $q=mysqli_query($conn,"select * from buyer where id=$id");
@@ -111,7 +114,7 @@ function validate()
                        <tr>
                          <td width="22%"><span class="style1">BuyerID</span></td>
                          <td width="77%"><label>
-                           <input name="bid" type="text" id="bid" value="<?php echo $data['buyerid'];?>" / readonly="">
+                           <input name="buid" type="text" id="buid" value="<?php echo $data['buyerid'];?>" / readonly="">
                          </label></td>
                        </tr>
                        <tr>

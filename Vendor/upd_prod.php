@@ -29,6 +29,7 @@ header("location: prod.php?msg=Product has Updated successfully");
 <script language="javascript" type="text/javascript">
 function validate()
 {
+  /* Script to validate user input */
    if(document.getElementById('nm').value=="")
     { 
 	   alert('Please enter Name');
@@ -89,6 +90,7 @@ function validate()
     <td>&nbsp;</td>
     <td>
 	<?php
+  /* Fetching details from product table */
 	include("connect.php");
 	$i=$_REQUEST['uid'];
 	$q=mysqli_query($conn,"select * from product where id=$i") or die ("QF");

@@ -3,9 +3,7 @@ session_start();
 include("connect.php");
 if(isset($_REQUEST['perform'])=="true")
 {
-$bid=$_REQUEST['buid'];
 $com=$_REQUEST['comm'];
-$ut=$_REQUEST['utype'];
 $name=$_REQUEST['name'];
 
 mysqli_query($conn,"insert into feedback(buyerid,name,comments,usertype) values('NA','$name','$com','guest')")or die('QF');
@@ -25,9 +23,16 @@ header("location: guest_feedback.php?msg= Feedback submitted");
 .style3 {font-size: 13px}
 -->
         </style>
+/** Script to validate user input */
 <script language="javascript" type="text/javascript">
 function validate()
 {
+	if(document.getElementById('name').value=="")
+    { 
+	   alert('please fill feedback');
+	   document.getElementById('name').focus();
+	   return false;
+	}
    if(document.getElementById('comm').value=="")
     { 
 	   alert('please fill feedback');
@@ -48,6 +53,7 @@ function validate()
             <li><a href="register.php">Register</a></li>
 						<?php if(isset($_SESSION['uid'])=='')
 						{
+							/* Header menu for the UI*/
 						?>
 						<li><a href="login.php">Login</a></li>
 						<?php

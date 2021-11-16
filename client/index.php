@@ -29,10 +29,12 @@ if(isset($_SESSION['uid'])=='')
 </head>
     <body>
     	<div id="wrap">
-		        <div id="menu">	
+		        <div id="menu">
+				
 				     <ul>
 						<li><a href="index.php" class="active">Home</a></li>
 						<?php if (isset($_SESSION['uid'])!='')
+						/* Header menu for UI */
 						{
 						?>
 						<li><a href="cart.php">Cart</a></li>
@@ -111,6 +113,7 @@ if(isset($_SESSION['uid'])=='')
                             <th scope="col"><span class="style25">Latest News </span></th>
                           </tr>
                           <?php
+						  /* Fetching details from news table */
 					include("connect.php");
 					$q=mysqli_query($conn,"select * from news order by nid desc limit 3") or die ("query fail");
 					while($data=mysqli_fetch_array($q))

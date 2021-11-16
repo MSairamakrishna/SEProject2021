@@ -6,6 +6,7 @@ if(isset($_SESSION['uid'])=='')
 }
 if(isset($_REQUEST['update'])=="true")
 {
+  /* Fetching details from buyer*/
 include("connect.php");
 $id=$_REQUEST['idd'];
 $bid=$_REQUEST['buid'];
@@ -34,6 +35,7 @@ else
 <script language="javascript" type="text/javascript">
 function validate()
 {
+  /* Script to validate user input */
     if(document.getElementById('seca').value=="")
     { 
 	   alert('please enter your security answer');
@@ -56,6 +58,7 @@ function validate()
 <body>
     	<div id="wrap">
         <div id="menu">
+          <!-- Header Menu for UI -->
 					 <ul>
 						<li><a href="index.php">Home</a></li>
 						<?php if(isset($_SESSION['uid'])!='')
@@ -83,7 +86,7 @@ function validate()
 						else
 						{
 						?>
-						<li><a href="Logout.php">Logout</a></li>
+						<li><a href="logout.php">Logout</a></li>
 						<?php
 						}
 						?>
@@ -101,6 +104,7 @@ function validate()
                 <form id="form1" name="form1" method="post" action="" onsubmit="return validate();">                  
                 <input type="hidden" name="update" value="true" />
               <?php
+              /* Fetching details from buyer table */
               include("connect.php");
               $id=$_SESSION['uid'];
               $q=mysqli_query($conn,"select * from buyer where id=$id");
@@ -148,9 +152,7 @@ function validate()
             </tr>
             <tr>
               <td height="31"><span class="style1">New Password</span></td>
-              <td><label>
-                <input name="pswd" type="password" id="pswd" />
-              </label></td>
+              <td><input name="pswd" type="password" id="pswd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters" required"></td>
             </tr>
             <tr>
               <td align="center" colspan="3"><input type="submit" name="Submit" value="Change password" /></td>

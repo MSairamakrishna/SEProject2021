@@ -31,6 +31,7 @@ session_start();
 						<li><a href="index.php">Home</a></li>
 						<?php if (isset($_SESSION['uid'])!='')
 						{
+							/* Header menu for UI */
 						?>
 						
 						<li><a href="cart.php">Cart</a></li>
@@ -84,6 +85,7 @@ session_start();
                                 <td height="21"><div align="center" class="style25 style28">Latest News </div></td>
                               </tr>
 							  <?php
+							  /* Fetching details from news table */
 	                           include("connect.php");
 	                           $q=mysqli_query($conn,"select * from news order by nid desc") or die ("query fail");
 	                           while($data=mysqli_fetch_array($q))

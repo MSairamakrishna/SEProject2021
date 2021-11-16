@@ -68,6 +68,7 @@ else
           </tr>
            <!--CODE FOR PAGGING-->
 		      <?php
+			  /* Fetching details from organicfarming */
 	include("connect.php");	
 		$i=1;
 	$sql2 = "select * from organicfarming";

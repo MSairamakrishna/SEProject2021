@@ -8,9 +8,7 @@ if(isset($_REQUEST['update'])=="true")
 {
   include("connect.php");
   $bfname=$_REQUEST['fname'];
-  $id=$_REQUEST['idd'];
   $bid=$_REQUEST['buid'];
-  $pd=$_REQUEST['pswd'];
   $age=$_REQUEST['age'];
   $sx=$_REQUEST['se'];
   $cntct=$_REQUEST['mobile'];
@@ -23,11 +21,9 @@ if(isset($_REQUEST['update'])=="true")
   $fip=$_REQUEST['frinp'];
   $land=$_REQUEST['land'];
   $chf=$_REQUEST['chaf'];
-  $secq=$_REQUEST['secqu'];
-  $seca=$_REQUEST['seca'];
 
-	mysqli_query($conn, "update buyer set name='$bfname',age=$age,sex='$sx',phone=$cntct,address='$ad',locality='$loc',state='$stt',profession='$prof',income='$inc',farming_in_practice='$fip',land_owned='$land',challenges_faced='$chf' where buyerid='$bid'")  or die("qf");
-	header("location: myprofile.php?msg=Account updated successfully.");	
+  mysqli_query($conn, "update buyer set name='$bfname',age=$age,sex='$sx',phone=$cntct,address='$ad',locality='$loc',state='$stt',profession='$prof',income='$inc',farming_in_practice='$fip',land_owned='$land',challenges_faced='$chf' where buyerid='$bid'")  or die("qf");
+  header("location: myprofile.php?msg=Account updated successfully.");  
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -42,9 +38,9 @@ if(isset($_REQUEST['update'])=="true")
 <!--
 .style1 {font-size: 14px}
 .style2 {
-	font-size: 15px;
-	font-family: Georgia, "Times New Roman", Times, serif;
-	color: black;
+  font-size: 15px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: black;
 }
 -->
         </style>
@@ -53,169 +49,144 @@ function validate()
 {
    if(document.getElementById('fname').value=="")
     { 
-	   alert('please enter your first name');
-	   document.getElementById('fname').focus();
-	   return false;
-	}
-	 if(document.getElementById('lname').value=="")
+     alert('please enter your first name');
+     document.getElementById('fname').focus();
+     return false;
+  }
+  if(document.getElementById('age').value=="")
     { 
-	   alert('please enter your last name');
-	   document.getElementById('lname').focus();
-	   return false;
-	}
-	if(document.getElementById('pswd').value=="")
+     alert('please enter your age');
+     document.getElementById('age').focus();
+     return false;
+  }
+  if(isNaN(document.getElementById('age').value))
     { 
-	   alert('please enter your password');
-	   document.getElementById('pswd').focus();
-	   return false;
-	}
-	if(document.getElementById('age').value=="")
+     alert('Age should be integer');
+     document.getElementById('age').focus();
+     return false;
+  }
+  if(document.getElementById('mobile').value=="")
     { 
-	   alert('please enter your age');
-	   document.getElementById('age').focus();
-	   return false;
-	}
-	if(isNaN(document.getElementById('age').value))
+     alert('please enter your contact number');
+     document.getElementById('mobile').focus();
+     return false;
+  }
+  if(isNaN(document.getElementById('mobile').value))
     { 
-	   alert('Age should be integer');
-	   document.getElementById('age').focus();
-	   return false;
-	}
-	if(document.getElementById('mobile').value=="")
+     alert('Mobile number should be integer');
+     document.getElementById('mobile').focus();
+     return false;
+  }
+  if(document.getElementById('surv').value=="")
     { 
-	   alert('please enter your contact number');
-	   document.getElementById('mobile').focus();
-	   return false;
-	}
-	if(isNaN(document.getElementById('mobile').value))
+     alert('please enter your survey no.');
+     document.getElementById('surv').focus();
+     return false;
+  }
+  if(document.getElementById('add').value=="")
     { 
-	   alert('Mobile number should be integer');
-	   document.getElementById('mobile').focus();
-	   return false;
-	}
-	if(document.getElementById('surv').value=="")
+     alert('please enter your Address');
+     document.getElementById('add').focus();
+     return false;
+  }
+  if(document.getElementById('local').value=="")
     { 
-	   alert('please enter your survey no.');
-	   document.getElementById('surv').focus();
-	   return false;
-	}
-	if(document.getElementById('add').value=="")
+     alert('please enter your locality');
+     document.getElementById('local').focus();
+     return false;
+  }
+   if(document.getElementById('state').value=="")
     { 
-	   alert('please enter your Address');
-	   document.getElementById('add').focus();
-	   return false;
-	}
-	if(document.getElementById('local').value=="")
+     alert('please enter your State');
+     document.getElementById('state').focus();
+     return false;
+  }
+   if(document.getElementById('pro').value=="")
     { 
-	   alert('please enter your locality');
-	   document.getElementById('local').focus();
-	   return false;
-	}
-	 if(document.getElementById('state').value=="")
+     alert('please enter your profession');
+     document.getElementById('pro').focus();
+     return false;
+  }
+   if(document.getElementById('inco').value=="Select Your income")
     { 
-	   alert('please enter your State');
-	   document.getElementById('state').focus();
-	   return false;
-	}
-	 if(document.getElementById('pro').value=="")
+     alert('please enter your Yearly Income');
+     document.getElementById('inco').focus();
+     return false;
+  }
+   if(document.getElementById('frinp').value=="")
     { 
-	   alert('please enter your profession');
-	   document.getElementById('pro').focus();
-	   return false;
-	}
-	 if(document.getElementById('inco').value=="Select Your income")
+     alert('please enter your Farming in practice');
+     document.getElementById('frinp').focus();
+     return false;
+  }
+  if(document.getElementById('land').value=="")
     { 
-	   alert('please enter your Yearly Income');
-	   document.getElementById('inco').focus();
-	   return false;
-	}
-	 if(document.getElementById('frinp').value=="")
+     alert('please enter your land owned in acres');
+     document.getElementById('land').focus();
+     return false;
+  }
+  if(isNaN(document.getElementById('land').value))
     { 
-	   alert('please enter your Farming in practice');
-	   document.getElementById('frinp').focus();
-	   return false;
-	}
-	if(document.getElementById('land').value=="")
+     alert('Land owned should be integer');
+     document.getElementById('land').focus();
+     return false;
+  }
+  if(document.getElementById('chaf').value=="")
     { 
-	   alert('please enter your land owned in acres');
-	   document.getElementById('land').focus();
-	   return false;
-	}
-	if(isNaN(document.getElementById('land').value))
-    { 
-	   alert('Land owned should be integer');
-	   document.getElementById('land').focus();
-	   return false;
-	}
-	if(document.getElementById('chaf').value=="")
-    { 
-	   alert('please enter your challenges faced');
-	   document.getElementById('chaf').focus();
-	   return false;
-	}
-	  if(document.getElementById('secqu').value=="select your security question")
-    { 
-	   alert('please select your security question');
-	   document.getElementById('secqu').focus();
-	   return false;
-	}
-	 
-	 if(document.getElementById('seca').value=="")
-    { 
-	   alert('please enter you answer for security question');
-	   document.getElementById('seca').focus();
-	   return false;
-	}
+     alert('please enter your challenges faced');
+     document.getElementById('chaf').focus();
+     return false;
+  }
 }
 </script>
 </head>
 
     <body>
-    	<div id="wrap">
-		        <div id="menu">
-					 <ul>
-						<li><a href="index.php">Home</a></li>
-						<?php if(isset($_SESSION['uid'])!='')
-						{
-						?>
-						<li><a href="cart.php">Cart</a></li>
-						<?php
-						}
-						?>
-						<?php if(isset($_SESSION['uid'])!='')
-						{?>
-						<li><a href="myprofile.php" class="active">Myprofile</a></li>
-						<li><a href="inquiry.php">Inquiry</a></li>
+      <div id="wrap">
+            <div id="menu">
+           <ul>
+            <li><a href="index.php">Home</a></li>
+            <?php if(isset($_SESSION['uid'])!='')
+            {
+            ?>
+            <li><a href="cart.php">Cart</a></li>
+            <?php
+            }
+            ?>
+            <?php if(isset($_SESSION['uid'])!='')
+            {?>
+            <li><a href="myprofile.php" class="active">Myprofile</a></li>
+            <li><a href="inquiry.php">Inquiry</a></li>
             <li><a href="organicfarming.php">Farming</a></li>
-						<?php
-						}?>
-						<li><a href="feedback.php">Feedback</a></li>
-						<li><a href="contact.php">Contact</a></li>
-						<?php if(isset($_SESSION['uid'])=='')
-						{
-						?>
-						<li><a href="login.php">Login</a></li>
-						<?php
-						}
-						else
-						{
-						?>
-						<li><a href="Logout.php">Logout</a></li>
-						<?php
-						}
-						?>
-						</ul>
-				</div>
-				
-				<div id="top_padding"></div>
-				
-				<div id="content_top"></div>				
-				<div id="content_bg_repeat">
-					
-					<div class="inside" align="center">
-            	<div class="row-1 outdent">
+            <?php
+            }?>
+            <li><a href="feedback.php">Feedback</a></li>
+            <li><a href="contact.php">Contact</a></li>
+            <?php if(isset($_SESSION['uid'])=='')
+            {
+            ?>
+            <li><a href="login.php">Login</a></li>
+            <?php
+            }
+            else
+            {
+            ?>
+            <li><a href="logout.php">Logout</a></li>
+            <?php
+            }
+            ?>
+            </ul>
+        </div>
+        
+        <div id="top_padding"></div>
+        
+        <div id="content_top"></div>        
+        <div id="content_bg_repeat">
+          
+          <div class="inside" align="center">
+              <div class="row-1 outdent">
               
-            	  <div class="wrapper"></div>
+                <div class="wrapper"></div>
                 <form id="form1" name="form1" method="post" action="" onsubmit="return validate();">                  
                 <input type="hidden" name="update" value="true" />
               <?php
@@ -225,21 +196,21 @@ function validate()
               $data=mysqli_fetch_array($q);
               ?>
    
-		  <table width="75%" height="509" border="0" align="center" style="border: #000000 double;">
+      <table width="75%" height="509" border="0" align="center" style="border: #000000 double;">
             <tr>
               <td height="47" colspan="5"><table width="100%" height="36" border="0">
                 <tr>
                   <td width="100%" bgcolor="#CCFF99" align="center"><span class="style2">Welcome </span><span class="style2"><?php echo      "               " ;echo $data['name'];?></span></td>
                     <?php 
-	                      if(isset($_REQUEST['msg'])!="")
-	                       {
-	                        echo $_REQUEST['msg'];
-	                       }
+                        if(isset($_REQUEST['msg'])!="")
+                         {
+                          echo $_REQUEST['msg'];
+                         }
                          if(isset($msg)!="")
                           {
                             echo $msg;
                           }
-	                         ?>
+                           ?>
                   </span></td>
                 </tr>
               </table></td>
@@ -342,18 +313,18 @@ function validate()
             </tr>
           </table>
                 </form>
-            	</div>
+              </div>
               <div class="row-2">
-              	<div class="wrapper"></div>
+                <div class="wrapper"></div>
               </div>
             </div>
-					
-				</div>
-				<div id="content_bottom"></div>
-				<div id="footer_top">
-				  <div class="clear"></div>
-				</div>
-				
-		</div>
+          
+        </div>
+        <div id="content_bottom"></div>
+        <div id="footer_top">
+          <div class="clear"></div>
+        </div>
+        
+    </div>
     </body>
 </html>

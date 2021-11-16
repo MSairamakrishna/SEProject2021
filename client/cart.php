@@ -4,11 +4,13 @@ $rid = $_SESSION['uid'];
 if (isset($_SESSION['uid']) == '') {
 	header("location: login.php ?msg=PLZ log in first");
 }
+/* Connecting to DB */
 require_once("dbcontroller.php");
 $db_handle = new DBController();
 if (!empty($_GET["action"])) {
 	switch ($_GET["action"]) {
 		case "add":
+			/* Adding products to cart*/
 			if (!empty($_POST["quantity"])) {
 				$productByCode = $db_handle->runQuery("SELECT * FROM product WHERE code='" . $_GET["code"] . "' ");
 				$itemArray = array($productByCode[0]["code"] => array('name' => $productByCode[0]["name"], 'code' => $productByCode[0]["code"], 'quantity' => $_POST["quantity"], 'price' => $productByCode[0]["price"], 'image' => $productByCode[0]["image"]));
@@ -23,7 +25,6 @@ if (!empty($_GET["action"])) {
 								$_SESSION["cart_item"][$k]["quantity"] += $_POST["quantity"];
 								
 							}
-							#							mysqli_query($conn,"update product set quantity='$qua' WHERE code='$k'") or die("QF");
 
 						}
 					} else {
@@ -35,6 +36,7 @@ if (!empty($_GET["action"])) {
 			}
 			break;
 		case "remove":
+			/* Removing products from Cart*/
 			if (!empty($_SESSION["cart_item"])) {
 				foreach ($_SESSION["cart_item"] as $k => $v) {
 					if ($_GET["code"] == $k)
@@ -45,6 +47,7 @@ if (!empty($_GET["action"])) {
 			}
 			break;
 		case "empty":
+			/*Empty the cart*/
 			unset($_SESSION["cart_item"]);
 			break;
 	}
@@ -56,6 +59,7 @@ if (!empty($_GET["action"])) {
 	<link href="styles.css" type="text/css" rel="stylesheet" />
 	<script type="text/javascript" src="lib/jquery.js"></script>
 	<script>
+		/*pop up for submitting the cart*/
 		$(window).load(function () {
 					$(".trigger_popup_fricc").click(function(){
 					$('.hover_bkgr_fricc').show();
@@ -86,8 +90,11 @@ if (!empty($_GET["action"])) {
 	<div id="wrap">
 		<div id="menu">
 			<ul>
+
 				<li><a href="index.php">Home</a></li>
 				<?php if (isset($_SESSION['uid']) != '') {
+				/* Header menu for the UI*/
+
 				?>
 					<li><a href="cart.php" class="active">Cart</a></li>
 				<?php
@@ -190,8 +197,9 @@ if (!empty($_GET["action"])) {
 
 
 
-							<!-- <div class="txt-heading"><?php echo $eachcat ?></div> -->
+
 							<?php
+							/* Query to fetch products */
 							$product_array = $db_handle->runQuery("SELECT * FROM product where category='$eachcat'");
 							if (!empty($product_array)) {
 								foreach ($product_array as $key => $value) {

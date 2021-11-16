@@ -2,6 +2,7 @@
 session_start();
 if(isset($_REQUEST['perform'])=="true")
 {
+  /* Fetching details from vendor table */
    include("connect.php");
    $l=$_REQUEST['t1'];
    $p=$_REQUEST['t2'];
@@ -28,6 +29,7 @@ if(isset($_REQUEST['perform'])=="true")
 <script language="javascript" type="text/javascript">
 function chk()
 {
+  /* Script to validate user input */
 	if(document.getElementById('t1').value=="")
 	{
 		alert('please enter vendor ID');

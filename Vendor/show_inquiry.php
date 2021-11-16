@@ -55,6 +55,7 @@ else
         <td  class="font">Action</td>
       </tr>
           <?php
+		  /* Fetching details from inquiry table */
 	include("connect.php");	
 		$i=1;
 	$sql2 = "select * from inquiry";

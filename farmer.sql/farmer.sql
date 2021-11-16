@@ -171,8 +171,8 @@ CREATE TABLE IF NOT EXISTS `buyer` (
 --
 
 INSERT INTO `buyer` (`id`, `name`, `buyerid`, `password`, `age`, `sex`, `phone`,`survey_no`, `address`, `locality`, `state`, `profession`, `income`, `farming_in_practice`, `land_owned`, `challenges_faced`,`security_question`,`security_answer`) VALUES
-(1, 'Manoj', 'man12', '123', 21, 'M', 8765487654,'101/24', 'Stella street', 'Denton', 'Texas', 'farmer', '10000-25000', 'paddy', '5', 'NA','What is your pet name ','puppy'),
-(2, 'Sai ram', 'sai14', '123', 21, 'M', 9123491234, '125/5a','Hickory street', 'Denton', 'Texas', 'engineer', '10000-25000', 'watermelon', '20', 'Irrigation issue','what is your school name','sai vignan');
+(1, 'Manoj', 'man12', 'Man@123', 21, 'M', 8765487654,'101/24', 'Stella street', 'Denton', 'Texas', 'farmer', '10000-25000', 'paddy', '5', 'NA','What is your pet name ','puppy'),
+(2, 'Sai ram', 'sai14', 'Sai@123', 21, 'M', 9123491234, '125/5a','Hickory street', 'Denton', 'Texas', 'engineer', '10000-25000', 'watermelon', '20', 'Irrigation issue','what is your school name','sai vignan');
 
 -- --------------------------------------------------------
 --

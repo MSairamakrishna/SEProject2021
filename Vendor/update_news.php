@@ -6,6 +6,7 @@ if(isset($_SESSION['vendor'])=="")
 }
  if(isset($_REQUEST['update'])=="true")
  {
+   /* Updating details in news table */
  	include("connect.php");
 	$i=$_REQUEST['upid'];
 	$t=$_REQUEST['t1'];
@@ -44,6 +45,7 @@ if(isset($_SESSION['vendor'])=="")
       </tr>
     </table></td>
     <td width="74%"><?php 
+    /* Fetching details from news table */
 		include("connect.php");
 		$i=$_REQUEST['uid'];
 		$q=mysqli_query($conn,"select * from news where nid=$i") or die ("query fail");

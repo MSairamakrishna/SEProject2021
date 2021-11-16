@@ -6,6 +6,7 @@ if(isset($_SESSION['vendor'])=="")
 }
  if(isset($_REQUEST['update'])=="true")
  {
+   /* Updating activities table */
  	include("connect.php");
 	$i=$_REQUEST['upid'];
 	$cn=$_REQUEST['cpn'];
@@ -44,6 +45,7 @@ if(isset($_SESSION['vendor'])=="")
       </tr>
     </table></td>
     <td width="74%"><?php 
+    /* Fetching details from organicfarming table */
 		include("connect.php");
 		$i=$_REQUEST['uid'];
 		$q=mysqli_query($conn,"select * from organicfarming where cropid=$i") or die ("query fail");

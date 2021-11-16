@@ -60,6 +60,7 @@ else
         </tr>
 		<!--CODE FOR PAGGING-->
 		      <?php
+			  /* Fetching details from product table */
 	include("connect.php");	
 	$i=1;
 	$sql2 = "select * from product";

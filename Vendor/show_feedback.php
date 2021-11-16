@@ -61,6 +61,7 @@ else
       </tr>
       <!--CODE FOR PAGGING-->
 		      <?php
+			  /* Fetching details from feedback table */
 	include("connect.php");	
 	$i=1;
 	$sql2 = "select * from feedback";

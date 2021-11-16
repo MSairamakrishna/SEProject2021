@@ -31,7 +31,8 @@ session_start();
 						<li><a href="index.php">Home</a></li>
 						<?php if (isset($_SESSION['uid'])!='')
 						{
-						?>
+							/* Header menu for the UI*/
+						?> 
 						
 						<li><a href="cart.php">Cart</a></li>
 						<?php
@@ -84,6 +85,7 @@ session_start();
                                 <td height="21"><div align="center" class="style25 style28">Latest Activities </div></td>
                               </tr>
 							  <?php
+							  /* Fetching the details from activities table*/
 	                           include("connect.php");
 	                           $q=mysqli_query($conn,"select * from activities order by location desc") or die ("query fail");
 	                           while($data=mysqli_fetch_array($q))

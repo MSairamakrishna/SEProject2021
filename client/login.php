@@ -2,6 +2,7 @@
 session_start();
 if(isset($_REQUEST['login'])=="true")
 {
+	/* Fetching details from buyer table */
 include("connect.php");
 $un=$_REQUEST['id'];
 $pass=$_REQUEST['ps'];
@@ -37,6 +38,25 @@ header("location:login.php? msg=Your ID or Password may be wrong");
 .style18 {color: #FFFFFF; font-size: 14px; }
 -->
         </style>
+		<script language="javascript" type="text/javascript">
+function validate()
+{
+	/* Script to validate user input*/
+   if(document.getElementById('idn_to_utf8').value=="")
+    { 
+	   alert('please enter required field');
+	   document.getElementById('id').focus();
+	   return false;
+	}
+	if(document.getElementById('ps').value=="")
+    { 
+	   alert('please enter required field');
+	   document.getElementById('ps').focus();
+	   return false;
+	}
+	 
+}
+</script>		
 </head>
 <body>
     	<div id="wrap">
@@ -45,6 +65,7 @@ header("location:login.php? msg=Your ID or Password may be wrong");
 						<li><a href="index.php">Home</a></li>
 						<?php if (isset($_SESSION['uid'])!='')
 						{
+							/* Header menu for UI */
 						?>
 						<li><a href="cart.php">Cart</a></li>
 						<?php
@@ -84,7 +105,7 @@ header("location:login.php? msg=Your ID or Password may be wrong");
 					<div class="inside">
             	<div class="row-1 outdent">
             	  <div class="wrapper"></div>
-                <form id="form1" method="post" action="">
+                <form id="form1" method="post" action="" onsubmit="return validate();">
                   <input type="hidden" name="login" value="true" />
                   <table width="669" height="254" border="0" align="center" bordercolor="#000000" style="border:#000000 double;">
                     <tr>
@@ -104,7 +125,7 @@ header("location:login.php? msg=Your ID or Password may be wrong");
                       </td>
                     </tr>
                     <tr>
-                      <td width="207"><span class="style18">Farmer ID </span></td>
+                      <td width="207"><span class="style18">Buyer ID </span></td>
                       <td width="13">::</td>
                       <td width="427"><label>
                         <input name="id" type="text" id="id" />

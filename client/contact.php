@@ -29,6 +29,7 @@ if(isset($_SESSION['uid'])=='')
 						<li><a href="index.php">Home</a></li>
 						<?php if (isset($_SESSION['uid'])!='')
 						{
+							/* Header Menu for UI */
 						?>
 						<li><a href="cart.php">Cart</a></li>
 						<li><a href="feedback.php">Feedback</a></li>

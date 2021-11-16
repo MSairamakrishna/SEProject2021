@@ -1,5 +1,6 @@
 <?php
 session_start();
+/* Fetching details from buyer table */
 include("connect.php");
 if(isset($_REQUEST['perform'])=="true")
 {
@@ -53,21 +54,18 @@ $q2=mysqli_query($conn,"select * from buyer where survey_no='$serv'")or die ("QF
 -->
         </style>
 </head>
+
 <script language="javascript" type="text/javascript">
 function validate()
 {
+  /* Script to validate user inputs*/
    if(document.getElementById('fname').value=="")
     { 
        alert('please enter your first name');
        document.getElementById('fname').focus();
        return false;
     }
-     if(document.getElementById('lname').value=="")
-    { 
-       alert('please enter your last name');
-       document.getElementById('lname').focus();
-       return false;
-    }
+    
     if(document.getElementById('buid').value=="")
     { 
        alert('please enter your ID');
@@ -223,6 +221,7 @@ function getXMLHTTP()
                         <li><a href="index.php">Home</a></li>
                         <?php if (isset($_SESSION['uid'])!='')
                         {
+                          /* Header menu for the UI*/
                         ?>
                         <li><a href="cart.php">Cart</a></li>
                         <?php

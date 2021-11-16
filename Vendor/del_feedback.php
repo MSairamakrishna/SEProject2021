@@ -4,6 +4,7 @@ if(isset($_SESSION['vendor'])=="")
 {
 	header("location: index.php?msg=Please login to access..");
 }
+/* Deleting details from feedback table */
 include("connect.php");
 $i=$_REQUEST['did'];
 mysqli_query($conn,"delete from feedback where id=$i") or die ("query fail");

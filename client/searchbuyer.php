@@ -23,6 +23,7 @@ header("location:login.php ?msg=Please log in First");
 		<script language="javascript" type="text/javascript">
 function validate()
 {
+  /* Script to validate user input */
    if(document.getElementById('name').value=="")
    {
         if (document.getElementById('local').value=="") 
@@ -45,10 +46,12 @@ function validate()
     <body>
     	<div id="wrap">
 		        <div id="menu">
+            
 					<ul>
 						<li><a href="index.php">Home</a></li>
 						<?php if(isset($_SESSION['uid'])!='')
 						{
+              /* Header menu for UI */
 						?>
 						<li><a href="cart.php" >Cart</a></li>
 						<?php
@@ -159,6 +162,7 @@ function validate()
             <td width="10%" class="font" align="center">Landowned</td>
           </tr>
 		      <?php
+          /* Fetching details from buyer table */
 	        include("connect.php");	
 		$i=1;
         $q1=$_REQUEST['name'];

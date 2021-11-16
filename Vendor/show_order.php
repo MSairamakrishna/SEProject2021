@@ -78,6 +78,7 @@ else
         </tr>
      <!--CODE FOR PAGGING-->
 		      <?php
+          /* fetching details from from my_order table */
 	include("connect.php");	
 	$i=1;
 	$sql2 = "select * from my_order";
