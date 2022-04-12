@@ -44,16 +44,16 @@ if (isset($_SESSION['uid']) == '')
                 <li><a href="index.php">Home</a></li>
                 <?php if (isset($_SESSION['uid']) != '') {
                 ?>
-                /* Header menu for UI */
-                    <li><a href="cart.php">Cart</a></li>
-                    <li><a href="feedback.php">Feedback</a></li>
                 <?php
             }
                 ?>
                 <?php if (isset($_SESSION['uid']) != '') { ?>
                     <li><a href="myprofile.php">Myprofile</a></li>
                     <li><a href="inquiry.php">Inquiry</a></li>
+                    <li><a href="cart.php">Cart</a></li>
                     <li><a href="organicfarming.php" class="active">Farming</a></li>
+                    <li><a href="feedback.php">Feedback</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                 <?php
                 } ?>
                 

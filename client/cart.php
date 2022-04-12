@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+
+
 $rid = $_SESSION['uid'];
 if (isset($_SESSION['uid']) == '') {
 	header("location: login.php ?msg=PLZ log in first");
@@ -55,6 +58,27 @@ if (!empty($_GET["action"])) {
 ?>
 <HTML>
 
+<?php
+include("connect.php");
+if(isset($_GET["action"])){
+if ($_GET["action"] == 'submitAll') {
+	
+	echo '<script>alert("submitted All")</script> ';
+
+	foreach ($_SESSION["cart_item"] as $k => $v) {
+		// print_r($_SESSION["cart_item"][$k]);
+		// echo $_SESSION["cart_item"][$k]['code'];
+		// echo $_SESSION["cart_item"][$k]['quantity'];
+		$current_quantity=$db_handle->runQuery(" SELECT quantity FROM product WHERE code='" . $_SESSION["cart_item"][$k]['code'] . "' "); 
+		print_r($current_quantity[0]['quantity']);
+		$quan_diff = intval($current_quantity[0]['quantity']) - intval($_SESSION["cart_item"][$k]['quantity']);
+		echo '<script>alert'.$quan_diff.'</script> ';
+		mysqli_query($conn,"UPDATE product Set quantity=$quan_diff WHERE code='" . $_SESSION["cart_item"][$k]['code']. "' ");
+	}
+}
+};
+?>
+
 <HEAD>
 	<link href="styles.css" type="text/css" rel="stylesheet" />
 	<script type="text/javascript" src="lib/jquery.js"></script>
@@ -71,22 +95,12 @@ if (!empty($_GET["action"])) {
 						$('.hover_bkgr_fricc').hide();
 					});
 		});
-		function popup(){
-			a = $('#popup')
-			a1 = $('#insidepopup')
-			a1[0].innerHTML += a[0].outerHTML
-		}
+		
 	</script>
 </HEAD>
 
 <BODY>
-<div class="hover_bkgr_fricc">
-<span class="helper"></span>
-	<div id="insidepopup">
-		<div class="popupCloseButton">&times;</div>
-		<p>Only Cash on delivery available<br />Please find the items and details you have bought</p>
-	</div>
-</div>
+
 	<div id="wrap">
 		<div id="menu">
 			<ul>
@@ -96,13 +110,13 @@ if (!empty($_GET["action"])) {
 				/* Header menu for the UI*/
 
 				?>
-					<li><a href="cart.php" class="active">Cart</a></li>
 				<?php
 				}
 				?>
 				<?php if (isset($_SESSION['uid']) != '') { ?>
 					<li><a href="myprofile.php">Myprofile</a></li>
 					<li><a href="inquiry.php">Inquiry</a></li>
+					<li><a href="cart.php" class="active">Cart</a></li>
 					<li><a href="organicfarming.php">Farming</a></li>
 				<?php
 				} ?>
@@ -136,7 +150,7 @@ if (!empty($_GET["action"])) {
 						<div class="txt-heading">Shopping Cart</div>
 
 						<a id="btnEmpty" href="cart.php?action=empty">Empty Cart</a>
-						<a class="trigger_popup_fricc" id="btnSubmit" onclick="popup()" >Submit Cart</a>
+						<a href="cart.php?action=submitAll" class="trigger_popup_fricc" id="btnSubmit"  >Submit Cart</a>
 						<?php
 						if (isset($_SESSION["cart_item"])) {
 							$total_quantity = 0;
@@ -182,7 +196,7 @@ if (!empty($_GET["action"])) {
 						<?php
 						} else {
 						?>
-							<div class="no-records">Your Cart is Empty</div>
+							<div style=color:white class="no-records">Your Cart is Empty</div>
 						<?php
 						}
 						?>
@@ -193,7 +207,7 @@ if (!empty($_GET["action"])) {
 					foreach ($cat_arry as $eachcat) {
 					?>
 						<div id="product-grid">
-							<div class="txt-heading"><?php echo $eachcat ?></div>
+							<div class="txt-heading"><?php echo ucwords($eachcat) ?></div>
 
 
 
@@ -214,8 +228,30 @@ if (!empty($_GET["action"])) {
 												<div class="product-price"><?php echo "$" . $product_array[$key]["price"]; ?></div>
 												<div class="product-quality" align="right"><?php echo "Quality: " . $product_array[$key]["quality"]; ?></div>
 												<div class="product-Aquantity" align="left"><?php echo "Available: " . $product_array[$key]["quantity"]; ?></div>
-												<div class="cart-action" align="center">
-													<input type="number" class="product-quantity" name="quantity" value="1" size="2" min="1" max="<?= $product_array[$key]['quantity'] ?>" />
+												<?php  
+												if($product_array[$key]['quantity'] == 0) {
+													echo 'Out Of Stock';
+												} 
+												else{
+													echo '';
+												}
+												?>
+												<div class="cart-action" align="center" >
+													<input type="number" class="product-quantity" <?php  
+												if($product_array[$key]['quantity'] == 0) {
+													echo 'disabled';
+												} 
+												else{
+													echo '';
+												}
+												?> name="quantity" value="<?php  
+												if($product_array[$key]['quantity'] == 0) {
+													echo '0';
+												} 
+												else{
+													echo '1';
+												}
+												?>" size="2" min="1" max="<?= $product_array[$key]['quantity'] ?>" />
 													<input type="submit" value="Add to Cart" class="btnAddAction" />
 												</div>
 											</div>

@@ -34,12 +34,15 @@ else
 ?>
 		
 <!--CODE FOR PAGGING-->	
-<body class="body">
+<body bgcolor="#B4A9AC">
 
   <table width="100%" border="1" align="center" class="background">
     <tr>
       <td colspan="3"><?php include("header.php");?></td>
     </tr>
+    <script>
+      gooeymenu.setup({id:'gooeymenu1', selectitem:5})
+    </script>
     <tr>
       <td width="13%"><table width="100%" border="1">
         <tr>
@@ -61,10 +64,10 @@ else
 		  ?></td>
           </tr>
           <tr>
-            <td width="29%" class="font">No</td>
-            <td width="16%" class="font">Tittle</td>
-            <td width="20%" class="font">Description</td>
-            <td colspan="2" class="font">Action</td>
+            <td width="29%" color:"000000">No</td>
+            <td width="16%" color:"000000">Tittle</td>
+            <td width="20%" color:"000000">Description</td>
+            <td colspan="2" color:"000000">Action</td>
           </tr>
            <!--CODE FOR PAGGING-->
 		      <?php

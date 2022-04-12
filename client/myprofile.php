@@ -149,7 +149,6 @@ function validate()
             <?php if(isset($_SESSION['uid'])!='')
             {
             ?>
-            <li><a href="cart.php">Cart</a></li>
             <?php
             }
             ?>
@@ -157,6 +156,7 @@ function validate()
             {?>
             <li><a href="myprofile.php" class="active">Myprofile</a></li>
             <li><a href="inquiry.php">Inquiry</a></li>
+            <li><a href="cart.php">Cart</a></li>
             <li><a href="organicfarming.php">Farming</a></li>
             <?php
             }?>
@@ -200,7 +200,7 @@ function validate()
             <tr>
               <td height="47" colspan="5"><table width="100%" height="36" border="0">
                 <tr>
-                  <td width="100%" bgcolor="#CCFF99" align="center"><span class="style2">Welcome </span><span class="style2"><?php echo      "               " ;echo $data['name'];?></span></td>
+                  <td width="100%" bgcolor="#CCFF99" align="center"><span class="style2"> </span><span class="style2"><?php echo      "     Welcome          " ;echo $data['name'];?></span></td>
                     <?php 
                         if(isset($_REQUEST['msg'])!="")
                          {
@@ -216,14 +216,14 @@ function validate()
               </table></td>
             </tr>
             
-            <tr>
+            <tr style="color: #ffffff;">
               <td width="33%" height="47"><span class="style1">Name</span></td>
               <td width="66%">
                   <label>
                   <input name="fname" type="text" id="fname" value="<?php echo $data['name'];?>">
                   </label></td>
             </tr>
-            <tr>
+            <tr style="color: #ffffff;">
               <td width="33%" height="47"><span class="style1">BuyerID</span></td>
               <td width="66%">
                   <label>
@@ -231,13 +231,13 @@ function validate()
                   </label></td>
             </tr>
 
-            <tr>
+            <tr style="color: #ffffff;">
               <td height="31"><span class="style1">Age</span></td>
               <td><label>
                 <input name="age" type="text" id="age" value="<?php echo $data['age'];?>">
               </label></td>
             </tr>
-            <tr>
+            <tr style="color: #ffffff;">
                 <td height="31"><span class="style5">Sex</span></td>
                 <td><select name="se" id="se">
                   <option value="<?php echo $data['sex'];?> " selected="selected"><?php echo $data['sex'];?></option>
@@ -245,39 +245,39 @@ function validate()
                   <option value="F">F</option>
                 </select></td>
               </tr>
-            <tr>
+            <tr style="color: #ffffff;">
               <td height="31"><span class="style1">Mobile no. </span></td>
               <td><input name="mobile" type="text" id="mobile" value="<?php echo $data['phone'];?>" maxlength="10" ></td>
             </tr>
-            <tr>
+            <tr style="color: #ffffff;">
               <td height="31"><span class="style1">Survey No </span></td>
               <td><input name="surv" type="text" id="surv" value="<?php echo $data['survey_no'];?>"  / readonly=""></td>
             </tr>
-            <tr>
+            <tr style="color: #ffffff;">
               <td height="31"><span class="style1">Address</span></td>
               <td><div align="left">
                   <textarea name="add" id="add"><?php echo $data['address'];?></textarea>
               </div></td>
             </tr>
-            <tr>
+            <tr style="color: #ffffff;">
               <td height="31"><span class="style1">Locality</span></td>
               <td><label>
                 <input name="local" type="text" id="local" value="<?php echo $data['locality'];?>"/>
               </label></td>
             </tr>
-            <tr>
+            <tr style="color: #ffffff;">
               <td height="31"><span class="style1">State</span></td>
               <td><label>
                 <input name="state" type="text" id="state" value="<?php echo $data['state'];?>"/>
               </label></td>
             </tr>
-            <tr>
+            <tr style="color: #ffffff;">
               <td height="31"><span class="style1">Profession</span></td>
               <td><label>
                 <input name="pro" type="text" id="pro" value="<?php echo $data['profession'];?>"/>
               </label></td>
             </tr>
-            <tr>
+            <tr style="color: #ffffff;">
                 <td height="31"><span class="style5">Yearly income</span> </td>
                 <td><select name="inco" id="inco">
                   <option value="<?php echo $data['income'];?>" selected="selected"><?php echo $data['income'];?></option>
@@ -288,20 +288,20 @@ function validate()
                   <option value="More than 100000">More than 100000</option>
                 </select></td>
               </tr>
-            <tr>
+            <tr style="color: #ffffff;">
                 <td height="31"><span class="style5">Farming in Practice</span></td>
               <td><input name="frinp" type="text" id="frinp" value="<?php echo $data['farming_in_practice'];?>"/>
               </td>
               </tr>
-              <tr>
+            <tr style="color: #ffffff;">
                 <td height="31"><span class="style5">Land Owned (Acres) </span></td>
                 <td><input name="land" type="text" id="land" value="<?php echo $data['land_owned'];?>"/></td>
               </tr>
-            <tr>
+            <tr style="color: #ffffff;">
                 <td height="31"><span class="style5">Challenges Faced</span></td>
                 <td><input name="chaf" type="text" id="chaf" value="<?php echo $data['challenges_faced'];?>"/></td>
               </tr>
-            <tr>
+            <tr style="color: #ffffff;">
             <td>&nbsp;</td>
             </tr>
               <tr>

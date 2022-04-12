@@ -56,7 +56,6 @@ function validate()
 						{
 							/* Header menu for UI */
 						?>
-						<li><a href="cart.php" >Cart</a></li>
 						<?php
 						}
 						?>
@@ -64,6 +63,7 @@ function validate()
 						{?>
 						<li><a href="myprofile.php">Myprofile</a></li>
 						<li><a href="inquiry.php" class="active">Inquiry</a></li>
+						<li><a href="cart.php" >Cart</a></li>
 						<li><a href="organicfarming.php">Farming</a></li>
 						<?php
 						}?>
@@ -106,7 +106,7 @@ function validate()
                     <tr >
                       <td colspan="3"><table width="100%" height="36" border="0">
                         <tr>
-						<td align="center" style="background-color:#CCFF99; font-size:18px; font-family:Georgia, 'Times New Roman', Times, serif; color:#990033;">
+						<td align="center" style="background-color:#CCFF99; font-size:18px; font-family:Georgia, 'Times New Roman', Times, serif; color:#000000;">
 						  <?php 
 	                      if(isset($_REQUEST['msg'])!="")
 	                       {
@@ -117,31 +117,31 @@ function validate()
                         </tr></table></td>
                     </tr>
                     <tr align="center">
-                      <td width="22%"><span class="style1">BuyerID</span></td>
-                      <td width="77%"><label>
+                      <td width="35%" style="color: #FFFFFF;"><span class="style1">BuyerID</span></td>
+                      <td width="65%"><label>
                         <input name="bid" type="text" id="bid" value="<?php echo $data['buyerid'];?>" / readonly="">
                       </label></td>
                     </tr>
                     <tr align="center">
-                      <td width="22%"><span class="style1">Name</span></td>
-                      <td width="77%"><label>
+                      <td width="22%" width="77%" style="color: #FFFFFF;"><span class="style1">Name</span></td>
+                      <td ><label>
                         <input name="name" type="text" id="name" value="<?php echo $data['name'];?>"/ readonly="">
                       </label></td>
                     </tr>
                     <tr align="center">
-                      <td><span class="style4">Query topic</span> </td>
+                      <td style="color: #FFFFFF;"><span class="style4">Query topic</span> </td>
                       <td><label>
                         <input name="qu" type="text" id="qu" />
                       </label></td>
                     </tr>
                     <tr align="center">
-						<td height="31"><span class="style1">Details</span></td>
+						<td height="31" style="color: #FFFFFF;"><span class="style1">Details</span></td>
 						<td><div align="center">
 							<textarea name="deta" id="deta"></textarea>
 						</div></td>
 					</tr>
                     <tr>
-					<td align="center"><a href="searchbuyer.php"<?php echo $data['id'];?>">Search for another buyer</a></td>
+					<td align="left"><a href="searchbuyer.php"<?php echo $data['id'];?>">Search for another buyer</a></td>
                       <td  align="center" >
                         <input type="submit" name="Submit" value="Submit" />
                       </td>

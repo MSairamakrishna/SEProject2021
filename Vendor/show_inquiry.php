@@ -30,11 +30,14 @@ else
 		$back = $eu - $limit; 
 		$next = $eu + $limit; 
 ?>
-<body class="body">
+<body bgcolor="#B4A9AC">
 <table width="100%" border="1" class="table">
   <tr>
     <td colspan="3"><?php include("header.php");?></td>
   </tr>
+  <script>
+	gooeymenu.setup({id:'gooeymenu1', selectitem:1})
+	</script>
   <tr>
     <td width="14%">&nbsp;</td>
     <td width="68%">
@@ -48,11 +51,11 @@ else
 	  ?></td>
       </tr>
       <tr align="center">
-        <td width="8%" class="font">No.</td>
-        <td width="7%" class="font">BuyerID</td>
-        <td width="7%" class="font">Query Topic</td>
-        <td width="7%" class="font">Details</td>
-        <td  class="font">Action</td>
+        <td width="8%" color:"000000">No.</td>
+        <td width="7%" color:"000000">BuyerID</td>
+        <td width="7%" color:"000000">Query Topic</td>
+        <td width="7%" color:"000000">Details</td>
+        <td  color:"000000">Action</td>
       </tr>
           <?php
 		  /* Fetching details from inquiry table */

@@ -45,11 +45,9 @@ if(isset($_SESSION['uid'])=='')
 						<li><a href="organicfarming.php">Farming</a></li>
 						<?php
 						}?>
-						<li><a href="contact.php" class="active">Contact</a></li>
 						<?php if(isset($_SESSION['uid'])=='')
 						{
 						?>
-						<li><a href="guest_feedback.php">Feedback</a></li>
 						<li><a href="register.php">Register</a></li>
 						<li><a href="login.php">Login</a></li>
 						<?php
@@ -61,6 +59,8 @@ if(isset($_SESSION['uid'])=='')
 						<?php
 						}
 						?>
+						<li><a href="guest_feedback.php">Feedback</a></li>
+						<li><a href="contact.php" class="active">Contact</a></li>
 						</ul>
 				</div>
 				
@@ -78,34 +78,34 @@ if(isset($_SESSION['uid'])=='')
 				<p>&nbsp;</p>
 				<p>&nbsp; </p>
 				<p class="style4"><em><strong>Manchikanti Sairamakrishna </strong></em></p>
-                <p class="style4">email_id: <em>sairamakrishnamanchikanti@my.unt.edu</em> </p>
+                <p class="style4"><em>sairamakrishnamanchikanti@my.unt.edu</em> </p>
 				<p>&nbsp; </p>
                 <p class="style4"><em><strong>MANOJ KONATHALA</strong></em></p>               
-                <p class="style4">email_id: <em>manoj.konathala@my.unt.edu</em></p>
+                <p class="style4"><em>manoj.konathala@my.unt.edu</em></p>
 				<p>&nbsp; </p>
                 <p class="style4"><em><strong>Shravan Kumar Singisetti</strong></em></p>
-                <p class="style3"><span class="style4">email_id:<em> shravankumarsingisetti@my.unt.edu</em></span></p>
+                <p class="style3"><span class="style4"><em> shravankumarsingisetti@my.unt.edu</em></span></p>
 				<p>&nbsp; </p>
                 <p class="style4"><em><strong>Varun Reddy Kayyuru</strong></em></p>
-                <p class="style3"><span class="style4">email_id:<em> varunreddykayyuru@my.unt.edu </em></span></p>
+                <p class="style3"><span class="style4"><em> varunreddykayyuru@my.unt.edu </em></span></p>
 				<p>&nbsp; </p>
                 <p class="style4"><em><strong>Arsalan Aman</strong></em></p>
-                <p class="style3"><span class="style4">email_id:<em> arsalanaman@my.unt.edu</em></span></p>
+                <p class="style3"><span class="style4"><em> arsalanaman@my.unt.edu</em></span></p>
 				<p>&nbsp; </p>
                 <p class="style4"><em><strong>Divya sri Dasi</strong></em></p>
-                <p class="style3"><span class="style4">email_id:<em> divyasridasi@my.unt.edu </em></span></p>
+                <p class="style3"><span class="style4"><em> divyasridasi@my.unt.edu </em></span></p>
 				<p>&nbsp; </p>
                 <p class="style4"><em><strong>Maniveera Shakshath Garimella</strong></em></p>
-                <p class="style3"><span class="style4">email_id:<em>maniveerashakshathgarimella@my.unt.edu</em></span></p>
+                <p class="style3"><span class="style4"><em>maniveerashakshathgarimella@my.unt.edu</em></span></p>
 				<p>&nbsp; </p>
                 <p class="style4"><em><strong>Pujitha Pula</strong></em></p>
-                <p class="style3"><span class="style4">email_id:<em> pujithapula@my.unt.edu</em></span></p>
+                <p class="style3"><span class="style4"><em> pujithapula@my.unt.edu</em></span></p>
 				<p>&nbsp; </p>
                 <p class="style4"><em><strong>Anas Mohammad Nayeem</strong></em></p>
-                <p class="style3"><span class="style4">email_id:<em> anasmohammednayeemlnu@my.unt.edu</em></span></p>
+                <p class="style3"><span class="style4"><em> anasmohammednayeemlnu@my.unt.edu</em></span></p>
 				<p>&nbsp; </p>
                 <p class="style4"><em><strong>Murali Krishna Yarraguntla</strong></em></p>
-                <p class="style3"><span class="style4">email_id:<em> muralikrishnayarraguntla@my.unt.edu</em></span></p>
+                <p class="style3"><span class="style4"><em> muralikrishnayarraguntla@my.unt.edu</em></span></p>
 				<p>&nbsp; </p>
 				</div>
             	</div>

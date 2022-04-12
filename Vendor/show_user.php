@@ -33,12 +33,15 @@ else
 ?>
 		
 <!--CODE FOR PAGGING-->	
-<body class="body">
+<body bgcolor="#B4A9AC">
 
 <table width="100%" border="1" class="background">
     <tr>
     <td colspan="3"><?php include("header.php");?></td>
   </tr>
+  <script>
+	gooeymenu.setup({id:'gooeymenu1', selectitem:2})
+	</script>
   <tr>
     <td width="86%">
 	<table width="100%" border="1" class="table">
@@ -51,19 +54,19 @@ else
 	  ?></td>
       </tr>
       <tr>
-        <td width="6%" class="font">ID</td>
-        <td width="6%" class="font">Name</td>
-        <td width="6%" class="font">BuyerID</td>
-        <td width="6%" class="font">Survey No.</td>
-        <td width="6%" class="font">Address</td>
-        <td width="6%" class="font">Locality</td>
-        <td width="6%" class="font">State</td>
-        <td width="6%" class="font">Profession</td>
-        <td width="6%" class="font">Income</td>
-        <td width="6%" class="font">Farming In practice</td>
-        <td width="6%" class="font">Land owned in Acres</td>
-        <td width="6%" class="font">Challenges faced</td>
-        <td width="4%" class="font">Action</td>
+        <td width="6%" color:"000000">ID</td>
+        <td width="6%" color:"000000">Name</td>
+        <td width="6%" color:"000000">BuyerID</td>
+        <td width="6%" color:"000000">Survey No.</td>
+        <td width="6%" color:"000000">Address</td>
+        <td width="6%" color:"000000">Locality</td>
+        <td width="6%" color:"000000">State</td>
+        <td width="6%" color:"000000">Profession</td>
+        <td width="6%" color:"000000">Income</td>
+        <td width="6%" color:"000000">Farming In practice</td>
+        <td width="6%" color:"000000">Land owned in Acres</td>
+        <td width="6%" color:"000000">Challenges faced</td>
+        <td width="4%" color:"000000">Action</td>
       </tr>
       <!--CODE FOR PAGGING-->
 		      <?php

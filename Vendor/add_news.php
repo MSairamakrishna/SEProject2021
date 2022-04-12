@@ -50,7 +50,7 @@ function validate()
 
 </head>
 
-<body class="body">
+<body bgcolor="#B4A9AC">
 <table width="100%" border="1" align="center" class="background">
   <tr>
     <td colspan="3"><?php include("header.php");?></td>

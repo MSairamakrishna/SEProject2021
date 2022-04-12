@@ -37,18 +37,18 @@ if(isset($_SESSION['uid'])=='')
 						/* Header menu for UI */
 						{
 						?>
-						<li><a href="cart.php">Cart</a></li>
-						<li><a href="feedback.php">Feedback</a></li>
 						<?php
 						}
 						?>
 						
 						<?php if(isset($_SESSION['uid'])!='')
 						{?>
-						
-						<li><a href="inquiry.php">Inquiry</a></li>
 						<li><a href="myprofile.php">Myprofile</a></li>
+						<li><a href="inquiry.php">Inquiry</a></li>
+						<li><a href="cart.php">Cart</a></li>
 						<li><a href="organicfarming.php">Farming</a></li>
+						<li><a href="feedback.php">Feedback</a></li>
+						<li><a href="contact.php">Contact</a></li>
 						<?php
 						}?>
 						<?php if(isset($_SESSION['uid'])=='')
@@ -83,8 +83,8 @@ if(isset($_SESSION['uid'])=='')
                   	<div class="box1">
                     	<h2 align="center">Animal Husbandry </h2>
                       <div class="img-box" style="height:150px;">
-                          <p style="color:#99CC00; font-family:Georgia, 'Times New Roman', Times, serif; font-size:15px;">It is agricultural practise of breeding and raising livestock production ,prevention and protection </span></span></p>
-                          <p style="color:#99CC00; font-family:Georgia, 'Times New Roman', Times, serif; font-size:15px;">In animal husbandry may employ breeders, herd health specialist, feeders, and milkers to helps care for animals</p>
+                          <p style="color:#FFFFFF; font-family:Georgia, 'Times New Roman', Times, serif; font-size:15px;">It is agricultural practise of breeding and raising livestock production ,prevention and protection </span></span></p>
+                          <p style="color:#FFFFFF; font-family:Georgia, 'Times New Roman', Times, serif; font-size:15px;">In animal husbandry may employ breeders, herd health specialist, feeders, and milkers to helps care for animals</p>
                           <table width="80%" border="0">
                             <tr>
                               <td><a href="animal.php">Read more</a></td>
@@ -100,7 +100,7 @@ if(isset($_SESSION['uid'])=='')
                   	<div class="box1" >
                     	<h2 align="center">Welcome </h2>
                         <h4 align="center" class="list1 style28">Hello Dear Farmer</h4>
-                        <p style="color:#99CC00; font-family:Georgia, 'Times New Roman', Times, serif; font-size:15px;"> we welcome you to our site to feed up your needs with our all possible ways. </p>                  
+                        <p style="color:#FFFFFF; font-family:Georgia, 'Times New Roman', Times, serif; font-size:15px;"> we welcome you to our site to feed up your needs with our all possible ways. </p>                  
 						<p>&nbsp; </p>
 						</div>
                	  </div>
@@ -120,13 +120,13 @@ if(isset($_SESSION['uid'])=='')
 					{
 	  						?>
                           <tr>
-                            <td style="color:#99CC00; font-family:Georgia, 'Times New Roman', Times, serif; font-size:15px;"><?php echo $data['tittle'];?></td>
+                            <td style="color:#FFFFFF; font-family:Georgia, 'Times New Roman', Times, serif; font-size:15px;"><?php echo $data['tittle'];?></td>
                           </tr>
                           <?php
 						}
 						?>
                           <tr>
-                            <td><a href="news_all.php">Read More </a></td>
+                            <td ><a href="news_all.php">Read More </a></td>
                           </tr>
                         </table>
                   	</div>
@@ -140,9 +140,9 @@ if(isset($_SESSION['uid'])=='')
 						<!-- .box1 -->
 						<div class="box1">
 							<h2 align="center">Activities</h2>
-							<p style="color:#99CC00; font-family:Georgia, 'Times New Roman', Times, serif; font-size:15px;">Activities based on the location will be displayed, please navigate to below mentioned page.</p>
-							<p style="color:#99CC00; font-family:Georgia, 'Times New Roman', Times, serif; font-size:15px;">Specific activities like government schemes, gatherings, seed distribution will be shown </p>
-							<p style="color:#99CC00; font-family:Georgia, 'Times New Roman', Times, serif; font-size:15px;">Major locations like Texas, California details are shown. </p>							
+							<p style="color:#FFFFFF; font-family:Georgia, 'Times New Roman', Times, serif; font-size:15px;">Activities based on the location will be displayed, please navigate to below mentioned page.</p>
+							<p style="color:#FFFFFF; font-family:Georgia, 'Times New Roman', Times, serif; font-size:15px;">Specific activities like government schemes, gatherings, seed distribution will be shown </p>
+							<p style="color:#FFFFFF; font-family:Georgia, 'Times New Roman', Times, serif; font-size:15px;">Major locations like Texas, California details are shown. </p>							
 							<table width="80%" border="0">
                             <tr>
 							<p>&nbsp; </p>
@@ -158,15 +158,15 @@ if(isset($_SESSION['uid'])=='')
 							<h2>Weather</h2>
 							<table width="100%" height="164" border="0">
 								<tr>
-									<th>Location</th>
-									<th>Temperature in Celcius</th>
-									<th>Weather</th>
+									<th style="color:#FFFFFF">Location</th>
+									<th style="color:#FFFFFF">Temperature in Celcius</th>
+									<th style="color:#FFFFFF">Weather</th>
 								</tr>
 								<tr align="center">
 								<?php 
 								include("Texasweather.php");
 								?>
-									<td>  Texas  </td>
+									<td style="color:#FFFFFF">  Texas  </td>
 								<?php
 									echo "<td>$temperature_in_celcius </td>";
 									echo "<td><img src='http://openweathermap.org/img/wn/" .$temperature_current_weather_icon. "@2x.png'/> </td>";	
@@ -177,7 +177,7 @@ if(isset($_SESSION['uid'])=='')
 								<?php 
 								include("Londonweather.php");
 								?>
-									<td>  London  </td>
+									<td style="color:#FFFFFF">  London  </td>
 								<?php
 									echo "<td>$temperature_in_celcius </td>";
 									echo "<td><img src='http://openweathermap.org/img/wn/" .$temperature_current_weather_icon. "@2x.png'/> </td>";	

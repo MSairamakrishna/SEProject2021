@@ -24,7 +24,6 @@ if(isset($_REQUEST['perform'])=="true")
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Farmer Land Information System</title>
 <link rel="stylesheet" type="text/css" href="styles.css" />
 <script language="javascript" type="text/javascript">
 function chk()
@@ -53,7 +52,7 @@ function chk()
 </style>
 </head>
 
-<body bgcolor="#99CC99">
+<body bgcolor="#B4A9AC">
 <form id="form1" name="form1" method="post" action="" onsubmit="return chk();">
 <input type="hidden" name="perform" value="true" />
   <p>&nbsp;</p>
@@ -64,27 +63,17 @@ function chk()
   <p>&nbsp;</p>
   <table width="544" height="171" border="1" align="center" class="table">
     <tr>
-      <td colspan="3"><div align="center" class="font style1">Vendor Log in </div></td>
+      <td colspan="3"><div align="center" class="font style1" style="color: #000000;">Vendor Log in </div></td>
     </tr>
-    <tr>
-      <td colspan="3" bgcolor="#CC99FF" class="table"><font color= color="#000000">
-        <?php
-	  if(isset($_REQUEST['msg'])!="")
-	  {
-	  	echo $_REQUEST['msg'];
-	  }
-	  ?>
-      </font></td>
-    </tr>
-    <tr>
-      <td width="108" class="font">Vendor ID </td>
+    <tr >
+      <td width="108" class="font" style="color: #000000;">Vendor ID </td>
       <td width="8">&nbsp;</td>
       <td width="375"><label>
         <input name="t1" type="text" id="t1" />
       </label></td>
     </tr>
     <tr>
-      <td class="font">Vendor Password </td>
+      <td class="font" style="color: #000000;">Vendor Password </td>
       <td>&nbsp;</td>
       <td><input name="t2" type="password" id="t2" /></td>
     </tr>

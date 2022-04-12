@@ -8,6 +8,7 @@ $name=$_REQUEST['name'];
 
 mysqli_query($conn,"insert into feedback(buyerid,name,comments,usertype) values('NA','$name','$com','guest')")or die('QF');
 header("location: guest_feedback.php?msg= Feedback submitted");
+
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -23,7 +24,6 @@ header("location: guest_feedback.php?msg= Feedback submitted");
 .style3 {font-size: 13px}
 -->
         </style>
-/** Script to validate user input */
 <script language="javascript" type="text/javascript">
 function validate()
 {
@@ -47,10 +47,8 @@ function validate()
 		        <div id="menu">
 					<ul>
 						<li><a href="index.php">Home</a></li>
-						<li><a href="guest_feedback.php" class="active"
-						>Feedback</a></li>
-						<li><a href="contact.php">Contact</a></li>
-            <li><a href="register.php">Register</a></li>
+						
+            			<li><a href="register.php">Register</a></li>
 						<?php if(isset($_SESSION['uid'])=='')
 						{
 							/* Header menu for the UI*/
@@ -65,6 +63,9 @@ function validate()
 						<?php
 						}
 						?>
+						<li><a href="guest_feedback.php" class="active"
+						>Feedback</a></li>
+						<li><a href="contact.php">Contact</a></li>
 						</ul>
 				</div>
 				
@@ -83,7 +84,7 @@ function validate()
                     <tr>
                     <td colspan="3"><table width="100%" height="36" border="0">
                         <tr>
-                        <td align="center" style="background-color:#CCFF99; font-size:18px; font-family:Georgia, 'Times New Roman', Times, serif; color:#990033;">
+                        <td align="center" style="background-color:#CCFF99; font-size:18px; font-family:Georgia, 'Times New Roman', Times, serif; color:#000000;">
                           <?php 
 	                      if(isset($_REQUEST['msg'])!="")
 	                       {
@@ -94,12 +95,12 @@ function validate()
                        </tr>
                        
                        <tr>
-                         <td width="22%"><span class="style1">Name</span></td>
+                         <td width="22%" style="color: #FFFFFF;"><span class="style1">Name</span></td>
                          <td width="77%"><label>
                            <input name="name" type="text" id="name" >
                          </label></td>
                        </tr>
-                        <td height="31"><span class="style1">Comments</span></td>
+                        <td height="31" style="color: #FFFFFF;"><span class="style1">Comments</span></td>
                         <td><div align="left">
                           <textarea name="comm" id="comm"></textarea>
                         </div></td>

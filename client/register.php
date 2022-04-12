@@ -235,12 +235,12 @@ function getXMLHTTP()
                         <li><a href="organicfarming.php">Farming</a></li>
                         <?php
                         }?>
-                        <li><a href="contact.php">Contact</a></li>
                         <?php if(isset($_SESSION['uid'])=='')
                         {
                         ?>
-                        <li><a href="guest_feedback.php">Feedback</a></li>
                         <li><a href="login.php">Login</a></li>
+                        <li><a href="guest_feedback.php">Feedback</a></li>
+                        <li><a href="contact.php">Contact</a></li>
                         <?php
                         }
                         else
@@ -264,7 +264,7 @@ function getXMLHTTP()
                 <form id="form1" name="form1" method="post" action="" onsubmit="return validate();">
                 <input type="hidden" name="perform" value="true" />
                 
-                   <table width="80%" height="579" border="0" align="center" style="border: #000000 double;">
+                   <table align="center" width="80%" height="579" border="0"  style="border: #000000 double;">
                        <tr>
                      <td height="26" colspan="3"><table width="100%" height="36
                       " border="0">
@@ -284,7 +284,7 @@ function getXMLHTTP()
                   </tr>
                    <tr>
       <td height="56" colspan="3">
-      <div align="center" class="style1">Create Account</div>        
+      <div align="center" class="style1" style="color:#FFFFFF">Create Account</div>        
       <div align="center"></div>       
     <div align="center"></div></td>
     </tr>

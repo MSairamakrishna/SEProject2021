@@ -51,7 +51,6 @@ function validate()
 						{
 							/* Header menu for UI */
 						?>
-						<li><a href="cart.php" >Cart</a></li>
 						<?php
 						}
 						?>
@@ -59,11 +58,11 @@ function validate()
 						{?>
 						<li><a href="myprofile.php">Myprofile</a></li>
 						<li><a href="inquiry.php">Inquiry</a></li>
-            <li><a href="organicfarming.php">Farming</a></li>
+						<li><a href="cart.php" >Cart</a></li>
+            			<li><a href="organicfarming.php">Farming</a></li>
 						<?php
 						}?>
-						<li><a href="feedback.php" class="active"
-						>Feedback</a></li>
+						<li><a href="feedback.php" class="active">Feedback</a></li>
 						<li><a href="contact.php">Contact</a></li>
 						<?php if(isset($_SESSION['uid'])=='')
 						{
@@ -102,7 +101,7 @@ function validate()
                     <tr>
                     <td colspan="3"><table width="100%" height="36" border="0">
                         <tr>
-                        <td align="center" style="background-color:#CCFF99; font-size:18px; font-family:Georgia, 'Times New Roman', Times, serif; color:#990033;">
+                        <td align="center" style="background-color:#CCFF99; font-size:18px; font-family:Georgia, 'Times New Roman', Times, serif; color:#000000;">
                           <?php 
 	                      if(isset($_REQUEST['msg'])!="")
 	                       {
@@ -111,33 +110,33 @@ function validate()
 	                         ?>		 </td>
                            </tr></table></td>
                        </tr>
-                       <tr>
-                         <td width="22%"><span class="style1">BuyerID</span></td>
+                       <tr style="color: #ffffff;" align="center">
+                         <td  width="22%"><span class="style1">BuyerID</span></td>
                          <td width="77%"><label>
                            <input name="buid" type="text" id="buid" value="<?php echo $data['buyerid'];?>" / readonly="">
                          </label></td>
                        </tr>
-                       <tr>
+                       <tr style="color: #ffffff;" align="center">
                          <td width="22%"><span class="style1">Name</span></td>
                          <td width="77%"><label>
                            <input name="name" type="text" id="name" value="<?php echo $data['name'];?>"/ readonly="">
                          </label></td>
                        </tr>
-                       <tr>
+                       <tr style="color: #ffffff;" align="center">
                          <td width="22%"><span class="style1">Survey No.</span></td>
                          <td width="77%"><label>
                            <input name="sur" type="text" id="sur" value="<?php echo $data['survey_no'];?>"/ readonly="">
                          </label></td>
                        </tr>
                        
-                        <td height="31"><span class="style1">Comments</span></td>
-                        <td><div align="left">
+                        <td height="31" style="color: #ffffff;" align="center"><span class="style1">Comments</span></td>
+                        <td><div align="center">
                           <textarea name="comm" id="comm"></textarea>
                         </div></td>
                       </tr>
                        <tr>
                          <td>&nbsp;</td>
-                      <td><label>
+                      <td align="center"><label>
                         <input type="submit" name="Submit" value="Submit"">
                       </label></td>
                     </tr>

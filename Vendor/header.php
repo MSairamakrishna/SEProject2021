@@ -20,8 +20,8 @@
 <li><a href="logout.php">Logout</a></li>
 </ul>
 
-<script>
-gooeymenu.setup({id:'gooeymenu1', selectitem:1})
-</script>
+<!-- <script>
+gooeymenu.setup({id:'gooeymenu1', selectitem:0})
+</script> -->
 
 

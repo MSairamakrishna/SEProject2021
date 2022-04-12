@@ -15,8 +15,11 @@ if(mysqli_num_rows($q))
    header("location: myprofile.php?msg=WELCOME");
 }
 else
-{
-header("location:login.php? msg=Your ID or Password may be wrong");
+{?>
+<script>
+alert("Your ID or Password may be wrong");
+</script>
+<?php
 }
 }
 ?>
@@ -58,10 +61,10 @@ function validate()
 }
 </script>		
 </head>
-<body>
-    	<div id="wrap">
-		        <div id="menu">
-					<ul>
+<body >
+    	<div id="wrap" >
+		        <div id="menu" align="center">
+					<ul >
 						<li><a href="index.php">Home</a></li>
 						<?php if (isset($_SESSION['uid'])!='')
 						{
@@ -79,8 +82,7 @@ function validate()
 						<li><a href="organicfarming.php">Farming</a></li>
 						<?php
 						}?>
-						<li><a href="contact.php">Contact</a></li>
-						<li><a href="guest_feedback.php">Feedback</a></li>
+						
 						<?php if(isset($_SESSION['uid'])=='')
 						{
 						?>
@@ -94,6 +96,8 @@ function validate()
 						<?php
 						}
 						?>
+						<li><a href="guest_feedback.php">Feedback</a></li>
+						<li><a href="contact.php">Contact</a></li>
 					</ul>
 				</div>
 				
@@ -102,12 +106,12 @@ function validate()
 				<div id="content_top"></div>				
 				<div id="content_bg_repeat">
 					
-					<div class="inside">
-            	<div class="row-1 outdent">
-            	  <div class="wrapper"></div>
-                <form id="form1" method="post" action="" onsubmit="return validate();">
+				<div class="inside" align="center">
+            	<div  class="row-1 outdent" align="center">
+            	  <div class="wrapper" align="center"></div>
+                <form id="form1" method="post" align="center" action="" onsubmit="return validate();">
                   <input type="hidden" name="login" value="true" />
-                  <table width="669" height="254" border="0" align="center" bordercolor="#000000" style="border:#000000 double;">
+                  <table align="center" width="669" height="254" border="0" bordercolor="#000000" style="border:#000000 double;">
                     <tr>
                       <td height="56" colspan="3"><table width="100%" height="36
 					  " border="0">
@@ -118,7 +122,7 @@ function validate()
 	                        echo $_REQUEST['msg'];
 	                       }
 	                         ?></td>
-                      </tr></table><div align="center" class="style14">Log in Form </div></td>
+                      </tr></table><div align="center" style=color:#FFFFFF class="style14">Log in Form </div></td>
                     </tr>
                     <tr>
                       <td colspan="3">
@@ -137,7 +141,6 @@ function validate()
                       <td><input name="ps" type="password" id="ps" /></td>
                     </tr>
                     <tr>
-                      <td><input type="reset" name="Submit2" value="Reset" /></td>
                       <td>&nbsp;</td>
                       <td><label>
                         <input type="submit" name="Submit" value="Log in" />
